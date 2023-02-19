@@ -1,3 +1,4 @@
+@import url(//db.onlinewebfonts.com/c/28b2c66f202a32e6217c39930113f838?family=Crossten);
 :root{
   --dark_blue: #005D97;
   --medium_blue: #0053B1;
@@ -28,6 +29,8 @@ header {
   .header-title {
     font-size: 24px;
     margin-right: 20px;
+    font-family: 'Crossten', sans-serif;
+    font-style: normal;
   }
   
   .header-menu ul {
@@ -35,6 +38,7 @@ header {
     margin: 0;
     padding: 0;
     list-style: none;
+    font-family: 'Crossten', sans-serif;
   }
   
   .header-menu li {
