@@ -3,8 +3,11 @@ export interface HeaderConstants {
     path: string;
 }
 
-
-
+export interface LogoConstants{
+    name: string;
+    path: string;
+    alt: string;
+}
 
 export const HEADER_ITEMS: HeaderConstants[] = [
     {
@@ -15,4 +18,17 @@ export const HEADER_ITEMS: HeaderConstants[] = [
         label: 'About',
         path: '/about'
     },
+];
+
+export const LOGO_CONSTANTS: LogoConstants[] = [
+    {
+        name: 'blue-logo',
+        path: '/resources/images/aulifyBlue.png',
+        alt: 'Aulify Logo Blue',
+    },
+    {
+        name: 'white-logo.png',
+        path: '/resources/images/aulifyWhite.png',
+        alt: 'Aulify Logo White',
+    }
 ];

@@ -1,18 +1,24 @@
-import { HEADER_ITEMS, HeaderConstants } from '../../constants';
+import {HeaderConstants } from '../../constants';
+import { LogoConstants } from '../../constants';
 import React from 'react';
 import './Header.css';
+
 interface HeaderProps {
   title: string;
-  logo: string;
+  logo: LogoConstants[];
   menuItems: HeaderConstants[];
+  logoIndex: number;
 }
+
+
+
 
 const Header: React.FC<HeaderProps> = (props) => {
   return (
     <>
       <header>
         <div className="header-logo">
-          <img src={props.logo} alt="logo" />
+        <img src={props.logo[props.logoIndex].path} alt={props.logo[props.logoIndex].alt} />
         </div>
         <div className="header-title">
           <h1>{props.title}</h1>
