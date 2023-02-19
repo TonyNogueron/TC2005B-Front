@@ -1,0 +1,39 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .header-logo img {
+    height: 50px;
+    margin-left: 20px;
+  }
+  
+  .header-title {
+    font-size: 24px;
+    margin-right: 20px;
+  }
+  
+  .header-menu ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .header-menu li {
+    margin: 0 10px;
+  }
+  
+  .header-menu a {
+    color: white;
+    text-decoration: none;
+  }
+  
