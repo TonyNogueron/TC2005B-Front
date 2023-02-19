@@ -1,3 +1,12 @@
+:root{
+  --dark_blue: #005D97;
+  --medium_blue: #0053B1;
+  --light_blue: #52BEDA;
+  --yellow: #F6BA27;
+  --red: #D44D56;
+  --black: #1D1934;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -7,7 +16,7 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 80px;
-    background-color: #333;
+    background-color: var(--dark_blue);
     color: white;
   }
   
