@@ -1,7 +1,13 @@
+import React from 'react';
+
+import Header from './Components/HeaderProp/Header';
+
+const menuItems = ["Home", "About", "Contact"];
+
 function App() {
   return (
     <div>
-      <h1>Hola Mundo</h1>
+      <Header title="My App" logo="logo.png" menuItems={menuItems} />
     </div>
   );
 }
