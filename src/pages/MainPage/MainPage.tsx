@@ -27,8 +27,10 @@ export default function MainPage() {
         onMenuToggle={handleMenuToggle} // pass onMenuToggle as a prop
       />
     <div className="main-page">
-        <h1 className="mainMessage">AQUÍ COMIENZA TU HISTORIA</h1>
-        <h2 className="subMessage">POR FAVOR INGRESA TU CORREO ELECTRÓNICO</h2>
+        <div className="topContainer">
+          <h1 className="mainMessage">AQUÍ COMIENZA TU HISTORIA</h1>
+          <h2 className="subMessage">POR FAVOR INGRESA TU CORREO ELECTRÓNICO</h2>
+        </div>
     </div>
     <Footer title={title} logo={logo} logoIndex={0} menuItems={menuItems} />
 

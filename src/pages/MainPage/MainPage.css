@@ -1,0 +1,24 @@
+.topContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    font-family: var(--mainFont);
+}
+
+.mainMessage{
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2%;
+}
+
+.subMessage{
+    font-size: 2.5rem;
+    color: var(--yellow);
+    margin-bottom: 2%;
+}
+
