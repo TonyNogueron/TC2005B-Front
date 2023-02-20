@@ -1,15 +1,17 @@
-export interface HeaderConstant {
+import aulifyBlue from './resources/images/aulifyBlue.png';
+
+export interface HeaderConstants {
     label: string;
     path: string;
 }
 
-export interface LogoConstant{
+export interface LogoConstants{
     name: string;
-    fileName: string;
+    path: string;
     alt: string;
 }
 
-export const HEADER_ITEMS: HeaderConstant[] = [
+export const HEADER_ITEMS: HeaderConstants[] = [
     {
         label: 'Home',
         path: '/'
@@ -20,17 +22,15 @@ export const HEADER_ITEMS: HeaderConstant[] = [
     },
 ];
 
-export const LOGO_CONSTANTS: LogoConstant[] = [
+export const LOGO_CONSTANTS: LogoConstants[] = [
     {
         name: 'blue-logo',
-        fileName: 'aulifyBlue.png',
+        path: aulifyBlue,
         alt: 'Aulify Logo Blue',
     },
     {
         name: 'white-logo.png',
-        fileName: 'aulifyWhite.png',
+        path: '/resources/images/aulifyWhite.png',
         alt: 'Aulify Logo White',
     }
 ];
-
-export const LOGO_DEFAULT = LOGO_CONSTANTS[0];
