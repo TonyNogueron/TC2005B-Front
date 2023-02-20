@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import FooterHeader from './Components/FooterHeader/FooterHeader';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { HeaderConstant } from './constants';
 //Pages
 import MainPage from './pages/MainPage/MainPage';
 
