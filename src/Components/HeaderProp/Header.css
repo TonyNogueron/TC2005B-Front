@@ -1,52 +1,149 @@
 @import url(//db.onlinewebfonts.com/c/28b2c66f202a32e6217c39930113f838?family=Crossten);
-:root{
+
+:root {
   --dark_blue: #005D97;
   --medium_blue: #0053B1;
   --light_blue: #52BEDA;
   --yellow: #F6BA27;
   --red: #D44D56;
   --black: #1D1934;
+  --textShadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --mainFilter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  --mainFont: 'Crossten', sans-serif;
 }
 
+/* Default styles */
 header {
-    position: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  background-color: var(--medium_blue);
+  color: white;
+  font-family: var(--mainFont);
+  text-shadow: var(--textShadow);
+  filter: var(--mainFilter);
+}
+.header-logo img {
+  height: 50px;
+  margin-left: 20px;
+  filter: var(--mainFilter);
+}
+
+.header-title {
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.header-menu ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header-menu li {
+  margin: 0 10px;
+}
+
+.header-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.header-content {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+#play{
+  background-color: var(--yellow);
+  /* Make it look like a button */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  filter: var(--mainFilter);
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  header {
+    height: 60px;
+  }
+
+  .header-title{
+    display: none;}
+  .header-logo {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .header-content {
+    flex-grow: 0;
+  }
+
+  .hamburger-menu {
+    display: block;
+    position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
-    background-color: var(--medium_blue);
+    right: 0;
+    padding: 10px;
     color: white;
+    cursor: pointer;
   }
-  
-  .header-logo img {
-    height: 50px;
-    margin-left: 20px;
+
+  .header-menu {
+    display: none;
   }
-  
-  .header-title {
-    font-size: 24px;
-    margin-right: 20px;
-    font-family: 'Crossten', sans-serif;
-    font-style: normal;
-  }
-  
-  .header-menu ul {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-family: 'Crossten', sans-serif;
-  }
-  
-  .header-menu li {
-    margin: 0 10px;
-  }
-  
-  .header-menu a {
+
+  .header-menu-toggle {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
     color: white;
-    text-decoration: none;
+    cursor: pointer;
   }
-  
+
+  .header-menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    margin: 5px 0;
+    border-radius: 2px;
+  }
+
+  .header-menu-open .header-menu {
+    display: block;
+  }
+
+  .header-menu-open .header-menu-toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .header-menu-open .header-menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header-menu-open .header-menu-toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}

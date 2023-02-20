@@ -4,6 +4,8 @@ footer {
     left: 0;
     width: 100%;
     background-color: var(--medium_blue);
+    font-family: var(--mainFont);
+    filter: var(--mainFilter);
   }
   
   
@@ -13,6 +15,7 @@ footer {
     justify-content: center;
     align-items: center;
     height: 50px;
+    filter: var(--mainFilter);
   }
   
   /* Style the logo image */

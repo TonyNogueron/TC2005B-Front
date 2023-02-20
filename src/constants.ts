@@ -3,6 +3,7 @@ import aulifyBlue from './resources/images/aulifyBlue.png';
 export interface HeaderConstant {
     label: string;
     path: string;
+    id: string;
 }
 
 export interface LogoConstant{
@@ -11,15 +12,25 @@ export interface LogoConstant{
     alt: string;
 }
 
+export const PAGE_TITLE: string = ' ';
+
 export const HEADER_ITEMS: HeaderConstant[] = [
     {
         label: 'Home',
-        path: '/'
+        path: '/',
+        id: 'home',
     },
     {
         label: 'About',
-        path: '/about'
+        path: '/about',
+        id: 'about',
     },
+    {
+        label: 'PLAY',
+        path: '/play',
+        id: 'play',
+    },
+
 ];
 
 export const LOGO_CONSTANTS: LogoConstant[] = [
