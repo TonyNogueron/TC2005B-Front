@@ -2,6 +2,7 @@ import { HeaderConstant } from '../../constants';
 import { LogoConstant } from '../../constants';
 import React from 'react';
 import './Header.css';
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   title: string;
@@ -12,6 +13,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({title, logo, menuItems, isMenuOpen, onMenuToggle}) => {
+  const navigate = useNavigate();
   return (
     <>
       <header>
@@ -25,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({title, logo, menuItems, isMenuOpen, onMe
           <ul>
             {menuItems.map((item, index) => (
               <li key={index}>
-                <a id={item.id}href={item.path}>{item.label}</a>
+                <a id={item.id} onClick={() => navigate(item.path)}>{item.label} </a>
               </li>
             ))}
           </ul>

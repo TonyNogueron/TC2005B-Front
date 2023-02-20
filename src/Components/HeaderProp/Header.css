@@ -53,6 +53,7 @@ header {
 .header-menu a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .header-content {

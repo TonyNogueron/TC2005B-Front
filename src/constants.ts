@@ -3,6 +3,8 @@ import redBackground from './resources/images/backgrounds/red_background.png';
 import blueBackground from './resources/images/backgrounds/blue_background.png';
 
 
+export const PAGE_TITLE: string = '';
+
 export interface HeaderConstant {
     label: string;
     path: string;
@@ -21,7 +23,7 @@ export interface backgroundConstant{
     alt: string;
 }
 
-export const PAGE_TITLE: string = '';
+
 
 export const HEADER_ITEMS: HeaderConstant[] = [
     {
