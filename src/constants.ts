@@ -1,4 +1,7 @@
 import aulifyBlue from './resources/images/aulifyBlue.png';
+import redBackground from './resources/images/backgrounds/red_background.png';
+import blueBackground from './resources/images/backgrounds/blue_background.png';
+
 
 export interface HeaderConstant {
     label: string;
@@ -7,6 +10,12 @@ export interface HeaderConstant {
 }
 
 export interface LogoConstant{
+    name: string;
+    path: string;
+    alt: string;
+}
+
+export interface backgroundConstant{
     name: string;
     path: string;
     alt: string;
@@ -45,3 +54,17 @@ export const LOGO_CONSTANTS: LogoConstant[] = [
         alt: 'Aulify Logo White',
     }
 ];
+
+export const BACKGROUND_CONSTANTS: backgroundConstant[] = [
+    {
+        name: 'blue-background',
+        path: blueBackground,
+        alt: 'Blue Background',
+    },
+    {
+        name: 'red-background',
+        path: redBackground,
+        alt: 'Red Background',
+    }
+];
+
