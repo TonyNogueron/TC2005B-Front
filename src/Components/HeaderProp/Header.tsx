@@ -1,31 +1,29 @@
-import {HeaderConstants } from '../../constants';
-import { LogoConstants } from '../../constants';
+import {HeaderConstant } from '../../constants';
+import { LogoConstant } from '../../constants';
 import React from 'react';
 import './Header.css';
+import logoImg from '../../resources/images/aulifyBlue.png';
 
 interface HeaderProps {
   title: string;
-  logo: LogoConstants[];
-  menuItems: HeaderConstants[];
-  logoIndex: number;
+  logo: LogoConstant;
+  menuItems: HeaderConstant[];
 }
 
 
-
-
-const Header: React.FC<HeaderProps> = (props) => {
+const Header: React.FC<HeaderProps> = ({title, logo, menuItems}) => {
   return (
     <>
       <header>
         <div className="header-logo">
-        <img src={props.logo[props.logoIndex].path} alt={props.logo[props.logoIndex].alt} />
+        <img src={logoImg} alt={logo.alt} />
         </div>
         <div className="header-title">
-          <h1>{props.title}</h1>
+          <h1>{title}</h1>
         </div>
         <div className="header-menu">
           <ul>
-            {props.menuItems.map((item, index) => (
+            {menuItems.map((item, index) => (
               <li key={index}>
                 <a href={item.path}>{item.label}</a>
               </li>
