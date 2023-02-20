@@ -1,12 +1,12 @@
-import {HeaderConstants } from '../../constants';
-import { LogoConstants } from '../../constants';
+import {HeaderConstant } from '../../constants';
+import { LogoConstant } from '../../constants';
 import React from 'react';
 import './Header.css';
 
 interface HeaderProps {
   title: string;
-  logo: LogoConstants[];
-  menuItems: HeaderConstants[];
+  logo: LogoConstant[];
+  menuItems: HeaderConstant[];
   logoIndex: number;
 }
 
