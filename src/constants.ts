@@ -12,7 +12,7 @@ export interface LogoConstant{
     alt: string;
 }
 
-export const PAGE_TITLE: string = ' ';
+export const PAGE_TITLE: string = '';
 
 export const HEADER_ITEMS: HeaderConstant[] = [
     {
