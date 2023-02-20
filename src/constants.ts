@@ -5,6 +5,10 @@ import blueBackground from './resources/images/backgrounds/blue_background.png';
 
 export const PAGE_TITLE: string = '';
 
+export interface LinkConstant {
+    label: string;
+    path: string;
+}
 export interface HeaderConstant {
     label: string;
     path: string;
@@ -24,16 +28,39 @@ export interface backgroundConstant{
 }
 
 
-
-export const HEADER_ITEMS: HeaderConstant[] = [
+export const LINKS: LinkConstant[] = [
     {
         label: 'Home',
         path: '/',
-        id: 'home',
     },
     {
         label: 'About',
         path: '/about',
+    },
+    {
+        label: 'Play',
+        path: '/play',
+    },
+    {
+        label: 'birth',
+        path: '/birth',
+    },
+    {
+        label:'registration',
+        path:'/registration',
+    }
+];
+
+
+export const HEADER_ITEMS: HeaderConstant[] = [
+    {
+        label: 'Home',
+        path: LINKS[0].path,
+        id: 'home',
+    },
+    {
+        label: 'About',
+        path: LINKS[1].path,
         id: 'about',
     },
     {

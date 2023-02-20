@@ -19,7 +19,6 @@ export default function MainPage() {
     }; 
   return <div className="mainPage">
     <BackgroundProp backgroundName="red-background" />
-    <div className="main-page">
     <Header
         title={title}
         logo={logo[0]}
@@ -27,8 +26,12 @@ export default function MainPage() {
         isMenuOpen={isMenuOpen} // pass isMenuOpen as a prop
         onMenuToggle={handleMenuToggle} // pass onMenuToggle as a prop
       />
-      <Footer title={title} logo={logo} logoIndex={0} menuItems={menuItems} />
+    <div className="main-page">
+        <h1 className="mainMessage">AQUÍ COMIENZA TU HISTORIA</h1>
+        <h2 className="subMessage">POR FAVOR INGRESA TU CORREO ELECTRÓNICO</h2>
     </div>
+    <Footer title={title} logo={logo} logoIndex={0} menuItems={menuItems} />
+
   </div>;
 }
 
