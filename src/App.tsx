@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Components/HeaderProp/Header';
+import Footer from './Components/FooterProp/Footer';
 import { HEADER_ITEMS, HeaderConstant } from './constants';
 import { LOGO_CONSTANTS, LogoConstant } from './constants';
 
@@ -11,6 +12,7 @@ function App() {
   return (
     <div>
       <Header title={title} logo={logo} logoIndex={0} menuItems={menuItems} />
+      <Footer title={title} logo={logo} logoIndex={0} menuItems={menuItems} />
     </div>
   );
 }
