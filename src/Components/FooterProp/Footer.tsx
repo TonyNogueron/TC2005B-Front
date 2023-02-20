@@ -1,7 +1,7 @@
 import React from "react";
 import { HeaderConstant } from "../../constants";
 import { LogoConstant } from "../../constants";
-
+import "./Footer.css";
 
 interface HeaderProps {
     title: string;
@@ -16,9 +16,6 @@ const Footer: React.FC<HeaderProps> = (props) => {
             <footer>
                 <div className="footer-logo">
                     <img src={props.logo[props.logoIndex].path} alt={props.logo[props.logoIndex].alt} />
-                </div>
-                <div className="footer-title">
-                    <h1>{props.title}</h1>
                 </div>
             </footer>
         </>

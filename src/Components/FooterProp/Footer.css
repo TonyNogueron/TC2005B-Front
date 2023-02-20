@@ -1,0 +1,23 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--medium_blue);
+  }
+  
+  
+/* Center the logo within the footer */
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
+  
+  /* Style the logo image */
+  .footer-logo img {
+    height: 100%;
+    max-width: 100%;
+  }
+  

@@ -17,7 +17,7 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 80px;
-    background-color: var(--dark_blue);
+    background-color: var(--medium_blue);
     color: white;
   }
   
