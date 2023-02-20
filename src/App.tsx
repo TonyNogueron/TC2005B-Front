@@ -20,8 +20,7 @@ function App() {
     <div>
       <Header
         title={title}
-        logo={logo}
-        logoIndex={0}
+        logo={logo[0]}
         menuItems={menuItems}
         isMenuOpen={isMenuOpen} // pass isMenuOpen as a prop
         onMenuToggle={handleMenuToggle} // pass onMenuToggle as a prop
