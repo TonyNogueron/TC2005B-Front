@@ -1,6 +1,6 @@
 import { HeaderConstant } from '../../constants';
 import { LogoConstant } from '../../constants';
-import React from 'react';
+import React,{useState} from 'react';
 import './Header.css';
 import { useNavigate } from "react-router-dom";
 
@@ -12,8 +12,13 @@ interface HeaderProps {
   onMenuToggle: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({title, logo, menuItems, isMenuOpen, onMenuToggle}) => {
+const Header: React.FC<HeaderProps> = ({title, logo, menuItems, onMenuToggle}) => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <>
       <header>
@@ -32,8 +37,8 @@ const Header: React.FC<HeaderProps> = ({title, logo, menuItems, isMenuOpen, onMe
             ))}
           </ul>
         </div>
-        <div className="hamburger-menu" onClick={onMenuToggle}>
-          <div className="menu-icon"></div>
+        <div className="hamburger-menu" onClick={handleMenuToggle}>
+          <div className="menu-icon"> &#9776;</div>
         </div>
       </header>
       {isMenuOpen && (

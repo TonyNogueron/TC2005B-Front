@@ -90,63 +90,109 @@ header {
     height: 60px;
   }
 
-  .header-title{
-    display: none;}
+  .header-title {
+    display: none;
+  }
+
   .header-logo {
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .header-content {
-    flex-grow: 0;
-  }
-
-  .hamburger-menu {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
-    color: white;
-    cursor: pointer;
+    margin-left: 10px;
   }
 
   .header-menu {
     display: none;
   }
 
-  .header-menu-toggle {
+  .hamburger-menu {
+    display: block;
+    margin-right: 5%;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: var(--yellow);
+    border-radius: 5px;
+    filter: var(--mainFilter);
+    color: white;
+    /*Center the content*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+
+  }
+
+  .menu-mobile{
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--medium_blue);
     color: white;
+    text-align: center;
+    font-size: 20px;
+    font-family: var(--mainFont);
+    text-shadow: var(--textShadow);
+    filter: var(--mainFilter);
+
+  }
+
+  .menu-mobile ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .menu-mobile li {
+    font-size: 25px;
+
+  }
+
+  #Play{
+    background-color: var(--yellow);
+    /* Make it look like a button */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
+    border-radius: 5px;
+    filter: var(--mainFilter);
   }
 
-  .header-menu-toggle span {
-    display: block;
+  .menu-mobile a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    
+  }
+
+  .hamburger-menu.active .menu-mobile ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .hamburger-menu.menu-icon {
+    position: relative;
     width: 30px;
-    height: 4px;
-    background-color: white;
-    margin: 5px 0;
-    border-radius: 2px;
-  }
+    height: 20px;
+    cursor: pointer;
+    background-color: #F6BA27;
+    border-radius: 5px;
+    filter: var(--mainFilter);
+    color: white;
+    /*Center the content*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  .header-menu-open .header-menu {
-    display: block;
   }
-
-  .header-menu-open .header-menu-toggle span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .header-menu-open .header-menu-toggle span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .header-menu-open .header-menu-toggle span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
+  
 }
