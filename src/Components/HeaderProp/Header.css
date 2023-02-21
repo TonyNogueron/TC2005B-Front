@@ -169,7 +169,7 @@ header {
     color: white;
     text-decoration: none;
     cursor: pointer;
-    
+
   }
 
   .hamburger-menu.active .menu-mobile ul {
@@ -192,7 +192,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
   
 }
