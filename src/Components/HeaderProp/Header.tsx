@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({title, logo, menuItems, onMenuToggle}) =
           <ul>
             {menuItems.map((item, index) => (
               <li key={index}>
-                <a id={item.id} onClick={() => navigate(item.path)}>{item.label} </a>
+                <button id={item.id} onClick={() => navigate(item.path)}>{item.label} </button>
               </li>
             ))}
           </ul>
