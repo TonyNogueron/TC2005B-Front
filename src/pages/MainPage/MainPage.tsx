@@ -18,7 +18,7 @@ export default function MainPage() {
       setIsMenuOpen(!isMenuOpen);
     }; 
   return <div className="mainPage">
-    <BackgroundProp backgroundName="red-background" />
+    
     <Header
         title={title}
         logo={logo[0]}
@@ -32,8 +32,18 @@ export default function MainPage() {
           <h2 className="subMessage">POR FAVOR INGRESA TU CORREO ELECTRÓNICO</h2>
         </div>
     </div>
+    <div className="bottomContainer">
+      <form className="form">
+        <input className="input" type="text" placeholder="Correo electrónico" />
+      </form>
+      <button className="button">CONTINUAR</button>
+    </div>
     <Footer title={title} logo={logo} logoIndex={0} menuItems={menuItems} />
 
   </div>;
 }
 
+/*
+
+  <BackgroundProp backgroundName="red-background" />
+*/
