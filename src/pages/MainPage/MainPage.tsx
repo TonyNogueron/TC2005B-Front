@@ -18,7 +18,6 @@ export default function MainPage() {
       setIsMenuOpen(!isMenuOpen);
     }; 
   return <div className="mainPage">
-    
     <Header
         title={title}
         logo={logo[0]}
@@ -36,7 +35,7 @@ export default function MainPage() {
       <form className="form">
         <input className="input" type="text" placeholder="Correo electrónico" />
       </form>
-      <button className="button">CONTINUAR</button>
+      <button className="button">INCIAR</button>
     </div>
     <Footer title={title} logo={logo} logoIndex={0} menuItems={menuItems} />
 
