@@ -3,7 +3,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--medium_blue);
+    background-color: var(--black);
     font-family: var(--mainFont);
     filter: var(--mainFilter);
   }

@@ -18,6 +18,7 @@ export default function MainPage() {
       setIsMenuOpen(!isMenuOpen);
     }; 
   return <div className="mainPage">
+    <BackgroundProp backgroundName="blue-background" />
     <Header
         title={title}
         logo={logo[0]}

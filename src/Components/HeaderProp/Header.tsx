@@ -1,4 +1,4 @@
-import { HeaderConstant } from '../../constants';
+import { HeaderConstant, LINKS } from '../../constants';
 import { LogoConstant } from '../../constants';
 import React,{useState} from 'react';
 import './Header.css';
@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({title, logo, menuItems, onMenuToggle}) =
     <>
       <header>
         <div className="header-logo">
-          <img src={logo.path} alt={logo.alt} />
+          <img src={logo.path} alt={logo.alt} onClick={() => navigate(LINKS[0].path)} />
         </div>
         <div className="header-title">
           <h1>{title}</h1>
