@@ -97,4 +97,35 @@
         color: var(--yellow);
         margin-bottom: 2%;
     }
+
+    .bottomContainer form input{
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 10px;
+        background-color: #fff;
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 1.5%;
+        transition: all 0.3s ease-in-out;
+        filter: var(--mainFilter);
+        text-shadow: var(--textShadow);
+    }
+
+    .bottomContainer button{
+        width: 50%;
+        height: 70px;
+        border: none;
+        border-radius: 10px;
+        background-color: var(--yellow);
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 10%;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        filter: var(--mainFilter);
+        text-shadow: var(--textShadow);
+    }
 }
