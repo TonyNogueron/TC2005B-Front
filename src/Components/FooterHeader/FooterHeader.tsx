@@ -23,7 +23,7 @@ export default function FooterHeader(){
         isMenuOpen={isMenuOpen} // pass isMenuOpen as a prop
         onMenuToggle={handleMenuToggle} // pass onMenuToggle as a prop
       />
-      <Footer title={title} logo={logo} logoIndex={0} menuItems={menuItems} />
+      <Footer title={title} logo={logo[0]} menuItems={menuItems} />
         </div>
     )
 }

@@ -38,7 +38,7 @@ export default function MainPage() {
       </form>
       <button className="button">INCIAR</button>
     </div>
-    <Footer title={title} logo={logo} logoIndex={0} menuItems={menuItems} />
+    <Footer title={title} logo={logo[0]} menuItems={menuItems} />
 
   </div>;
 }

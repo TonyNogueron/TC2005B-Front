@@ -5,17 +5,16 @@ import "./Footer.css";
 
 interface HeaderProps {
     title: string;
-    logo: LogoConstant[];
+    logo: LogoConstant;
     menuItems: HeaderConstant[];
-    logoIndex: number;
 }
 
-const Footer: React.FC<HeaderProps> = (props) => {
+const Footer: React.FC<HeaderProps> = ({title, logo, menuItems}) => {
     return (
         <>
             <footer>
                 <div className="footer-logo">
-                    <img src={props.logo[props.logoIndex].path} alt={props.logo[props.logoIndex].alt} />
+                    <img src={logo.path} alt={logo.alt} />
                 </div>
             </footer>
         </>
