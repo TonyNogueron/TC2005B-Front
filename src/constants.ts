@@ -1,7 +1,10 @@
 import aulifyBlue from './resources/images/aulifyBlue.png';
 import redBackground from './resources/images/backgrounds/red_background.png';
 import blueBackground from './resources/images/backgrounds/blue_background.png';
+import React from 'react';
 
+// Pages import
+import MainPage from './pages/MainPage/MainPage';
 
 export const PAGE_TITLE: string = '';
 
@@ -28,28 +31,24 @@ export interface backgroundConstant{
 }
 
 
-export const LINKS: LinkConstant[] = [
-    {
+export const LINKS: {[key: string]: LinkConstant} = {
+    HOME: {
         label: 'Home',
         path: '/',
     },
-    {
+    ABOUT: {
         label: 'About',
         path: '/about',
     },
-    {
+    PLAY: {
         label: 'Play',
         path: '/play',
     },
-    {
-        label: 'birth',
+    BIRTH: {
+        label: 'Birth',
         path: '/birth',
     },
-    {
-        label:'registration',
-        path:'/registration',
-    }
-];
+};
 
 
 export const HEADER_ITEMS: HeaderConstant[] = [
@@ -96,4 +95,6 @@ export const BACKGROUND_CONSTANTS: backgroundConstant[] = [
         alt: 'Red Background',
     }
 ];
+
+
 

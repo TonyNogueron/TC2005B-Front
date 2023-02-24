@@ -6,17 +6,23 @@ import { HEADER_ITEMS, HeaderConstant } from '../../constants';
 import { LOGO_CONSTANTS, LogoConstant } from '../../constants';
 import {PAGE_TITLE} from '../../constants';
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
-
+import { useNavigate } from "react-router-dom";
+import { LINKS } from "../../constants";
 
 export default function MainPage() {
     const title = PAGE_TITLE;
     const logo: LogoConstant[] = LOGO_CONSTANTS;
     const menuItems: HeaderConstant[] = HEADER_ITEMS;
     const [isMenuOpen, setIsMenuOpen] = useState(true); // add state for isMenuOpen
-  
+    const navigate = useNavigate();
+
+
     const handleMenuToggle = () => {
       setIsMenuOpen(!isMenuOpen);
     }; 
+
+
+
   return <div className="mainPage">
     <BackgroundProp backgroundName="blue-background" />
     <Header
@@ -36,7 +42,7 @@ export default function MainPage() {
       <form className="form">
         <input className="input" type="text" placeholder="Correo electrónico" />
       </form>
-      <button className="button">INCIAR</button>
+      <button className="button" onClick={()=> navigate(LINKS.BIRTH.path)}>CONTINUAR</button>
     </div>
     <Footer title={title} logo={logo[0]} menuItems={menuItems} />
 
