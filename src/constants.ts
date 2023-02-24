@@ -1,10 +1,8 @@
 import aulifyBlue from './resources/images/aulifyBlue.png';
 import redBackground from './resources/images/backgrounds/red_background.png';
 import blueBackground from './resources/images/backgrounds/blue_background.png';
-import React from 'react';
 
 // Pages import
-import MainPage from './pages/MainPage/MainPage';
 
 export const PAGE_TITLE: string = '';
 
@@ -48,18 +46,22 @@ export const LINKS: {[key: string]: LinkConstant} = {
         label: 'Birth',
         path: '/birth',
     },
+    REGISTER: {
+        label: 'Register',
+        path: '/register',
+    },
 };
 
 
 export const HEADER_ITEMS: HeaderConstant[] = [
     {
         label: 'Home',
-        path: LINKS[0].path,
+        path: LINKS.HOME.path,
         id: 'home',
     },
     {
         label: 'About',
-        path: LINKS[1].path,
+        path: LINKS.ABOUT.path,
         id: 'about',
     },
     {
