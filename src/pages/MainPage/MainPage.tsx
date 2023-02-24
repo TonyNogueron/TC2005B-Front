@@ -42,7 +42,7 @@ export default function MainPage() {
       <form className="form">
         <input className="input" type="text" placeholder="Correo electrónico" />
       </form>
-      <button className="button" onClick={()=> navigate(LINKS.BIRTH.path)}>CONTINUAR</button>
+      <button className="button" onClick={()=> navigate(LINKS.REGISTER.path)}>CONTINUAR</button>
     </div>
     <Footer title={title} logo={logo[0]} menuItems={menuItems} />
 

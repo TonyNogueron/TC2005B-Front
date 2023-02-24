@@ -66,7 +66,7 @@ export const HEADER_ITEMS: HeaderConstant[] = [
     },
     {
         label: 'PLAY',
-        path: '/play',
+        path: LINKS.PLAY.path,
         id: 'play',
     },
 
