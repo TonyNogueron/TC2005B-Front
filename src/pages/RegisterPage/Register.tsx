@@ -28,6 +28,29 @@ export const Register = () => {
                 isMenuOpen={isMenuOpen} // pass isMenuOpen as a prop
                 onMenuToggle={handleMenuToggle} // pass onMenuToggle as a prop
             />
+            <Footer title={title} logo={logo[0]} menuItems={menuItems} />
+            <BackgroundProp backgroundName="blue-background" />
+            <div className="main-page">
+                <div className="topContainer">
+                    <h1 className="mainMessage">CREA TU NOMBRE DE USUARIO</h1>
+                </div>
+            </div>
+            <div className="bottomContainer">
+                <form className="registerForm">
+                    <ul>
+                        <li>
+                            <input className="input" type="text" placeholder="Nombre de usuario" />
+                        </li>
+                        <li>
+                            <input className="input" type="password" placeholder="Contraseña" />
+                        </li>
+                        <li>
+                            <input className="input" type="password" placeholder="Confirmar contraseña" />
+                        </li>
+                    </ul>
+                </form>
+                <button className="button" onClick={()=> navigate(LINKS.BIRTH.path)}>CONTINUAR</button>
+                </div>
             </div>
         );
     };
