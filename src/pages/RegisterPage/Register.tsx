@@ -49,6 +49,12 @@ export const Register = () => {
                         </li>
                     </ul>
                 </form>
+                <div className="termsAndConditions">
+                    <div className="checkbox-wrapper">
+                        <input type="checkbox" className="checkbox"/>
+                        <p className="termsAndConditionsText">Acepto los términos y condiciones</p>
+                    </div>
+                </div>
                 <button className="button" onClick={()=> navigate(LINKS.BIRTH.path)}>CONTINUAR</button>
                 </div>
             </div>
