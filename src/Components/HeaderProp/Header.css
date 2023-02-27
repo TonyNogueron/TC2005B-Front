@@ -38,6 +38,7 @@ header {
   filter: var(--mainFilter);
   font-weight: 600;
 }
+/*img*/
 .header-logo img {
   height: 50px;
   margin-left: 20px;
