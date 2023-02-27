@@ -29,7 +29,7 @@ export const Register = () => {
             alert("Please accept the terms and conditions.");
             return;
         }
-        navigate(LINKS.BIRTH.path);
+        navigate(LINKS.PROFILE.path);
     };
     
       return (

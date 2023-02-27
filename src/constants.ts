@@ -28,7 +28,6 @@ export interface backgroundConstant{
     alt: string;
 }
 
-
 export const LINKS: {[key: string]: LinkConstant} = {
     HOME: {
         label: 'Home',
@@ -101,6 +100,7 @@ export const BACKGROUND_CONSTANTS: backgroundConstant[] = [
         alt: 'Red Background',
     }
 ];
+
 
 
 
