@@ -14,7 +14,7 @@ export const Register = () => {
     const logo: LogoConstant[] = LOGO_CONSTANTS;
     const menuItems: HeaderConstant[] = HEADER_ITEMS;
     const [isMenuOpen, setIsMenuOpen] = useState(true); // add state for isMenuOpen
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
       };
