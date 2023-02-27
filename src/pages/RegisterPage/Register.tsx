@@ -18,6 +18,19 @@ export const Register = () => {
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
       };
+      const [termsChecked, setTermsChecked] = useState(false); // add state for termsChecked
+
+      const handleTermsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setTermsChecked(event.target.checked);
+      };
+      // If terms and conditions is not checked then don't let the user advance to the next page
+      const handleContinueClick = () => {
+        if (!termsChecked) {
+            alert("Please accept the terms and conditions.");
+            return;
+        }
+        navigate(LINKS.BIRTH.path);
+    };
     
       return (
         <div className="Register">
@@ -51,11 +64,11 @@ export const Register = () => {
                 </form>
                 <div className="termsAndConditions">
                     <div className="checkbox-wrapper">
-                        <input type="checkbox" className="checkbox"/>
+                        <input type="checkbox" className="checkbox" checked={termsChecked} onChange={handleTermsChange}/>
                         <p className="termsAndConditionsText">Acepto los términos y condiciones</p>
                     </div>
                 </div>
-                <button className="button" onClick={()=> navigate(LINKS.BIRTH.path)}>CONTINUAR</button>
+                <button className="button" onClick={handleContinueClick}>CONTINUAR</button>
                 </div>
             </div>
         );
