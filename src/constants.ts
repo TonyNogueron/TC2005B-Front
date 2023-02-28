@@ -49,6 +49,10 @@ export const LINKS: {[key: string]: LinkConstant} = {
         label: 'Register',
         path: '/register',
     },
+    LOGIN: {
+        label: 'Login',
+        path: '/login',
+    },
     PROFILE: {
         label: 'Profile',
         path: '/profile',

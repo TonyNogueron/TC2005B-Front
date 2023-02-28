@@ -18,19 +18,48 @@ export const Register = () => {
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
       };
-      const [termsChecked, setTermsChecked] = useState(false); // add state for termsChecked
-
-      const handleTermsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const [termsChecked, setTermsChecked] = useState(false); // add state for termsChecked
+        const [usernameFilled, setUsernameFilled] = useState(false);
+        const [password, setPassword] = useState("");
+        const [confirmedPassword, setConfirmedPassword] = useState("");
+        const [passwordsMatch, setPasswordsMatch] = useState(true);
+        
+        const handleTermsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTermsChecked(event.target.checked);
-      };
+        };
+        const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            setUsernameFilled(event.target.value.length > 0);
+        };
+        const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            setPassword(event.target.value);
+        };
+        
+        const handleConfirmedPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            setConfirmedPassword(event.target.value);
+            setPasswordsMatch(event.target.value === password);
+        };
       // If terms and conditions is not checked then don't let the user advance to the next page
       const handleContinueClick = () => {
         if (!termsChecked) {
-            alert("Please accept the terms and conditions.");
+          alert("Debes aceptar los términos y condiciones");
+          return;
+        }
+        if (!usernameFilled) {
+          alert("Debes ingresar un nombre de usuario");
+          return;
+        }
+        if (!confirmedPassword) {
+            alert("Debes ingresar una contraseña");
             return;
         }
-        navigate(LINKS.PROFILE.path);
-    };
+        if (!passwordsMatch) {
+            alert("Las contraseñas no coinciden");
+            return;
+        }
+        
+        navigate(LINKS.LOGIN.path);
+      };
+      
     
       return (
         <div className="Register">
@@ -52,13 +81,13 @@ export const Register = () => {
                 <form className="registerForm">
                     <ul>
                         <li>
-                            <input className="input" type="text" placeholder="Nombre de usuario" />
+                            <input className="input" type="text" onChange={handleUsernameChange} placeholder="Nombre de usuario" />
                         </li>
                         <li>
-                            <input className="input" type="password" placeholder="Contraseña" />
+                            <input className="input" type="password" onChange={handlePasswordChange} placeholder="Contraseña" />
                         </li>
                         <li>
-                            <input className="input" type="password" placeholder="Confirmar contraseña" />
+                            <input className="input" type="password" onChange={handleConfirmedPasswordChange} placeholder="Confirmar contraseña" />
                         </li>
                     </ul>
                 </form>
