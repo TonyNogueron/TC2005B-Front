@@ -72,6 +72,11 @@ export const HEADER_ITEMS: HeaderConstant[] = [
         id: 'about',
     },
     {
+        label: 'Login',
+        path: LINKS.LOGIN.path,
+        id: 'login',
+    },
+    {
         label: 'PLAY',
         path: LINKS.PLAY.path,
         id: 'play',
