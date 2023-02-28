@@ -76,11 +76,6 @@ export const HEADER_ITEMS: HeaderConstant[] = [
         path: LINKS.LOGIN.path,
         id: 'login',
     },
-    {
-        label: 'PLAY',
-        path: LINKS.PLAY.path,
-        id: 'play',
-    },
 
 ];
 

@@ -49,7 +49,7 @@ export const LoginPage = () => {
                 </form>
                 <div className="LoginRegister">
                     <p>Don't have an account?</p>
-                    <a href={LINKS.REGISTER.path}>Register</a>
+                    <a onClick={() => navigate(LINKS.REGISTER.path)}>Register</a>
                 </div>
             </div>
 

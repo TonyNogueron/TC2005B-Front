@@ -79,7 +79,7 @@ header {
   display: none;
 }
 
-#play{
+#login{
   background-color: var(--yellow);
   /* Make it look like a button */
   border: none;
