@@ -28,6 +28,11 @@ export interface backgroundConstant{
     alt: string;
 }
 
+export interface ProfileImageConstant{
+    name: string;
+    path: string;
+    alt: string;
+}   
 
 export const LINKS: {[key: string]: LinkConstant} = {
     HOME: {
@@ -50,6 +55,14 @@ export const LINKS: {[key: string]: LinkConstant} = {
         label: 'Register',
         path: '/register',
     },
+    LOGIN: {
+        label: 'Login',
+        path: '/login',
+    },
+    PROFILE: {
+        label: 'Profile',
+        path: '/profile',
+    },
 };
 
 
@@ -65,9 +78,9 @@ export const HEADER_ITEMS: HeaderConstant[] = [
         id: 'about',
     },
     {
-        label: 'PLAY',
-        path: LINKS.PLAY.path,
-        id: 'play',
+        label: 'Login',
+        path: LINKS.LOGIN.path,
+        id: 'login',
     },
 
 ];
@@ -99,4 +112,11 @@ export const BACKGROUND_CONSTANTS: backgroundConstant[] = [
 ];
 
 
+export const PROFILE_IMAGE_CONSTANTS: ProfileImageConstant[] = [
+    {
+        name: 'boy-engineer',
+        path: '',
+        alt: '',
+    },
+];
 

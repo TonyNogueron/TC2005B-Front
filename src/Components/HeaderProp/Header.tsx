@@ -3,6 +3,8 @@ import { LogoConstant } from '../../constants';
 import React,{useState} from 'react';
 import './Header.css';
 import { useNavigate } from "react-router-dom";
+import { LINKS } from "../../constants";
+
 
 interface HeaderProps {
   title: string;
@@ -23,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({title, logo, menuItems, onMenuToggle}) =
     <>
       <header>
         <div className="header-logo">
-          <img src={logo.path} alt={logo.alt} />
+          <img src={logo.path} alt={logo.alt} onClick={()=>navigate(LINKS.HOME.path)}/>
         </div>
         <div className="header-title">
           <h1>{title}</h1>

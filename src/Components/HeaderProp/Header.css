@@ -21,6 +21,7 @@
 }
 
 /* Default styles */
+/* Main color vars*/
 header {
   position: fixed;
   top: 0;
@@ -37,6 +38,7 @@ header {
   filter: var(--mainFilter);
   font-weight: 600;
 }
+/*img*/
 .header-logo img {
   height: 50px;
   margin-left: 20px;
@@ -77,7 +79,7 @@ header {
   display: none;
 }
 
-#play{
+#login{
   background-color: var(--yellow);
   /* Make it look like a button */
   border: none;
