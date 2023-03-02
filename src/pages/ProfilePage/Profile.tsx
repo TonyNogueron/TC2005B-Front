@@ -8,6 +8,8 @@ import {PAGE_TITLE} from '../../constants';
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
 import { LINKS } from "../../constants";
+import ProfileImg from "src/Components/ProfileImgProp/ProfileImg";
+
 
 export const Profile = () => {
     const title = PAGE_TITLE;
@@ -33,9 +35,15 @@ export const Profile = () => {
                 <Footer title={title} logo={logo[0]} menuItems={menuItems} />
                 <div className="profile-container">
                     <div className="profile-top">
-                        
+                        <div className="profile-img-container">
+                            <ProfileImg name="boy-engineer" />
+                        </div>
+                        <div className="profile-info-container">
+                            <h2>Nombre</h2>
+                        </div>
                     </div>
                     <div className="profile-bottom">
+                        <h2>Hola</h2>
                     </div>
                 </div>
         </div>
