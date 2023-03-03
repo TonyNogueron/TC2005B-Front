@@ -1,0 +1,37 @@
+.stats-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    filter: var(--mainFilter);
+    padding: 20px;
+    margin-top: 20px;
+    width: 90%;
+    text-align: center;
+    background-color: var(--black);
+}
+
+.stats-name{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: var(--textShadow);
+    filter: var(--mainFilter);
+    font-family: var(--mainFont);
+    width: 85%;
+    margin-left: 10px;
+}
+
+.stats-value{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: var(--textShadow);
+    filter: var(--mainFilter);
+    font-family: var(--mainFont);
+    width: 15%;
+    margin-left: 10px;
+    background-color: var(--yellow);
+    border-radius: 5%;
+}

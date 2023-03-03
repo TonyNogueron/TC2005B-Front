@@ -5,6 +5,7 @@ export interface Ranks{
 
 export interface GameStats{
     name: string;
+    value: number;
 }
 
 export const RANKS: Ranks[] = [
@@ -23,10 +24,18 @@ export const RANKS: Ranks[] = [
 ];
 
 export const GAME_STATS:{[key: string]: GameStats} = {
-    LEVELS:{
-        name: 'Levels completed',
+    HIGHEST:{
+        name: 'Highest round',
+        value: 0,
     },
-    POSITION:{
-        name: 'Position',
+    ENEMIES:{
+        name: 'Enemies defeated',
+        value: 0,
     },
+    MATCHES:{
+        name: 'Matches played',
+        value: 0,
+    },
+    
+
 };

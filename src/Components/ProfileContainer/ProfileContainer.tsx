@@ -1,8 +1,8 @@
 import React,{useState} from "react";
 import "./ProfileContainer.css";
-import {PROFILE_IMAGE_CONSTANTS} from "../../constants";
 import ProfileImg from "../ProfileImgProp/ProfileImg";
-
+import Stats from "../StatsProp/Stats";
+import { GAME_STATS } from "src/gameConstants";
 
 interface ProfileContainerProps {
     username: string;
@@ -23,6 +23,13 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg
             </div>
             <div className = "profile-bottom">
                 <div className = "left-container">
+                {Object.keys(GAME_STATS).map((key) => (
+                    <Stats
+                    key={key}
+                    name={GAME_STATS[key as keyof typeof GAME_STATS].name}
+                    value={GAME_STATS[key as keyof typeof GAME_STATS].value}
+                    />
+                ))}
                 </div>
                 <div className = "right-container">
                 </div>

@@ -4,7 +4,8 @@
     filter: var(--mainFilter);
     padding: 20px;
     margin: 20px;
-    margin-top: 10%;
+    margin-top: 6%;
+    overflow: hidden;
 }
 
 .profile-top {
@@ -30,7 +31,6 @@
 }
 
 .profile-bottom {
-    background-color: var(--black);
     display: flex;
     flex-direction: row;
     justify-content: space-between wrap;
@@ -47,7 +47,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
     border-radius: 10px;
     filter: var(--mainFilter);
     padding: 20px;
