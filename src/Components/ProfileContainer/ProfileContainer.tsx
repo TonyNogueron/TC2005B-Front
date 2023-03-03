@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./ProfileContainer.css";
 import {PROFILE_IMAGE_CONSTANTS} from "../../constants";
 import ProfileImg from "../ProfileImgProp/ProfileImg";
@@ -10,14 +10,17 @@ interface ProfileContainerProps {
 }
 
 const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg}) => {
+    const [profileImage, setProfileImage] = useState(PROFILE_IMAGE_CONSTANTS[0].name);
+    const [getUsername, setUsername] = useState(username);
+
     return (
         <div className="profile-container">
             <div className = "profile-top">
                 <div className = "profile-img">
-                    <ProfileImg name={profileImg}/>
+                    <ProfileImg name={profileImage}/>
                 </div>
                 <div className = "profile-username">
-                    <h1>{username}</h1>
+                    <h1>{getUsername}</h1>
                 </div>
             </div>
             <div className = "profile-bottom">
@@ -29,3 +32,5 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg
         </div>
     );
 };
+
+export default ProfileContainer;

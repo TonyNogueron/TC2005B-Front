@@ -3,6 +3,10 @@ export interface Ranks{
     image: string;
 }
 
+export interface GameStats{
+    name: string;
+}
+
 export const RANKS: Ranks[] = [
     {
         name: 'Cupper',
@@ -17,3 +21,12 @@ export const RANKS: Ranks[] = [
         image: '',
     }
 ];
+
+export const GAME_STATS:{[key: string]: GameStats} = {
+    LEVELS:{
+        name: 'Levels completed',
+    },
+    POSITION:{
+        name: 'Position',
+    },
+};
