@@ -10,17 +10,15 @@ interface ProfileContainerProps {
 }
 
 const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg}) => {
-    const [profileImage, setProfileImage] = useState(PROFILE_IMAGE_CONSTANTS[0].name);
-    const [getUsername, setUsername] = useState(username);
-
+    
     return (
         <div className="profile-container">
             <div className = "profile-top">
                 <div className = "profile-img">
-                    <ProfileImg name={profileImage}/>
+                    <ProfileImg name={profileImg}/>
                 </div>
                 <div className = "profile-username">
-                    <h1>{getUsername}</h1>
+                    <h1>{username}</h1>
                 </div>
             </div>
             <div className = "profile-bottom">
