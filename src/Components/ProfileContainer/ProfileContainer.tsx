@@ -3,13 +3,15 @@ import "./ProfileContainer.css";
 import ProfileImg from "../ProfileImgProp/ProfileImg";
 import Stats from "../StatsProp/Stats";
 import { GAME_STATS } from "src/gameConstants";
+import Elo from "../EloProp/Elo";
 
 interface ProfileContainerProps {
     username: string;
     profileImg: string;
+    eloImg: string;
 }
 
-const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg}) => {
+const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg,eloImg}) => {
     
     return (
         <div className="profile-container">
@@ -32,6 +34,7 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg
                 ))}
                 </div>
                 <div className = "right-container">
+                    <Elo name={eloImg} eloImg={eloImg}/>
                 </div>
             </div>
         </div>
