@@ -2,17 +2,30 @@ import React,{useState} from "react";
 import "./ProfileContainer.css";
 import ProfileImg from "../ProfileImgProp/ProfileImg";
 import Stats from "../StatsProp/Stats";
-import { GAME_STATS } from "src/gameConstants";
 import Elo from "../EloProp/Elo";
+import { RANKS, Rank, GameStats, GAME_STATS } from "src/gameConstants";
 
 interface ProfileContainerProps {
     username: string;
     profileImg: string;
-    eloImg: string;
+    points: number;
 }
 
-const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg,eloImg}) => {
-    
+
+
+
+const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg,points}) => {
+    const defaultRank: Rank = RANKS[0]; // add default rank
+    const rank: Rank = RANKS.reduce((prevRank, currentRank) => {
+      return points >= currentRank.threshold ? currentRank : prevRank;
+    }, defaultRank);
+  
+    const rankName: string = rank ? rank.name : "";
+    const rankImage: string = rank ? rank.image : "";
+    console.log('points:', points);
+    console.log('rank:', rank);
+    console.log('rankName:', rankName);
+
     return (
         <div className="profile-container">
             <div className = "profile-top">
@@ -34,7 +47,7 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg
                 ))}
                 </div>
                 <div className = "right-container">
-                    <Elo name={eloImg} eloImg={eloImg}/>
+                {rank && <Elo name={rankName} eloImg={rankImage} />}
                 </div>
             </div>
         </div>

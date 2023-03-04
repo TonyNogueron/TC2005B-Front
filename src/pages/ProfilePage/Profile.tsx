@@ -19,7 +19,7 @@ export const Profile = () => {
     
     const [getUsername, setUsername] = useState("Aldo");
     const [getImg, setImg] = useState("boy-engineer");
-    const [getElo, setElo] = useState("Elo");
+    const [getPoints, setPoints] = useState(10);
 
     const handleMenuToggle = () => {
       setIsMenuOpen(!isMenuOpen);
@@ -35,7 +35,9 @@ export const Profile = () => {
                     onMenuToggle={handleMenuToggle} // pass onMenuToggle as a prop
                 />
                 <Footer title={title} logo={logo[0]} menuItems={menuItems} />
-                <ProfileContainer username={getUsername} profileImg={getImg} eloImg={getElo}/>
+                <ProfileContainer username={getUsername} profileImg={getImg} points={getPoints}/>
+                
         </div>
     );
 }
+

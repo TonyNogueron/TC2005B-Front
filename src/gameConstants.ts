@@ -1,27 +1,31 @@
-export interface Ranks{
+export interface Rank {
     name: string;
     image: string;
-}
+    threshold: number;
+  }
 
 export interface GameStats{
     name: string;
     value: number;
 }
 
-export const RANKS: Ranks[] = [
+export const RANKS: Rank[] = [
     {
-        name: 'Cupper',
-        image: ''
+      name: "Cupper",
+      image: "",
+      threshold: 0,
     },
     {
-        name: 'Silver',
-        image: '',
+      name: "Silver",
+      image: "",
+      threshold: 100,
     },
     {
-        name: 'Gold',
-        image: '',
-    }
-];
+      name: "Gold",
+      image: "",
+      threshold: 200,
+    },
+  ];
 
 export const GAME_STATS:{[key: string]: GameStats} = {
     HIGHEST:{
