@@ -61,7 +61,7 @@
 
     .registerForm li{
         margin: 20px 0;
-    }
+        width: 95%;    }
 
     .checkbox-wrapper{
         display: flex;
