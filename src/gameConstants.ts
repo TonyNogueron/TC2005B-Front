@@ -12,17 +12,17 @@ export interface GameStats{
 export const RANKS: Rank[] = [
     {
       name: "Cupper",
-      image: "",
+      image: "https://www.chiboost.net/storage/blog/2018/08/Bronze_Rank_of_League_of_Legends-compressor-230x230.png",
       threshold: 0,
     },
     {
       name: "Silver",
-      image: "",
+      image: "https://www.chiboost.net/storage/blog/2018/08/silver_5-compressor.png",
       threshold: 100,
     },
     {
       name: "Gold",
-      image: "",
+      image: "https://www.chiboost.net/storage/blog/2018/08/gold_5-compressor.png",
       threshold: 200,
     },
   ];

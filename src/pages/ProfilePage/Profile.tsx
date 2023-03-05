@@ -19,7 +19,7 @@ export const Profile = () => {
     
     const [getUsername, setUsername] = useState("Aldo");
     const [getImg, setImg] = useState("boy-engineer");
-    const [getPoints, setPoints] = useState(10);
+    const [getPoints, setPoints] = useState(800);
 
     const handleMenuToggle = () => {
       setIsMenuOpen(!isMenuOpen);

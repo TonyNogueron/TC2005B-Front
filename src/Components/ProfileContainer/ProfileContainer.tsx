@@ -9,6 +9,7 @@ interface ProfileContainerProps {
     username: string;
     profileImg: string;
     points: number;
+    
 }
 
 
@@ -48,6 +49,8 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg
                 </div>
                 <div className = "right-container">
                 {rank && <Elo name={rankName} eloImg={rankImage} />}
+                <h2 className="rank-name">{rankName}</h2>
+                <h2 className="rank-points">{points} points</h2>
                 </div>
             </div>
         </div>
