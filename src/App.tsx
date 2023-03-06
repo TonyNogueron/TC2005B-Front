@@ -5,6 +5,8 @@ import { BirthPage } from './pages/BirthPage/BirthPage';
 import { Register } from './pages/RegisterPage/Register';
 import { Profile } from './pages/ProfilePage/Profile';
 import {LoginPage} from './pages/LoginPage/LoginPage';
+import Leaderboard from './pages/LeaderboardPage/Leaderboard';
+
 // Pages
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path='/profile' element={<Profile/>}/>
             <Route path='/login' element={<LoginPage/>}/>
+            <Route path='/leaderboard' element={<Leaderboard/>}/>
           </Routes>
         </Router>
       </>
