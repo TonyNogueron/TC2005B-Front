@@ -45,7 +45,7 @@ export const LoginPage = () => {
                             <input type="password" name="password" id="password" placeholder="Password" />
                         </li>
                     </ul>
-                    <button type="submit" className="button">Login</button>
+                    <button type="submit" className="button" onClick={()=> navigate(LINKS.PROFILE.path)}>Login</button>
                 </form>
                 <div className="LoginRegister">
                     <p>Don't have an account?</p>

@@ -115,8 +115,14 @@ export const BACKGROUND_CONSTANTS: backgroundConstant[] = [
 export const PROFILE_IMAGE_CONSTANTS: ProfileImageConstant[] = [
     {
         name: 'boy-engineer',
+        path: blueBackground,
+        alt: '',
+    },
+    {
+        name: 'girl-engineer',
         path: '',
         alt: '',
     },
+
 ];
 

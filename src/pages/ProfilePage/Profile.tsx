@@ -8,6 +8,7 @@ import {PAGE_TITLE} from '../../constants';
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
 import { LINKS } from "../../constants";
+import ProfileContainer from "src/Components/ProfileContainer/ProfileContainer";
 
 export const Profile = () => {
     const title = PAGE_TITLE;
@@ -15,11 +16,14 @@ export const Profile = () => {
     const menuItems: HeaderConstant[] = HEADER_ITEMS;
     const [isMenuOpen, setIsMenuOpen] = useState(true); // add state for isMenuOpen
     const navigate = useNavigate();
-
+    
+    const [getUsername, setUsername] = useState("Aldo");
+    const [getImg, setImg] = useState("boy-engineer");
+    const [getPoints, setPoints] = useState(800);
 
     const handleMenuToggle = () => {
       setIsMenuOpen(!isMenuOpen);
-    }; 
+    };  
     return(
         <div>
                 <BackgroundProp backgroundName="blue-background" />
@@ -31,13 +35,9 @@ export const Profile = () => {
                     onMenuToggle={handleMenuToggle} // pass onMenuToggle as a prop
                 />
                 <Footer title={title} logo={logo[0]} menuItems={menuItems} />
-                <div className="profile-container">
-                    <div className="profile-top">
-                        
-                    </div>
-                    <div className="profile-bottom">
-                    </div>
-                </div>
+                <ProfileContainer username={getUsername} profileImg={getImg} points={getPoints}/>
+                
         </div>
     );
 }
+
