@@ -13,6 +13,17 @@
     /*Image shouldn't look stretched on mobile*/
     .background-image {
       object-fit: cover;
+      background-size: contain;
+      top: 0;
+      left: 0;
     }
     
+  }
+
+  @media (orientation: landscape) {
+    .background-image {
+      background-size: contain;
+      height: 100%;
+      left: 0;
+    }
   }
