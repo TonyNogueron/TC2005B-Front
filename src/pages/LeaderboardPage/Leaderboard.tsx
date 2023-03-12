@@ -5,6 +5,7 @@ import Footer from "src/Components/FooterProp/Footer";
 import { HEADER_ITEMS, HeaderConstant,LINKS,LOGO_CONSTANTS,LogoConstant,PAGE_TITLE } from "../../constants";
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
+import LeaderboardContainer from "src/Components/LeaderboardContainer/LeaderboardContainer";
 
 export default function Leaderboard() {
     return(
@@ -18,7 +19,7 @@ export default function Leaderboard() {
                 onMenuToggle={()=>{}}
             />
             <Footer title={PAGE_TITLE} logo={LOGO_CONSTANTS[0]} menuItems={HEADER_ITEMS} />
-            
+            <LeaderboardContainer />
         </div>
     );
 }   
