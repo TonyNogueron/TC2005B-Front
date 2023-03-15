@@ -33,6 +33,17 @@
     font-family: var(--mainFont);
 }
 
+
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    font-family: var(--mainFont);
+}
+
 .bottomContainer form input{
     width: 750px;
     height: 50px;
