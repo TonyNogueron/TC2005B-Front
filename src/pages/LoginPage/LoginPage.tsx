@@ -61,7 +61,7 @@ export const LoginPage = () => {
       });
     } else {
       //Submit
-      axios
+      /*axios
         .post(`${url}/login`, {
           username: usernameLogin,
           password: passwordLogin,
@@ -91,6 +91,44 @@ export const LoginPage = () => {
             text: "Something went wrong!",
           });
 
+          console.log(error);
+        });
+        */
+      fetch(`${url}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: usernameLogin,
+          password: passwordLogin,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message === "User logged in successfully") {
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "You have successfully logged in!",
+            });
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("idUser", data.idUser.toString());
+            navigate(LINKS.PROFILE.path);
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Incorrect username or password!",
+            });
+          }
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
           console.log(error);
         });
     }
