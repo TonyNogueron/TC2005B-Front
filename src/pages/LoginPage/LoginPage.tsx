@@ -12,14 +12,7 @@ import {
 } from "../../constants";
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 const Swal = require("sweetalert2");
-
-interface ApiResponse {
-  message: string;
-  token: string;
-  idUser: number;
-}
 
 export const LoginPage = () => {
   const title = PAGE_TITLE;
