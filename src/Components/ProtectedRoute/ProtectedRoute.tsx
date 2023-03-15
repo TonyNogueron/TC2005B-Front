@@ -1,21 +1,20 @@
-import React from 'react';
-import { Navigate, Route } from 'react-router-dom';
+import React, { ReactNode } from "react";
+import { Navigate } from "react-router-dom";
 
 interface ProtectedRouteProps {
   redirectTo: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const ProtectedRoute = ({
   redirectTo,
   children,
-}: ProtectedRouteProps) => {
+}: ProtectedRouteProps): JSX.Element => {
   return localStorage.getItem("token") ? (
-    <Route>{children}</Route>
+    <>{children}</>
   ) : (
-    <Navigate to={redirectTo} replace={true} />
+    <Navigate to={redirectTo} />
   );
 };
 
 export default ProtectedRoute;
-
