@@ -8,6 +8,7 @@ import { LOGO_CONSTANTS, LogoConstant } from '../../constants';
 import {PAGE_TITLE} from '../../constants';
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
+const Swal = require('sweetalert2')
 
 export const LoginPage = () => {
     const title = PAGE_TITLE;
@@ -18,6 +19,66 @@ export const LoginPage = () => {
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
       };
+    const [usernameLogin, setUsernameLogin] = useState("");
+    const [passwordLogin, setPasswordLogin] = useState("");
+
+    const handleUsernameLogin = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setUsernameLogin(event.target.value);
+    };
+
+    const handlePasswordLogin = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setPasswordLogin(event.target.value);
+    };
+
+    const url = process.env.REACT_APP_API_URL;
+
+    const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if (usernameLogin === "" || passwordLogin === "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please fill in all the fields!",
+            });
+        } else {
+            fetch(url + "user/login",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Username" : usernameLogin,
+                    "psswd" : passwordLogin
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.status === "success") {
+                        localStorage.setItem("token", data.token);
+                        localStorage.setItem("username", data.username);
+                        localStorage.setItem("id", data.id);
+                    }
+                })
+                .then(() => {
+                    if (localStorage.getItem("token") !== null) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success!",
+                            text: "You have successfully logged in!",
+                        });
+                        navigate(LINKS.PROFILE.path);
+                    } else {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Something went wrong!",
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+    };
+
     return(
          
         <div className="LoginContainer">
@@ -34,7 +95,7 @@ export const LoginPage = () => {
                 <div className="LoginTitleImage">
                     <img src={logo[0].path} alt="Logo" />
                 </div>
-                <form className="LoginForm">
+                <form className="LoginForm" onSubmit={handleLogin}>
                     <ul>
                         <li>
                             <label htmlFor="email">Email</label>
@@ -45,7 +106,7 @@ export const LoginPage = () => {
                             <input type="password" name="password" id="password" placeholder="Password" />
                         </li>
                     </ul>
-                    <button type="submit" className="button" onClick={()=> navigate(LINKS.PROFILE.path)}>Login</button>
+                    <button type="submit" className="button">Login</button>
                 </form>
                 <div className="LoginRegister">
                     <p>Don't have an account?</p>
