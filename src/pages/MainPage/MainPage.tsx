@@ -26,12 +26,15 @@ export default function MainPage() {
   return <div className="mainPage">
     <BackgroundProp backgroundName="blue-background" />
     <Header
-        title={title}
-        logo={logo[0]}
-        menuItems={menuItems}
-        isMenuOpen={isMenuOpen} // pass isMenuOpen as a prop
-        onMenuToggle={handleMenuToggle} // pass onMenuToggle as a prop
-      />
+      title={title}
+      logo={logo[0]}
+      menuItems={menuItems}
+      isAuthenticated={false}
+      isAdmin={false}
+      isMenuOpen={isMenuOpen}
+      onMenuToggle={handleMenuToggle}
+    />
+
     <div className="main-page">
         <div className="topContainer">
           <h1 className="mainMessage">AQUÍ COMIENZA TU HISTORIA</h1>

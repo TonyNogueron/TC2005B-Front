@@ -31,9 +31,12 @@ export const Profile = () => {
                     title={title}
                     logo={logo[0]}
                     menuItems={menuItems}
-                    isMenuOpen={isMenuOpen} // pass isMenuOpen as a prop
-                    onMenuToggle={handleMenuToggle} // pass onMenuToggle as a prop
+                    isAuthenticated={false}
+                    isAdmin={false}
+                    isMenuOpen={isMenuOpen}
+                    onMenuToggle={handleMenuToggle}
                 />
+
                 <Footer title={title} logo={logo[0]} menuItems={menuItems} />
                 <ProfileContainer username={getUsername} profileImg={getImg} points={getPoints}/>
                 

@@ -10,13 +10,8 @@ export default function Leaderboard() {
     return(
         <div className="leaderboard">
             <BackgroundProp backgroundName="blue-background" />
-            <Header
-                title={PAGE_TITLE}
-                logo={LOGO_CONSTANTS[0]}
-                menuItems={HEADER_ITEMS}
-                isMenuOpen={true}
-                onMenuToggle={()=>{}}
-            />
+
+
             <Footer title={PAGE_TITLE} logo={LOGO_CONSTANTS[0]} menuItems={HEADER_ITEMS} />
             
         </div>

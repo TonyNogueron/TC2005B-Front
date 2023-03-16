@@ -63,7 +63,19 @@ export const LINKS: {[key: string]: LinkConstant} = {
         label: 'Profile',
         path: '/profile',
     },
+    LEADERBOARD: {
+        label: 'Leaderboard',
+        path: '/leaderboard',
+    },
+    // Add the admin section for the admin links
+    DASHBOARD: {
+        label: 'Dashboard',
+        path: '/dashboard',
+    },
+    
 };
+
+
 
 
 export const HEADER_ITEMS: HeaderConstant[] = [
@@ -73,14 +85,14 @@ export const HEADER_ITEMS: HeaderConstant[] = [
         id: 'home',
     },
     {
-        label: 'About',
-        path: LINKS.ABOUT.path,
-        id: 'about',
+        label: 'Leaderboard',
+        path: LINKS.LEADERBOARD.path,
+        id: 'leaderboard',
     },
     {
-        label: 'Login',
-        path: LINKS.LOGIN.path,
-        id: 'login',
+        label: 'Play',
+        path: LINKS.PLAY.path,
+        id: 'play',
     },
 
 ];
