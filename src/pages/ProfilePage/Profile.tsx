@@ -25,7 +25,7 @@ export const Profile = () => {
     useEffect(() => {
         //fetch data from api
         fetch(`´${url}/profile`, {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
