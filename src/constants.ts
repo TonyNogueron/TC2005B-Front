@@ -76,8 +76,6 @@ export const LINKS: {[key: string]: LinkConstant} = {
 };
 
 
-
-
 export const HEADER_ITEMS: HeaderConstant[] = [
     {
         label: 'Home',
