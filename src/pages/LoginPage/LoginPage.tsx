@@ -107,6 +107,8 @@ export const LoginPage = () => {
             });
             localStorage.setItem("token", data.token);
             localStorage.setItem("idUser", data.idUser.toString());
+            //localStorage.setItem("isAdmin", data.isAdmin.toString());
+            localStorage.setItem("username", usernameLogin);
             navigate(LINKS.PROFILE.path);
           } else {
             Swal.fire({
