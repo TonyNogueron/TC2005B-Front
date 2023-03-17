@@ -114,6 +114,7 @@ export const Register = () => {
             username: usernameRegister,
             password: passwordRegister,
             email: localStorage.getItem("email"),
+            isAdmin: 0,
           }),
         })
           .then((response) => response.json())
