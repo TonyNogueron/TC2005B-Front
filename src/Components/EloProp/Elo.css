@@ -1,14 +1,16 @@
 .Elo{
-    width: 250px;
-    height: 250px;
+    width: 125px;
+    height: 125px;
     background-color: var(--black);
     border-radius: 50%;
-    margin: 0 auto;
     margin-bottom: 20px;
     padding: 20px;
     filter: var(--mainFilter);
     display: flex;
     border: 5px solid #fff;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .Elo img{

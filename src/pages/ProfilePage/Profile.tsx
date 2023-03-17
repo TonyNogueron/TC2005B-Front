@@ -71,7 +71,7 @@ export const Profile = () => {
         logo={logo[0]}
         menuItems={menuItems}
         isAuthenticated={true}
-        isAdmin={true}
+        isAdmin={false}
         isMenuOpen={isMenuOpen}
         onMenuToggle={handleMenuToggle}
       />
