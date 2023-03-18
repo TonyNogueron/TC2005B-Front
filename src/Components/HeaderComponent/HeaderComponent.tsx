@@ -68,7 +68,9 @@ interface MenuItem {
               <ul className="listaMenu">
                 {filteredMenuItems.map((item, index) => (
                   <li className="listLi" key={index}>
-                    <a href={item.path}>{item.label}</a>
+                    <a id={item.label} onClick={() => navigate(item.path)}>
+                      {item.label}
+                    </a>
                   </li>
                 ))}
               </ul>
