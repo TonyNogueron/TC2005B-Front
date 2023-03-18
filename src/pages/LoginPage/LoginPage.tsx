@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo } from "react";
 import "./LoginPage.css";
-import Header from "src/Components/HeaderProp/Header";
+import HeaderComponent from "src/Components/HeaderComponent/HeaderComponent";
 import Footer from "src/Components/FooterProp/Footer";
 import {
   LINKS,
@@ -15,7 +15,6 @@ import { useNavigate } from "react-router-dom";
 const Swal = require("sweetalert2");
 
 export const LoginPage = () => {
-  const title = PAGE_TITLE;
   const logo: LogoConstant[] = LOGO_CONSTANTS;
   const menuItems: HeaderConstant[] = HEADER_ITEMS;
 
@@ -53,40 +52,6 @@ export const LoginPage = () => {
         text: "All the fields are required!",
       });
     } else {
-      //Submit
-      /*axios
-        .post(`${url}/login`, {
-          username: usernameLogin,
-          password: passwordLogin,
-        })
-        .then((response: { data: ApiResponse }) => {
-          if (response.data.message === "User logged in successfully") {
-            Swal.fire({
-              icon: "success",
-              title: "Success",
-              text: "You have successfully logged in!",
-            });
-            localStorage.setItem("token", response.data.token);
-            localStorage.setItem("idUser", response.data.idUser.toString());
-            navigate(LINKS.PROFILE.path);
-          } else {
-            Swal.fire({
-              icon: "error",
-              title: "Oops...",
-              text: "Incorrect username or password!",
-            });
-          }
-        })
-        .catch((error: any) => {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
-          });
-
-          console.log(error);
-        });
-        */
       fetch(`${url}/login`, {
         method: "POST",
         headers: {
@@ -131,8 +96,7 @@ export const LoginPage = () => {
 
   return (
     <div className="LoginContainer">
-    <Header
-      title={title}
+    <HeaderComponent
       logo={logo[0]}
       menuItems={menuItems}
       isAuthenticated={false}
@@ -140,44 +104,81 @@ export const LoginPage = () => {
       isMenuOpen={isMenuOpen}
       onMenuToggle={handleMenuToggle}
     />
-      <Footer title={title} logo={logo[0]} menuItems={menuItems} />
-      <BackgroundProp backgroundName="blue-background" />
-      <div className="Login">
-        <div className="LoginTitleImage">
-          <img src={logo[0].path} alt="Logo" />
-        </div>
-        <form className="LoginForm" onSubmit={handleSubmitLogin}>
-          <ul>
-            <li>
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Username"
-                onChange={handleUsernameLogin}
-              />
-            </li>
-            <li>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Password"
-                onChange={handlePasswordLogin}
-              />
-            </li>
-          </ul>
-          <button type="submit" className="button">
-            Login
-          </button>
-        </form>
-        <div className="LoginRegister">
-          <p>Don't have an account?</p>
-          <a onClick={() => navigate(LINKS.REGISTER.path)}>Register</a>
-        </div>
+      <div className="twoRowContainer">
+          <div className="LeftContainer">
+          </div>
+          <div className="RightContainer">
+              <div className="Login">
+              <form className="LoginForm" onSubmit={handleSubmitLogin}>
+                <ul>
+                  <li>
+                    <label htmlFor="username">Email/Usuario</label>
+                    <input
+                      type="text"
+                      name="username"
+                      id="username"
+                      placeholder="Email/Usuario"
+                      onChange={handleUsernameLogin}
+                    />
+                  </li>
+                  <li>
+                    <label htmlFor="password">Contraseña</label>
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Contraseña"
+                      onChange={handlePasswordLogin}
+                    />
+                  </li>
+                </ul>
+                <div className="ButtonContainer">
+                  <div className="OlvideContraseña">¿Olvidaste tu contraseña?</div>
+                  <button type="submit" className="enterButton">
+                    Entrar
+                  </button>
+                  <button onClick={() => navigate(LINKS.REGISTER.path)}className="createButton">Crear una cuenta</button>
+                </div>
+              </form>
+            </div>
+          </div>
       </div>
     </div>
   );
 };
+
+/*
+      //Submit
+      /*axios
+        .post(`${url}/login`, {
+          username: usernameLogin,
+          password: passwordLogin,
+        })
+        .then((response: { data: ApiResponse }) => {
+          if (response.data.message === "User logged in successfully") {
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "You have successfully logged in!",
+            });
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("idUser", response.data.idUser.toString());
+            navigate(LINKS.PROFILE.path);
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Incorrect username or password!",
+            });
+          }
+        })
+        .catch((error: any) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+
+          console.log(error);
+        });
+        */

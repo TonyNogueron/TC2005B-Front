@@ -1,28 +1,8 @@
-@font-face {
-  font-family: 'Crossten Book';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Crossten Book'), url('../../resources/fonts/crossten-cufonfonts-webfont/CrosstenBook.woff') format('woff');
-  }
-  
-:root {
-  --dark_blue: #005D97;
-  --medium_blue: #0053B1;
-  --light_blue: #52BEDA;
-  --yellow: #F6BA27;
-  --red: #D44D56;
-  --black: #1D1934;
-  --textShadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  --mainFilter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  --whiteFilter: drop-shadow(0px 4px 4px rgba(255, 255, 255, 0.25));
-  --mainFont: 'Crossten Book';
-  --blueBackground: url("../../resources/images/backgrounds/blue_background.png") no-repeat center center fixed;
-  --redBackground: url("../../resources/images/backgrounds/red_background.png") no-repeat center center fixed;
-}
+
 
 /* Default styles */
 /* Main color vars*/
-header {
+.Headder {
   position: fixed;
   top: 0;
   left: 0;
@@ -96,7 +76,6 @@ header {
 
 #Play{
   background-color: var(--yellow);
-  /* Make it look like a button */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -109,7 +88,6 @@ header {
   filter: var(--mainFilter);
 }
 
-/* Mobile styles */
 @media (max-width: 767px) {
   header {
     height: 60px;

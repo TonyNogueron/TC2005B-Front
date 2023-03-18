@@ -8,6 +8,7 @@ import {PAGE_TITLE} from '../../constants';
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
 import { LINKS } from "../../constants";
+import HeaderComponent from "src/Components/HeaderComponent/HeaderComponent";
 
 export default function MainPage() {
     const title = PAGE_TITLE;
@@ -24,9 +25,7 @@ export default function MainPage() {
 
 
   return <div className="mainPage">
-    <BackgroundProp backgroundName="blue-background" />
-    <Header
-      title={title}
+    <HeaderComponent
       logo={logo[0]}
       menuItems={menuItems}
       isAuthenticated={false}
@@ -34,7 +33,6 @@ export default function MainPage() {
       isMenuOpen={isMenuOpen}
       onMenuToggle={handleMenuToggle}
     />
-
     <div className="main-page">
         <div className="topContainer">
           <h1 className="mainMessage">AQUÍ COMIENZA TU HISTORIA</h1>
@@ -47,7 +45,6 @@ export default function MainPage() {
       </form>
       <button className="button" onClick={()=> navigate(LINKS.REGISTER.path)}>CONTINUAR</button>
     </div>
-    <Footer title={title} logo={logo[0]} menuItems={menuItems} />
 
   </div>;
 }
@@ -55,4 +52,18 @@ export default function MainPage() {
 /*
 
   <BackgroundProp backgroundName="red-background" />
+*/
+
+/*
+    <BackgroundProp backgroundName="blue-background" />
+
+    <Header
+      title={title}
+      logo={logo[0]}
+      menuItems={menuItems}
+      isAuthenticated={false}
+      isAdmin={false}
+      isMenuOpen={isMenuOpen}
+      onMenuToggle={handleMenuToggle}
+    />
 */

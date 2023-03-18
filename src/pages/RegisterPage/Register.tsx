@@ -171,7 +171,6 @@ export const Register = () => {
       isMenuOpen={isMenuOpen}
       onMenuToggle={handleMenuToggle}
     />
-      <Footer title={title} logo={logo[0]} menuItems={menuItems} />
       <BackgroundProp backgroundName="blue-background" />
       <div className="main-page">
         <div className="topContainer">
