@@ -1,54 +1,147 @@
 .mainPageContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  font-family: var(--mainFont);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mainFont);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
 }
 
-.leftRegister{
+.leftRegister {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50vw;
+    width: 50%;
+    margin-top: 15%;
 }
 
-.rightRegister{
+.rightRegister {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 50vw;
+    width: 50%;
     background-color: var(--medium_blue);
 }
 
-.registerAulify{
+.registerAulify {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 90%;
+    width: 80%;
     border: 2px solid var(--medium_blue);
     border-radius: 20px;
 }
 
-.registerAulify ul{
+.registerAulify ul {
     list-style: none;
     padding: 0;
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
-.registerAulify ul li{
+.registerAulify ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 20px;
+    width: 100%;
 }
 
-.registerAulify ul li label{
-    font-size: 1.5em;
-    font-weight: 600;
-    color: var(--medium_blue);
+
+.iconAulify {
+    height: 1.5em;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 5%;
 
 }
+
+.registerAulify ul li label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1rem;
+    margin-left: 5%;
+    width: 20%;
+}
+
+
+.registerAulify ul li input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    height: 2em;
+    width: 20em;
+    border-bottom: 2px solid var(--medium_blue);
+    font-size: 1rem;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 45%;
+    margin-bottom: 1.5%;
+}
+
+.form-select{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    height: 2em;
+    width: 20em;
+    border-bottom: 2px solid var(--medium_blue);
+    font-size: 1rem;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 45%;
+    background-color: none;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+}
+
+.crearCuenta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 2em;
+    width: 10em;
+    border-radius: 20px;
+    background-color: var(--red);
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 5%;
+
+}
+
+.crearCuenta:hover {
+    background-color: var(--yellow);
+    transition: 0.3s;}

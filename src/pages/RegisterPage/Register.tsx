@@ -237,13 +237,16 @@ export const Register = () => {
                     return <option key={id} value={estado.id}>{estado.nombre}</option>
                   })}
                 </select>
-
               </li>
+              <div className="buttonContainer">
+                <div className="crearCuenta" onClick={handleRegisterSubmit}>
+                  <MySVG name="plus" color="white" nameClass="iconAulify" />
+                  Registrarme
+                </div>
+              </div>
             </ul>
           </form>
-          <button className="button" onClick={handleRegisterSubmit}>
-            CONTINUAR
-          </button>
+
         </div>
         <div className="rightRegister">
         </div>
