@@ -1,12 +1,10 @@
 import React, { useState, useCallback, useMemo } from "react";
 import "./LoginPage.css";
 import HeaderComponent from "src/Components/HeaderComponent/HeaderComponent";
-import Footer from "src/Components/FooterProp/Footer";
 import {
   LINKS,
   LOGO_CONSTANTS,
   LogoConstant,
-  PAGE_TITLE,
   HEADER_ITEMS,
   HeaderConstant,
 } from "../../constants";

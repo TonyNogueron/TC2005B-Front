@@ -1,36 +1,28 @@
 import React, { useState } from "react";
 import "./Register.css";
-import Header from "src/Components/HeaderProp/Header";
-import Footer from "src/Components/FooterProp/Footer";
-import { HEADER_ITEMS, HeaderConstant } from "../../constants";
-import { LOGO_CONSTANTS, LogoConstant } from "../../constants";
-import { PAGE_TITLE } from "../../constants";
-import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
+import HeaderComponent from "src/Components/HeaderComponent/HeaderComponent";
+import { HEADER_ITEMS, HeaderConstant, LOGO_CONSTANTS, LogoConstant, GRADO_ACADEMICO, ESTADOS_DE_MEXICO } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { LINKS } from "../../constants";
+import MySVG from "src/Components/SVGProp/SVGProp";
 const Swal = require("sweetalert2");
 
 export const Register = () => {
-  const title = PAGE_TITLE;
   const logo: LogoConstant[] = LOGO_CONSTANTS;
   const menuItems: HeaderConstant[] = HEADER_ITEMS;
   const [isMenuOpen, setIsMenuOpen] = useState(true); // add state for isMenuOpen
   const navigate = useNavigate();
+
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const url = "http://localhost:3001";
 
-  const [termsChecked, setTermsChecked] = useState(false); // add state for termsChecked
   const [usernameRegister, setUsernameRegister] = useState("");
   const [passwordRegister, setPasswordRegister] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(false);
-
-  const handleTermsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTermsChecked(event.target.checked);
-  };
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsernameRegister(event.target.value);
@@ -101,8 +93,7 @@ export const Register = () => {
       if (
         isUsernameValid &&
         isPasswordValid &&
-        passwordsMatch &&
-        termsChecked
+        passwordsMatch
       ) {
         //use fetch to register user
         await fetch(`${url}/user`, {
@@ -131,13 +122,7 @@ export const Register = () => {
             console.error("Error:", error);
           });
       } else {
-        if (!termsChecked) {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "You must agree to the terms and conditions!",
-          });
-        } else if (!isUsernameValid) {
+        if (!isUsernameValid) {
           Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -162,66 +147,106 @@ export const Register = () => {
 
   return (
     <div className="Register">
-    <Header
-      title={title}
-      logo={logo[0]}
-      menuItems={menuItems}
-      isAuthenticated={false}
-      isAdmin={false}
-      isMenuOpen={isMenuOpen}
-      onMenuToggle={handleMenuToggle}
-    />
-      <BackgroundProp backgroundName="blue-background" />
-      <div className="main-page">
-        <div className="topContainer">
-          <h1 className="mainMessage">CREA TU NOMBRE DE USUARIO</h1>
+      <HeaderComponent
+        logo={logo[0]}
+        menuItems={menuItems}
+        isAuthenticated={false}
+        isAdmin={false}
+        isMenuOpen={isMenuOpen}
+        onMenuToggle={handleMenuToggle}
+      />
+      <div className="mainPageContainer">
+        <div className="leftRegister">
+          <form className="registerAulify">
+            <ul>
+              <li>
+                <MySVG name="user" color="#005D97" nameClass="iconAulify" />
+                <label className="labelAulify">Nombre</label>
+                <input
+                  className="inputAulify"
+                  type="text"
+                  placeholder="Nombre"
+                />
+              </li>
+              <li>
+                <MySVG name="user-plus" color="#005D97" nameClass="iconAulify" />
+                <label className="labelAulify">Apellido</label>
+                <input
+                  className="inputAulify"
+                  type="text"
+                  onChange={handleUsernameChange}
+                  placeholder="Nombre de usuario"
+                />
+              </li>
+              <li>
+                <MySVG name="envelope" color="#005D97" nameClass="iconAulify" />
+                <label className="labelAulify">Correo electrónico</label>
+                <input
+                  className="inputAulify"
+                  type="text"
+                  placeholder="Correo electrónico"
+                />
+              </li>
+              <li>
+                <MySVG name="lock" color="#005D97" nameClass="iconAulify" />
+                <label className="labelAulify">Contraseña</label>
+                <input
+                  className="inputAulify"
+                  type="password"
+                  onChange={handlePasswordChange}
+                  placeholder="Contraseña"
+                />
+              </li>
+              <li>
+                <MySVG name="user-lock" color="#005D97" nameClass="iconAulify" />
+                <label className="labelAulify">Confirmar contraseña</label>
+                <input
+                  className="inputAulify"
+                  type="password"
+                  onChange={handleConfirmedPasswordChange}
+                  placeholder="Confirmar contraseña"
+                />
+              </li>
+              <li>
+                <MySVG name="graduation-cap" color="#005D97" nameClass="iconAulify" />
+                <label className="labelAulify">Grado académico</label>
+                <select className="form-select" aria-label="Default select example">
+                  <option selected value="0">Elige tu grado académico</option>
+                  {GRADO_ACADEMICO.map((grado, id) => {
+                    return <option key={id} value={grado.id}>{grado.nombre}</option>
+                  })}
+                </select>
+              </li>
+              <li>
+                <MySVG name="calendar" color="#005D97" nameClass="iconAulify" />
+                <label className="labelAulify">Edad</label>
+                <input
+                  type="number"
+                  className="inputAulify"
+                  placeholder="Edad"
+                  min={0}
+                  max={100}
+                />
+              </li>
+              <li>
+                <MySVG name="location-dot" color="#005D97" nameClass="iconAulify" />
+                <label className="labelAulify">Estado de la república</label>
+                <select className="form-select" aria-label="Selecciona tu estado">
+                  <option selected value="0">Selecciona tu estado</option>
+                  {ESTADOS_DE_MEXICO.map((estado, id) => {
+                    return <option key={id} value={estado.id}>{estado.nombre}</option>
+                  })}
+                </select>
+
+              </li>
+            </ul>
+          </form>
+          <button className="button" onClick={handleRegisterSubmit}>
+            CONTINUAR
+          </button>
         </div>
-      </div>
-      <div className="bottomContainer">
-        <form className="registerForm">
-          <ul>
-            <li>
-              <input
-                className="input"
-                type="text"
-                onChange={handleUsernameChange}
-                placeholder="Nombre de usuario"
-              />
-            </li>
-            <li>
-              <input
-                className="input"
-                type="password"
-                onChange={handlePasswordChange}
-                placeholder="Contraseña"
-              />
-            </li>
-            <li>
-              <input
-                className="input"
-                type="password"
-                onChange={handleConfirmedPasswordChange}
-                placeholder="Confirmar contraseña"
-              />
-            </li>
-          </ul>
-        </form>
-        <div className="termsAndConditions">
-          <div className="checkbox-wrapper">
-            <input
-              type="checkbox"
-              className="checkbox"
-              checked={termsChecked}
-              onChange={handleTermsChange}
-            />
-            <p className="termsAndConditionsText">
-              Acepto los términos y condiciones
-            </p>
-          </div>
+        <div className="rightRegister">
         </div>
-        <button className="button" onClick={handleRegisterSubmit}>
-          CONTINUAR
-        </button>
       </div>
     </div>
   );
