@@ -1,7 +1,7 @@
 import aulifyBlue from './resources/images/aulifyBlue.png';
 import redBackground from './resources/images/backgrounds/red_background.png';
 import blueBackground from './resources/images/backgrounds/blue_background.png';
-
+import whiteBackground from './resources/images/backgrounds/white_background.png';
 // Pages import
 
 export const PAGE_TITLE: string = '';
@@ -128,7 +128,12 @@ export const BACKGROUND_CONSTANTS: backgroundConstant[] = [
         name: 'red-background',
         path: redBackground,
         alt: 'Red Background',
-    }
+    },
+    {
+        name: 'white-background',
+        path: whiteBackground,
+        alt: 'White Background',
+    },
 ];
 
 
