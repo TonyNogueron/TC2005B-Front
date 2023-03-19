@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Register.css";
 import HeaderComponent from "src/Components/HeaderComponent/HeaderComponent";
-import { HEADER_ITEMS, HeaderConstant, LOGO_CONSTANTS, LogoConstant, GRADO_ACADEMICO, ESTADOS_DE_MEXICO } from "../../constants";
+import { HEADER_ITEMS, HeaderConstant, LOGO_CONSTANTS, LogoConstant, GRADO_ACADEMICO, ESTADOS_DE_MEXICO,BACKGROUND_CONSTANTS } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { LINKS } from "../../constants";
 import MySVG from "src/Components/SVGProp/SVGProp";
 import nina from "src/resources/images/backgrounds/nina.png";
+import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 
 const Swal = require("sweetalert2");
 
@@ -159,6 +160,7 @@ export const Register = () => {
         isMenuOpen={isMenuOpen}
         onMenuToggle={handleMenuToggle}
       />
+
       <div className="mainPageContainer">
         <div className="leftRegister">
           <form className="registerAulify">
