@@ -18,6 +18,7 @@
     --mainFont: 'Crossten Book';
     --blueBackground: url("../../resources/images/backgrounds/blue_background.png");
     --redBackground: url("../../resources/images/backgrounds/red_background.png");
+    --customGradient: linear-gradient(-52deg, #F6BA27, #D44D56, #52BEDA, #0053B1);
   }
 
   .HeaderAulify {
@@ -37,6 +38,7 @@
     background-position: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    filter: var(--mainFilter);
   }
   
   
@@ -45,6 +47,8 @@
     display: flex;
     align-items: center;
     margin: 0 auto;
+    filter: var(--mainFilter);
+
   }
   
   .headerLogo img {
@@ -59,6 +63,7 @@
     align-items: center;
     justify-content: flex-end;
     color: #fff;
+    filter: var(--mainFilter);
   }
   
   .MenuDesplegable {
@@ -103,3 +108,4 @@
     color: #c9ac78;
   }
   
+

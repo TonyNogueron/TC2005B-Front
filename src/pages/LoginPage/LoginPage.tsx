@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useMemo } from "react";
+import nina from "src/resources/images/backgrounds/nina.png";
 import "./LoginPage.css";
 import HeaderComponent from "src/Components/HeaderComponent/HeaderComponent";
 import {
@@ -92,54 +93,58 @@ export const LoginPage = () => {
     }
   };
 
+
   return (
     <div className="LoginContainer">
-    <HeaderComponent
-      logo={logo[0]}
-      menuItems={menuItems}
-      isAuthenticated={false}
-      isAdmin={false}
-      isMenuOpen={isMenuOpen}
-      onMenuToggle={handleMenuToggle}
-    />
+      <HeaderComponent
+        logo={logo[0]}
+        menuItems={menuItems}
+        isAuthenticated={false}
+        isAdmin={false}
+        isMenuOpen={isMenuOpen}
+        onMenuToggle={handleMenuToggle}
+      />
       <div className="twoRowContainer">
-          <div className="LeftContainer">
+        <div className="LeftContainer">
+          <div className="ImageContainer">
+            <img src={nina} alt="nina" className="nina" />
           </div>
-          <div className="RightContainer">
-              <div className="Login">
-              <form className="LoginForm" onSubmit={handleSubmitLogin}>
-                <ul>
-                  <li>
-                    <label htmlFor="username">Email/Usuario</label>
-                    <input
-                      type="text"
-                      name="username"
-                      id="username"
-                      placeholder="Email/Usuario"
-                      onChange={handleUsernameLogin}
-                    />
-                  </li>
-                  <li>
-                    <label htmlFor="password">Contraseña</label>
-                    <input
-                      type="password"
-                      name="password"
-                      id="password"
-                      placeholder="Contraseña"
-                      onChange={handlePasswordLogin}
-                    />
-                  </li>
-                </ul>
-                <div className="ButtonContainer">
-                  <div className="OlvideContraseña">¿Olvidaste tu contraseña?</div>
-                  <button type="submit" className="enterButton">
-                    Entrar
-                  </button>
-                  <button onClick={() => navigate(LINKS.REGISTER.path)}className="createButton">Crear una cuenta</button>
-                </div>
-              </form>
-            </div>
+        </div>
+        <div className="RightContainer">
+          <div className="Login">
+            <form className="LoginForm" onSubmit={handleSubmitLogin}>
+              <ul>
+                <li>
+                  <label htmlFor="username">Email/Usuario</label>
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Email/Usuario"
+                    onChange={handleUsernameLogin}
+                  />
+                </li>
+                <li>
+                  <label htmlFor="password">Contraseña</label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Contraseña"
+                    onChange={handlePasswordLogin}
+                  />
+                </li>
+              </ul>
+              <div className="ButtonContainer">
+                <div className="OlvideContraseña">¿Olvidaste tu contraseña?</div>
+                <button type="submit" className="enterButton">
+                  Entrar
+                </button>
+                <button onClick={() => navigate(LINKS.REGISTER.path)} className="createButton">Crear una cuenta</button>
+              </div>
+            </form>
           </div>
+        </div>
       </div>
     </div>
   );

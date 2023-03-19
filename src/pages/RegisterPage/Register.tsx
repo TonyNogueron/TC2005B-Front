@@ -5,6 +5,8 @@ import { HEADER_ITEMS, HeaderConstant, LOGO_CONSTANTS, LogoConstant, GRADO_ACADE
 import { useNavigate } from "react-router-dom";
 import { LINKS } from "../../constants";
 import MySVG from "src/Components/SVGProp/SVGProp";
+import nina from "src/resources/images/backgrounds/nina.png";
+
 const Swal = require("sweetalert2");
 
 export const Register = () => {
@@ -145,6 +147,8 @@ export const Register = () => {
     }
   };
 
+
+
   return (
     <div className="Register">
       <HeaderComponent
@@ -246,9 +250,11 @@ export const Register = () => {
               </div>
             </ul>
           </form>
-
         </div>
         <div className="rightRegister">
+        <div className="ImageContainer">
+            <img src={nina} alt="nina" className="nina" />
+          </div>
         </div>
       </div>
     </div>
