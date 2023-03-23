@@ -160,7 +160,7 @@ export const Register = () => {
         isMenuOpen={isMenuOpen}
         onMenuToggle={handleMenuToggle}
       />
-
+      <BackgroundProp backgroundName="white-background" />
       <div className="mainPageContainer">
         <div className="leftRegister">
           <form className="registerAulify">

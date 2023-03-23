@@ -104,6 +104,8 @@ export const LoginPage = () => {
         isMenuOpen={isMenuOpen}
         onMenuToggle={handleMenuToggle}
       />
+
+      <BackgroundProp backgroundName="white-background" />
       <div className="twoRowContainer">
         <div className="LeftContainer">
           <div className="ImageContainer">
@@ -112,6 +114,7 @@ export const LoginPage = () => {
         </div>
         <div className="RightContainer">
           <div className="Login">
+            <h1 className="LoginTitle">Iniciar sesión</h1>
             <form className="LoginForm" onSubmit={handleSubmitLogin}>
               <ul>
                 <li>

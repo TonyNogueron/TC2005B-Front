@@ -60,8 +60,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 40vh;
-  width: 25vw;
+  height: 50vh;
+  width: 30vw;
   border-radius: 25px;
   font-family: var(--mainFont);
   border: 2px solid var(--dark_blue);
@@ -84,19 +84,26 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  margin-top: 2%;
   margin-bottom: 10%;
+
 }
 
+.LoginTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--dark_blue);
+  margin-bottom: 10%;
+  margin-top: -5%;
+}
 .LoginForm li {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .LoginForm label {
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin-left: 5%;
   width: 45%;
   font-weight: 600;
@@ -106,7 +113,7 @@
 .LoginForm input {
   padding: 5px;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 1.3rem;
   border: none;
   outline: none;
   width: 50%;
@@ -123,6 +130,7 @@
   justify-content: center;
   width: 100%;
   height: 50%;
+
 }
 
 .enterButton {
@@ -136,10 +144,19 @@
   transition: 0.3s;
   width: 50%;
   margin-top: 5%;
+  height: 50%;
 }
 
 .enterButton:hover {
   background-color: rgb(0, 83, 177, 1);
+}
+
+.OlvideContraseña {
+  color: var(--dark_blue);
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0.5%;
 }
 
 .createButton {
@@ -155,44 +172,59 @@
   margin-top: 5%;
 }
 
-@media only screen and (max-width: 600px) {
-  .Login {
-    height: auto;
-    width: 80vw;
-    font-size: 1rem;
+@media (max-width: 767px) {
+  .twoRowContainer {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin-top: 10%;
+  }
+
+  .LeftContainer {
+    display: none;
+  }
+
+  .RightContainer {
+    height: 50%;
+    width: 100%;
+  }
+
+  .Login{
+    width: 100%;
+    height: 40vh;
+    margin-top: 5%;
+    margin-right: 0%;
     border: none;
   }
 
   .LoginForm {
-    height: auto;
-    margin-top: 10%;
-    margin-bottom: 20%;
-    font-size: 1rem;
+    height: 50%;
+    width: 100%;
   }
 
-  .LoginForm label {
-    width: 45%;
-    margin-left: 0;
-    margin-bottom: 5px;
-    font-size: 1rem;
-
+  .LoginForm ul {
+    margin-top: 25%;
+    margin-bottom: 25%;
   }
 
-  .LoginForm input {
-    width: 100px;
-    max-width: 150px;
-    margin-bottom: 10px;
-    font-size: 0.8rem;
-    margin-left: -5%;
+  .ButtonContainer {
+    height: 50%;
   }
 
-  .enterButton,
-  .createButton {
-    font-size: 1rem;
+  .enterButton {
     width: 60%;
+    margin-top: 10%;
   }
-}
 
+  .createButton {
+    width: 60%;
+    margin-top: 10%;
+  }
+  .LoginTitle {
+    margin-top: 0%;
+  }
+  
+}
 @keyframes gradient {
   0% {
       background-position: 0% 50%;

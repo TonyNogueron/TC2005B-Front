@@ -72,8 +72,9 @@
     right: 0;
     bottom: 0;
     z-index: 998;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: var(--dark_blue);
     width: 30%;
+    filter: var(--mainFilter);
   }
   
   
@@ -90,22 +91,54 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    filter: var(--mainFilter);
   }
   
+
+
   .listaMenu li {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    
   }
   
   .listLi a {
     font-size: 2em;
-    color: #000;
+    color: #ffffff;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     font-family: var(--mainFont);
   }
   
   .listLi a:hover {
-    color: #c9ac78;
+    color: var(--red);
+    cursor: pointer;
   }
   
 
+  #Login{
+    background-color: var(--yellow);
+    /* Make it look like a button */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    filter: var(--mainFilter);
+  }
+  
+  #Play{
+    background-color: var(--yellow);
+    /* Make it look like a button */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    filter: var(--mainFilter);
+  }

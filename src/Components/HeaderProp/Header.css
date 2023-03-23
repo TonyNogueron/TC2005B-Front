@@ -61,32 +61,18 @@
 
 #Login{
   background-color: var(--yellow);
-  /* Make it look like a button */
   border: none;
-  color: white;
-  padding: 15px 32px;
+  color: #ffffff;
+  padding: 25px 32px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px;
   filter: var(--mainFilter);
+  width: 50%;
 }
 
-#Play{
-  background-color: var(--yellow);
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-  filter: var(--mainFilter);
-}
+
 
 @media (max-width: 767px) {
   header {

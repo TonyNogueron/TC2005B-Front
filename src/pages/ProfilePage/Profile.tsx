@@ -26,7 +26,7 @@ export const Profile = () => {
   const url = "http://localhost:3001";
   useEffect(() => {
     //fetch data from api
-    fetch(`${url}/statistic/?idUser=${localStorage.getItem("idUser")||0}`, {
+    fetch(`${url}/statistic/?idUser=${localStorage.getItem("idUser") || 0}`, {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token") || "",
@@ -42,20 +42,20 @@ export const Profile = () => {
         console.error("Error:", error);
       });
 
-      fetch(`${url}/elo/?idUser=${localStorage.getItem("idUser")||0}`, {
-        method: "GET",
-        headers: {
-          "x-access-token": localStorage.getItem("token") || "",
-        },
+    fetch(`${url}/elo/?idUser=${localStorage.getItem("idUser") || 0}`, {
+      method: "GET",
+      headers: {
+        "x-access-token": localStorage.getItem("token") || "",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setPoints(data.length > 0 ? data[0].score : 0);
       })
-        .then((response) => response.json())
-        .then((data) => {
-          setPoints(data.length > 0 ? data[0].score : 0);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
 
 
   }, []);
@@ -70,6 +70,7 @@ export const Profile = () => {
         isMenuOpen={isMenuOpen}
         onMenuToggle={handleMenuToggle}
       />
+      <BackgroundProp backgroundName="white-background" />
 
       <ProfileContainer
         username={getUsername}
