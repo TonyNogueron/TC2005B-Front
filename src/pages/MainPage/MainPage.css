@@ -1,121 +1,107 @@
-.topContainer{
-    width: 100%;
+.mainPage-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 12%;
-    font-family: var(--mainFont);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-.mainMessage{
-    font-size: 3.5rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 1%;
+.mainPage-content-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+
+}
+
+.LeftContentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
     filter: var(--mainFilter);
+    background: var(--customGradient);
+    margin-top: 25%;
+    background-size: 500% 500%;
+    animation: gradient 2s ease infinite;
+
 }
 
-.subMessage{
-    font-size: 1.8rem;
-    color: var(--yellow);
-    margin-bottom: 1%;
-    text-shadow: var(--textShadow);
+.LeftContentContainer img {
+    filter: var(--whiteFilter);
+    height: 100%;
+    margin-bottom: 25%;
 }
 
-.bottomContainer{
-    width: 100%;
+.mainPage-content-right {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 2%;
+    height: 100%;
+    width: 50%;
+}
+
+.topTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25%;
+    width: 100%;
+    color: var(--dark_blue);
     font-family: var(--mainFont);
+    margin-top: 10%;
 }
 
-.bottomContainer form input{
-    width: 750px;
-    height: 50px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 0 10px;
-    font-size: 1.2rem;
-
+.topTitle h1 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    font-family: var(--mainFontBold);
 }
 
+.mediumDescription {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.bottomContainer button{
-    width: 190px;
-    height: 70px;
+.mediumDescription p {
+    font-size: 2rem;
+    font-weight: 1000;
+    font-family: var(--mainFont);
+    letter-spacing: 0.1rem;
+    margin: 0 8%;
+}
+
+.bottomButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15%;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.bottomButton button {
+    background-color: var(--red);
+    color: #fff;
+    font-size: 2rem;
+    font-family: var(--mainFont);
     border: none;
     border-radius: 10px;
-    background-color: var(--yellow);
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: 5%;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    filter: var(--mainFilter);
-    text-shadow: var(--textShadow);
-}
-
-.bottomContainer button:hover{
-    background-color: var(--red);
-    filter: var(--mainFilter);
+    text-align: center;
+    padding: 20px 20px;
 }
 
 
-@media (max-width: 767px) {
-    .main-page {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 25%;
-        font-family: var(--mainFont);
-        text-align: center;
-    }
 
-    .mainMessage{
-        font-size: 2.5rem;
-        font-weight: 600;
-        color: #fff;
-        margin-bottom: 2%;
-
-    }
-
-    .subMessage{
-        font-size: 1.5rem;
-        color: var(--yellow);
-        margin-bottom: 2%;
-    }
-    /*jala*/
-
-    .bottomContainer form input{
-        width: 95%;
-        height: 40px;
-        border: none;
-        border-radius: 5px;
-        padding: 0 10px;
-        font-size: 1.5rem;
-        margin-top: 15%;
-    }
-
-    .bottomContainer button{
-        width: 50%;
-        height: 70px;
-        border: none;
-        border-radius: 10px;
-        background-color: var(--yellow);
-        color: #fff;
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-top: 20%;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        filter: var(--mainFilter);
-        text-shadow: var(--textShadow);
-    }
-}
+@media (max-width: 767px) {}
