@@ -33,18 +33,6 @@ export default function MainPage() {
       isMenuOpen={isMenuOpen}
       onMenuToggle={handleMenuToggle}
     />
-    <div className="main-page">
-        <div className="topContainer">
-          <h1 className="mainMessage">AQUÍ COMIENZA TU HISTORIA</h1>
-          <h2 className="subMessage">POR FAVOR INGRESA TU CORREO ELECTRÓNICO</h2>
-        </div>
-    </div>
-    <div className="bottomContainer">
-      <form className="form">
-        <input className="input" type="text" placeholder="Correo electrónico" />
-      </form>
-      <button className="button" onClick={()=> navigate(LINKS.REGISTER.path)}>CONTINUAR</button>
-    </div>
 
   </div>;
 }

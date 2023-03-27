@@ -28,7 +28,11 @@ export const RANKS: Rank[] = [
   ];
 
 export const GAME_STATS:{[key: string]: GameStats} = {
-    HIGHEST:{
+    MATCHES:{
+        name: 'Matches played',
+        value: 0,
+    },
+    ROUND:{
         name: 'Highest round',
         value: 0,
     },
@@ -36,10 +40,8 @@ export const GAME_STATS:{[key: string]: GameStats} = {
         name: 'Enemies defeated',
         value: 0,
     },
-    MATCHES:{
-        name: 'Matches played',
+    TIME:{
+        name: 'Time played',
         value: 0,
     },
-    
-
 };
