@@ -22,7 +22,6 @@ export default function MainPage() {
   };
 
 
-
   return <div className="mainPage">
     <HeaderComponent
       logo={logo[0]}
@@ -32,6 +31,8 @@ export default function MainPage() {
       isMenuOpen={isMenuOpen}
       onMenuToggle={handleMenuToggle}
     />
+    <BackgroundProp backgroundName="white-background" />
+
     <div className="mainPage-content">
       <div className="mainPage-content-left">
         <div className="LeftContentContainer">

@@ -85,9 +85,7 @@
   right: 0;
   bottom: 0;
   z-index: 998;
-  background-color: var(--dark_blue);
-  filter: var(--mainFilter);
-  width: 30%;
+  background: linear-gradient(90deg, rgba(78,61,153,1) 0%, rgba(93,51,147,1) 100%);   width: 30%;
 }
 
 .listaMenu {
