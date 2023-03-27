@@ -50,23 +50,33 @@
 
 .mainPage-content-right {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 50%;
 }
 
-.topTitle {
+
+.textContainer {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 25%;
+    height: 50%;
     width: 100%;
-    color: var(--dark_blue);
-    font-family: var(--mainFont);
     margin-top: 10%;
 }
+
+.topTitle {
+    display: flex;
+    color: #fff;
+    font-family: var(--mainFont);
+    margin-top: 10%;
+    background-color: var(--dark_blue);
+    width: 90%;
+    height: 25%;
+    padding: 20px;
+    border-radius: 25px;}
 
 .topTitle h1 {
     font-size: 2.5rem;
@@ -78,22 +88,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 25%;
+    width: 90%;
+    margin-top: 5%;
 }
 
 .mediumDescription p {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-family: var(--mainFont);
     letter-spacing: 0.1rem;
-    margin: 0 8%;
-    text-align: center;
+    text-align: justify;
 }
 
 .bottomButton {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 15%;
-    width: 100%;
+    height: 25%;
+    width: 90%;
     margin-top: 5%;
 }
 
@@ -106,9 +116,61 @@
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
-    padding: 20px 20px;
+    padding: 10px 10px;
+}
+
+.bottomButton button:hover {
+    transition: all 0.5s ease-in-out;
+    background-color: #bd4040;
 }
 
 
 
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+
+    .mainPage-content-left {
+        display: none;
+    }
+
+    .mainPage-content-right {
+        width: 100%;
+        height: 90%;
+    }
+
+    .topTitle {
+        margin-top: 60%;
+        width: 90%;
+        height: 25%;
+
+    }
+    .topTitle h1{
+        font-size: 1.5rem;
+
+    }
+
+    .mediumDescription {
+        height: 25%;
+        width: 90%;
+        margin-top: 30%;
+    }
+
+    .mediumDescription p {
+        font-size: 1.5rem;
+    }
+
+    .bottomButton {
+        height: 25%;
+        width: 90%;
+        margin-top: 0;
+        margin-top: 35%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bottomButton button {
+        font-size: 1.5rem;
+
+    }
+
+
+}

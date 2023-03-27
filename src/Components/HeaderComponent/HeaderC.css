@@ -155,3 +155,11 @@
   border-radius: 5px;
   filter: var(--mainFilter);
 }
+
+@media (max-width: 767px) {
+
+  .MenuDesplegable {
+    width: 100%;
+  }
+
+}

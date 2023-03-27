@@ -42,14 +42,16 @@ export default function MainPage() {
         </div>
       </div>
       <div className="mainPage-content-right">
-        <div className="topTitle">
-          <h1>Construyendo el futuro de la educación</h1>
-        </div>
-        <div className="mediumDescription">
-          <p>En Aulify buscamos constantemente la innovación, y así poder brindar educación a los jóvenes mexicanos mediante videos y el juego.</p>
-        </div>
-        <div className="bottomButton">
-          <button onClick={() => navigate('/register')}>¡ÚNETE A NOSOTROS!</button>
+        <div className="textContainer">
+          <div className="topTitle">
+            <h1>Construyendo el futuro de la educación</h1>
+          </div>
+          <div className="mediumDescription">
+            <p>En Aulify buscamos constantemente la innovación, y así poder brindar educación a los jóvenes mexicanos mediante videos y el juego.</p>
+          </div>
+          <div className="bottomButton">
+            <button onClick={() => navigate('/register')}>¡ÚNETE A NOSOTROS!</button>
+          </div>
         </div>
       </div>
     </div>
