@@ -24,7 +24,16 @@ export default function DashboardContainer() {
 
                 </div>
                 <div className="dashboardBottomRight">
-                    b
+                {
+  Object.keys(KID_STATISTICS).slice(Object.keys(KID_STATISTICS).length / 2).map((key) => (
+    <Stats
+      key={key}
+      name={KID_STATISTICS[key as keyof typeof KID_STATISTICS].nombre}
+      value={KID_STATISTICS[key as keyof typeof KID_STATISTICS].value}
+    />
+  ))
+}
+
                 </div>
             </div>
         </div>
