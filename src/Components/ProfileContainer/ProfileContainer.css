@@ -9,7 +9,7 @@
   }
   
   .profile-top {
-    background-color: var(--black);
+    background-color: var(--medium_blue);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -73,7 +73,7 @@
     justify-content: space-between;
     align-items: center;
     width: 60%;
-    background-color: var(--black);
+    background-color: var(--dark_blue);
     flex-direction: column;
     border-radius: 1rem;
     filter: var(--mainFilter);

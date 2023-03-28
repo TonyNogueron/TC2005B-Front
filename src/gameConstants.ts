@@ -9,6 +9,12 @@ export interface GameStats{
     value: number;
 }
 
+export interface kidStatistcs {
+  id: number;
+  nombre: string;
+  value: number;
+}
+
 export const RANKS: Rank[] = [
     {
       name: "Cupper",
@@ -45,3 +51,36 @@ export const GAME_STATS:{[key: string]: GameStats} = {
         value: 0,
     },
 };
+
+export const KID_STATISTICS: { [key: string]: kidStatistcs } = {
+  GAME_TIME: {
+    id: 1,
+    nombre: "Tiempo total de juego",
+    value: 0,
+  },
+  NUM_ERRORS: {
+    id: 2,
+    nombre: "Errores totales",
+    value: 0,
+  },
+  NUM_TRIES: {
+    id: 3,
+    nombre: "Intentos totales",
+    value: 0,
+  },
+  TOTAL_SCORE: {
+    id: 4,
+    nombre: "Puntaje total",
+    value: 0,
+  },
+  NUM_COMPLETED_LEVELS: {
+    id: 5,
+    nombre: "Niveles completados",
+    value: 0,
+  },
+  TIME_PER_LEVEL: {
+    id: 6,
+    nombre: "Tiempo por nivel",
+    value: 0,
+  },
+}

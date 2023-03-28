@@ -44,6 +44,8 @@ export interface estadosDeMexico {
     nombre: string;
 }
 
+
+
 export const LINKS: { [key: string]: LinkConstant } = {
     HOME: {
         label: 'Home',
