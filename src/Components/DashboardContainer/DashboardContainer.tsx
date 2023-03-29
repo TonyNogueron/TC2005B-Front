@@ -28,7 +28,7 @@ const apiTestResponse = [
     totalAttempts: "1",
   },
   {
-    username: "Tony2",
+    username: "Tony3",
     name: "Antonio Noguerón",
     score: 673,
     totalTimePlayed: "00:10:21",
@@ -37,7 +37,7 @@ const apiTestResponse = [
     totalAttempts: "2",
   },
   {
-    username: "Tony2",
+    username: "Tony4",
     name: "Antonio Noguerón",
     score: 673,
     totalTimePlayed: "00:10:21",
@@ -46,7 +46,7 @@ const apiTestResponse = [
     totalAttempts: "2",
   },
   {
-    username: "Tony2",
+    username: "Tony5",
     name: "Antonio Noguerón",
     score: 673,
     totalTimePlayed: "00:10:21",
@@ -55,7 +55,7 @@ const apiTestResponse = [
     totalAttempts: "2",
   },
   {
-    username: "Tony2",
+    username: "Tony6",
     name: "Antonio Noguerón",
     score: 673,
     totalTimePlayed: "00:10:21",
@@ -64,7 +64,7 @@ const apiTestResponse = [
     totalAttempts: "2",
   },
   {
-    username: "Tony2",
+    username: "Tony7",
     name: "Antonio Noguerón",
     score: 673,
     totalTimePlayed: "00:10:21",
