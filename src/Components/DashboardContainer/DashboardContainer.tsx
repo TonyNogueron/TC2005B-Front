@@ -8,6 +8,7 @@ interface IStatsProps {
 }
 
 interface IResponseData {
+  email: string;
   username: string;
   name: string;
   score: number;
@@ -19,60 +20,25 @@ interface IResponseData {
 
 const apiTestResponse = [
   {
-    username: "Tony",
-    name: "Antonio Noguerón",
-    score: 800,
-    totalTimePlayed: "00:00:00",
-    completedLevels: 1,
-    totalMistakes: "12",
-    totalAttempts: "1",
+      "username": "Tony",
+      "email": "lilyvalle06@gmail.com",
+      "name": "Antonio Noguerón",
+      "score": 800,
+      "totalTimePlayed": "00:00:00",
+      "completedLevels": 1,
+      "totalMistakes": "12",
+      "totalAttempts": "1"
   },
   {
-    username: "Tony3",
-    name: "Antonio Noguerón",
-    score: 673,
-    totalTimePlayed: "00:10:21",
-    completedLevels: 1,
-    totalMistakes: "10",
-    totalAttempts: "2",
-  },
-  {
-    username: "Tony4",
-    name: "Antonio Noguerón",
-    score: 673,
-    totalTimePlayed: "00:10:21",
-    completedLevels: 1,
-    totalMistakes: "10",
-    totalAttempts: "2",
-  },
-  {
-    username: "Tony5",
-    name: "Antonio Noguerón",
-    score: 673,
-    totalTimePlayed: "00:10:21",
-    completedLevels: 1,
-    totalMistakes: "10",
-    totalAttempts: "2",
-  },
-  {
-    username: "Tony6",
-    name: "Antonio Noguerón",
-    score: 673,
-    totalTimePlayed: "00:10:21",
-    completedLevels: 1,
-    totalMistakes: "10",
-    totalAttempts: "2",
-  },
-  {
-    username: "Tony7",
-    name: "Antonio Noguerón",
-    score: 673,
-    totalTimePlayed: "00:10:21",
-    completedLevels: 1,
-    totalMistakes: "10",
-    totalAttempts: "2",
-  },
-  
+      "username": "Tony2",
+      "email": "antonio.nogueron@hotmail.com",
+      "name": "Antonio Noguerón",
+      "score": 673,
+      "totalTimePlayed": "00:10:21",
+      "completedLevels": 1,
+      "totalMistakes": "10",
+      "totalAttempts": "2"
+  }
 ];
 
 export default function DashboardContainer() {
@@ -85,7 +51,7 @@ export default function DashboardContainer() {
 
   useEffect(() => {
     const filteredData = apiTestResponse.filter((data) =>
-      data.username.toLowerCase().includes(search.toLowerCase())
+      data.email.toLowerCase().includes(search.toLowerCase())
     );
     setResponseData(filteredData);
   }, [search]);
@@ -103,6 +69,7 @@ export default function DashboardContainer() {
         <table>
           <thead>
             <tr>
+              <th>Email</th>
               <th>Username</th>
               <th>Name</th>
               <th>Score</th>
@@ -114,7 +81,8 @@ export default function DashboardContainer() {
           </thead>
           <tbody>
             {responseData.map((data) => (
-              <tr key={data.username}>
+              <tr key={data.email}>
+                <td>{data.email}</td>
                 <td>{data.username}</td>
                 <td>{data.name}</td>
                 <td>{data.score}</td>
