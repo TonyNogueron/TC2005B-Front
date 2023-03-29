@@ -22,30 +22,6 @@
   filter: var(--mainFilter);
 }
 
-.dashboardTopRight {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.kidName {
-  font-size: 2.5rem;
-  color: #fff;
-  font-family: var(--mainFont);
-  font-weight: 700;
-  filter: var(--mainFilter);
-}
-
-.dashboardTopLeft {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .dashboardBottom {
   height: 75%;
   width: 100%;
@@ -53,22 +29,37 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin-top: 1%;
 }
 
-.dashboardBottomRight {
+.dashboardBottom table{
+  width: 100%;
   height: 100%;
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-.dashboardBottomLeft {
-  height: 100%;
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+.dashboardBottom table thead{
+  background-color: var(--dark_blue);
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  font-family: var(--mainFontBold);
+  height: 5px;
+}
+
+.dashboardBottom table tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.dashboardBottom table tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.dashboardBottom table tbody{
+  background-color: #ffffff;
+  text-align: center;
+  font-family: var(--mainFont);
+  height: 10%;
 }
