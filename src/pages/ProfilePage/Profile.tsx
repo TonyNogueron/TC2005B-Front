@@ -34,7 +34,6 @@ export const Profile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setUsername(localStorage.getItem("username") || "");
         // setImg(data.img);
       })

@@ -9,7 +9,30 @@ interface IStatsProps {
   value: number;
 }
 
-const MemoizedStats = React.memo(function StatsComponent({ name, value }: IStatsProps) {
+const testResponse = [
+  {
+      "username": "Tony",
+      "name": "Antonio Noguerón",
+      "score": 800,
+      "totalTimePlayed": "00:00:00",
+      "completedLevels": 1,
+      "totalMistakes": "12",
+      "totalAttempts": "1"
+  },
+  {
+      "username": "Tony2",
+      "name": "Antonio Noguerón",
+      "score": 673,
+      "totalTimePlayed": "00:10:21",
+      "completedLevels": 1,
+      "totalMistakes": "10",
+      "totalAttempts": "2"
+  }
+]
+const MemoizedStats = React.memo(function StatsComponent({
+  name,
+  value,
+}: IStatsProps) {
   return <Stats name={name} value={value} />;
 });
 
@@ -26,41 +49,62 @@ const debounce = <F extends (...args: any[]) => void>(
   };
 };
 
-
 export default function DashboardContainer() {
   const [search, setSearch] = useState<string>("");
-  
+
   const filterStats = useCallback((search: string) => {
     return Object.keys(KID_STATISTICS)
-      .filter((key) => KID_STATISTICS[key].nombre.toLowerCase().includes(search.toLowerCase()))
+      .filter((key) =>
+        KID_STATISTICS[key].nombre.toLowerCase().includes(search.toLowerCase())
+      )
       .reduce((obj, key) => {
         obj[key] = KID_STATISTICS[key];
         return obj;
       }, {} as typeof KID_STATISTICS);
   }, []);
-  
-
 
   const debouncedSearch = useMemo(() => {
     return debounce((search: string) => {
-      // aqui va el query al backend para traer los datos de los niños
+      fetch(`http://localhost:3001/statistic/dashboard`, {
+        method: "GET",
+        headers: {
+          "x-access-token": localStorage.getItem("token") || "",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setSearch(data.name);
+          console.log(data);
+        });
     }, 500);
   }, []);
-  
-  const handleSearch = useCallback((search: string) => {
-    debouncedSearch(search);
-  }, [debouncedSearch]);
 
-  const filteredStats = useMemo(() => filterStats(search), [filterStats, search]);
+  const handleSearch = useCallback(
+    (search: string) => {
+      debouncedSearch(search);
+    },
+    [debouncedSearch]
+  );
+
+  const filteredStats = useMemo(
+    () => filterStats(search),
+    [filterStats, search]
+  );
 
   return (
     <div>
       <div className="dashboardContainer">
         <div className="dashboardTop">
-          <div className="dashboardTopLeft"><SearchComponent search={search} setSearch={setSearch} onSearch={debouncedSearch}/></div>
+          <div className="dashboardTopLeft">
+            <SearchComponent
+              search={search}
+              setSearch={setSearch}
+              onSearch={debouncedSearch}
+            />
+          </div>
           <div className="dashboardTopRight">
-            <h1 className="kidName">{search}</h1>  
-          </div> 
+            <h1 className="kidName">{search}</h1>
+          </div>
         </div>
         <div className="dashboardBottom">
           <div className="dashboardBottomLeft">
