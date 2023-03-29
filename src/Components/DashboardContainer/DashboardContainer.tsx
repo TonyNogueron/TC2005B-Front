@@ -1,7 +1,5 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./DashboardContainer.css";
-import { KID_STATISTICS } from "src/gameConstants";
-import Stats from "../StatsProp/Stats";
 import SearchComponent from "../SearchComponent/SearchComponent";
 
 interface IStatsProps {
@@ -9,135 +7,88 @@ interface IStatsProps {
   value: number;
 }
 
-const testResponse = [
+interface IResponseData {
+  username: string;
+  name: string;
+  score: number;
+  totalTimePlayed: string;
+  completedLevels: number;
+  totalMistakes: string;
+  totalAttempts: string;
+}
+
+const apiTestResponse = [
   {
-      "username": "Tony",
-      "name": "Antonio Noguerón",
-      "score": 800,
-      "totalTimePlayed": "00:00:00",
-      "completedLevels": 1,
-      "totalMistakes": "12",
-      "totalAttempts": "1"
+    username: "Tony",
+    name: "Antonio Noguerón",
+    score: 800,
+    totalTimePlayed: "00:00:00",
+    completedLevels: 1,
+    totalMistakes: "12",
+    totalAttempts: "1",
   },
   {
-      "username": "Tony2",
-      "name": "Antonio Noguerón",
-      "score": 673,
-      "totalTimePlayed": "00:10:21",
-      "completedLevels": 1,
-      "totalMistakes": "10",
-      "totalAttempts": "2"
-  }
-]
-const MemoizedStats = React.memo(function StatsComponent({
-  name,
-  value,
-}: IStatsProps) {
-  return <Stats name={name} value={value} />;
-});
-
-const debounce = <F extends (...args: any[]) => void>(
-  func: F,
-  delay: number
-): ((...args: Parameters<F>) => void) => {
-  let timer: NodeJS.Timeout;
-  return (...args: Parameters<F>): void => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
-};
+    username: "Tony2",
+    name: "Antonio Noguerón",
+    score: 673,
+    totalTimePlayed: "00:10:21",
+    completedLevels: 1,
+    totalMistakes: "10",
+    totalAttempts: "2",
+  },
+];
 
 export default function DashboardContainer() {
-  const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useState("");
+  const [responseData, setResponseData] = useState<IResponseData[]>(apiTestResponse);
 
-  const filterStats = useCallback((search: string) => {
-    return Object.keys(KID_STATISTICS)
-      .filter((key) =>
-        KID_STATISTICS[key].nombre.toLowerCase().includes(search.toLowerCase())
-      )
-      .reduce((obj, key) => {
-        obj[key] = KID_STATISTICS[key];
-        return obj;
-      }, {} as typeof KID_STATISTICS);
+  const handleSearch = useCallback((query: string) => {
+    setSearch(query);
   }, []);
 
-  const debouncedSearch = useMemo(() => {
-    return debounce((search: string) => {
-      fetch(`http://localhost:3001/statistic/dashboard`, {
-        method: "GET",
-        headers: {
-          "x-access-token": localStorage.getItem("token") || "",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setSearch(data.name);
-          console.log(data);
-        });
-    }, 500);
-  }, []);
-
-  const handleSearch = useCallback(
-    (search: string) => {
-      debouncedSearch(search);
-    },
-    [debouncedSearch]
-  );
-
-  const filteredStats = useMemo(
-    () => filterStats(search),
-    [filterStats, search]
-  );
+  useEffect(() => {
+    const filteredData = apiTestResponse.filter((data) =>
+      data.username.toLowerCase().includes(search.toLowerCase())
+    );
+    setResponseData(filteredData);
+  }, [search]);
 
   return (
-    <div>
-      <div className="dashboardContainer">
-        <div className="dashboardTop">
-          <div className="dashboardTopLeft">
-            <SearchComponent
-              search={search}
-              setSearch={setSearch}
-              onSearch={debouncedSearch}
-            />
-          </div>
-          <div className="dashboardTopRight">
-            <h1 className="kidName">{search}</h1>
-          </div>
-        </div>
-        <div className="dashboardBottom">
-          <div className="dashboardBottomLeft">
-            {Object.keys(KID_STATISTICS)
-              .slice(0, Object.keys(KID_STATISTICS).length / 2)
-              .map((key) => (
-                <Stats
-                  key={key}
-                  name={
-                    KID_STATISTICS[key as keyof typeof KID_STATISTICS].nombre
-                  }
-                  value={
-                    KID_STATISTICS[key as keyof typeof KID_STATISTICS].value
-                  }
-                />
-              ))}
-          </div>
-          <div className="dashboardBottomRight">
-            {Object.keys(KID_STATISTICS)
-              .slice(Object.keys(KID_STATISTICS).length / 2)
-              .map((key) => (
-                <Stats
-                  key={key}
-                  name={
-                    KID_STATISTICS[key as keyof typeof KID_STATISTICS].nombre
-                  }
-                  value={
-                    KID_STATISTICS[key as keyof typeof KID_STATISTICS].value
-                  }
-                />
-              ))}
-          </div>
-        </div>
+    <div className="dashboardContainer">
+      <div className="dashboardTop">
+        <SearchComponent
+          search={search}
+          setSearch={setSearch}
+          onSearch={handleSearch}
+        />
+      </div>
+      <div className="dashboardBottom">
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Name</th>
+              <th>Score</th>
+              <th>Total Time Played</th>
+              <th>Completed Levels</th>
+              <th>Total Mistakes</th>
+              <th>Total Attempts</th>
+            </tr>
+          </thead>
+          <tbody>
+            {responseData.map((data) => (
+              <tr key={data.username}>
+                <td>{data.username}</td>
+                <td>{data.name}</td>
+                <td>{data.score}</td>
+                <td>{data.totalTimePlayed}</td>
+                <td>{data.completedLevels}</td>
+                <td>{data.totalMistakes}</td>
+                <td>{data.totalAttempts}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

@@ -31,9 +31,10 @@ export default function SearchComponent({
   const debouncedSearch = useCallback(
     debounce(() => {
       onSearch(search);
-    }, 500),
+    }, 100000000),
     [debounce, onSearch, search]
   );
+  
 
   return (
     <div>
