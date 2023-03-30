@@ -9,13 +9,13 @@ interface ProfileContainerProps {
     username: string;
     profileImg: string;
     points: number;
-    
+    matches: number;
+    highestRound: number;
+    enemiesDefeated: number;
+    timePlayed: string;
 }
 
-
-
-
-const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg,points}) => {
+const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg,points,matches,highestRound,enemiesDefeated,timePlayed}) => {
     const defaultRank: Rank = RANKS[0]; // add default rank
     const rank: Rank = RANKS.reduce((prevRank, currentRank) => {
       return points >= currentRank.threshold ? currentRank : prevRank;
@@ -39,13 +39,22 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({username, profileImg
             </div>
             <div className = "profile-bottom">
                 <div className = "left-container">
-                {Object.keys(GAME_STATS).map((key) => (
                     <Stats
-                    key={key}
-                    name={GAME_STATS[key as keyof typeof GAME_STATS].name}
-                    value={GAME_STATS[key as keyof typeof GAME_STATS].value}
+                    name={"Total Matches:"}
+                    value={matches}
                     />
-                ))}
+                    <Stats
+                    name={"Highest Round:"}
+                    value={highestRound}
+                    />
+                    <Stats
+                    name={"Enemies Defeated:"}
+                    value={enemiesDefeated}
+                    />
+                    <Stats
+                    name={"Total Time Played:"}
+                    value={timePlayed}
+                    />
                 </div>
                 <div className = "right-container">
                     <div className="Elo-container">

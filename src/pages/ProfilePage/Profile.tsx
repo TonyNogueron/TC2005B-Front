@@ -19,7 +19,12 @@ export const Profile = () => {
 
   const [getUsername, setUsername] = useState("");
   const [getImg, setImg] = useState("boy-engineer");
+  // Profile points getter and setter
   const [getPoints, setPoints] = useState(0);
+  const [getMatch, setMatch] = useState(0);
+  const [getHighestRound, setHighestRound] = useState(0);
+  const [getEnemiesDefeated, setEnemiesDefeated] = useState(0);
+  const [getTimePlayed, setTimePlayed] = useState(" ");
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -54,7 +59,7 @@ export const Profile = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
-
+      
 
 
   }, []);
@@ -72,10 +77,15 @@ export const Profile = () => {
       <BackgroundProp backgroundName="white-background" />
 
       <ProfileContainer
-        username={getUsername}
-        profileImg={getImg}
-        points={getPoints}
-      />
+  username={getUsername}
+  profileImg={getImg}
+  points={getPoints}
+  matches={getMatch}
+  highestRound={getHighestRound}
+  enemiesDefeated={getEnemiesDefeated}
+  timePlayed={getTimePlayed}
+/>
+
     </div>
   );
 };

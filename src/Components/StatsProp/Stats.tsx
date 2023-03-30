@@ -3,7 +3,7 @@ import "./Stats.css";
 
 interface StatsProps {
     name: string;
-    value: number;
+    value: number | string;
 }
 
 const Stats: React.FC<StatsProps> = ({name,value}) => {
