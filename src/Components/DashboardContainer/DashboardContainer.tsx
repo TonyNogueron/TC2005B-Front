@@ -18,6 +18,7 @@ interface IResponseData {
   totalAttempts: string;
 }
 
+/*
 const apiTestResponse = [
   {
       "username": "Tony",
@@ -40,21 +41,26 @@ const apiTestResponse = [
       "totalAttempts": "2"
   }
 ];
+*/
+
+
+
 
 export default function DashboardContainer() {
   const [search, setSearch] = useState("");
-  const [responseData, setResponseData] = useState<IResponseData[]>(apiTestResponse);
+  const [responseData, setResponseData] = useState<IResponseData[]>([]);
 
   const handleSearch = useCallback((query: string) => {
     setSearch(query);
   }, []);
 
   useEffect(() => {
-    const filteredData = apiTestResponse.filter((data) =>
-      data.email.toLowerCase().includes(search.toLowerCase())
-    );
-    setResponseData(filteredData);
-  }, [search]);
+    fetch("http://localhost:3001/statistic/dashboard")
+      .then((response) => response.json())
+      .then((data) => {
+        setResponseData(data);
+      });
+  }, []);
 
   return (
     <div className="dashboardContainer">
