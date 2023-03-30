@@ -45,6 +45,24 @@ export const Profile = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
+    
+    fetch(`${url}/statistic/?idUser=${localStorage.getItem("idUser") || 0}`, {
+      method: "GET",
+      headers: {
+        "x-access-token": localStorage.getItem("token") || "",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setMatch(data[0].matchesPlayed);
+        setHighestRound(data[0].highestRound);
+        setEnemiesDefeated(data[0].enemiesDefeated);
+        setTimePlayed(data[0].totalTimePlayed);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
 
     fetch(`${url}/elo/?idUser=${localStorage.getItem("idUser") || 0}`, {
       method: "GET",
