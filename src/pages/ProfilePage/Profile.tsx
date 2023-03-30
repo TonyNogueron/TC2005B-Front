@@ -59,9 +59,6 @@ export const Profile = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
-      
-
-
   }, []);
 
   return (
@@ -77,15 +74,14 @@ export const Profile = () => {
       <BackgroundProp backgroundName="white-background" />
 
       <ProfileContainer
-  username={getUsername}
-  profileImg={getImg}
-  points={getPoints}
-  matches={getMatch}
-  highestRound={getHighestRound}
-  enemiesDefeated={getEnemiesDefeated}
-  timePlayed={getTimePlayed}
-/>
-
+        username={getUsername}
+        profileImg={getImg}
+        points={getPoints}
+        matches={getMatch}
+        highestRound={getHighestRound}
+        enemiesDefeated={getEnemiesDefeated}
+        timePlayed={getTimePlayed}
+      />
     </div>
   );
 };
