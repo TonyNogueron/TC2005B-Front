@@ -40,7 +40,6 @@ export const Register = () => {
   ) => {
     setConfirmedPassword(event.target.value);
   };
-
   const validateUsername = async (username: string) => {
     let answer = false;
     //use fetch to validate if user exists
