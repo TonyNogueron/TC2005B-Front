@@ -54,10 +54,10 @@ export const Profile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setMatch(data.length > 0 ? data[0].matchesPlayed : 0);
-        setHighestRound(data.length > 0 ? data[0].highestRound : 0);
-        setEnemiesDefeated(data.length > 0 ? data[0].enemiesDefeated : 0);
-        setTimePlayed(data.length > 0 ? data[0].totalTimePlayed : " ");
+        setMatch(data.length > 0 ? data.matchesPlayed : 0);
+        setHighestRound(data.length > 0 ? data.highestRound : 0);
+        setEnemiesDefeated(data.length > 0 ? data.enemiesDefeated : 0);
+        setTimePlayed(data.length > 0 ? data.totalTimePlayed : " ");
       })
       .catch((error) => {
         console.error("Error:", error);

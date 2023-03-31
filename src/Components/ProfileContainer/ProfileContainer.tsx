@@ -34,6 +34,7 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({
   console.log("points:", points);
   console.log("rank:", rank);
   console.log("rankName:", rankName);
+  console.log("rankImage:", rankImage);
 
   return (
     <div className="profile-container">

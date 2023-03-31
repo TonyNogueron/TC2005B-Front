@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import "./Register.css";
 import HeaderComponent from "src/Components/HeaderComponent/HeaderComponent";
-import { HEADER_ITEMS, HeaderConstant, LOGO_CONSTANTS, LogoConstant, GRADO_ACADEMICO, ESTADOS_DE_MEXICO,BACKGROUND_CONSTANTS } from "../../constants";
+import {
+  HEADER_ITEMS,
+  HeaderConstant,
+  LOGO_CONSTANTS,
+  LogoConstant,
+  GRADO_ACADEMICO,
+  ESTADOS_DE_MEXICO,
+  BACKGROUND_CONSTANTS,
+} from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { LINKS } from "../../constants";
 import MySVG from "src/Components/SVGProp/SVGProp";
@@ -96,9 +104,9 @@ export const Register = () => {
     return answer;
   };
 
-  const validateEmail = async(email: string) => {
+  const validateEmail = async (email: string) => {
     let answer = false;
-    await fetch(`${url}/user/validate`, {
+    await fetch(`${url}/user/email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -117,57 +125,6 @@ export const Register = () => {
     return answer;
   };
 
-  const validateLastName = async(lastName: string) => {
-    await fetch(`${url}/user/validate`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ lastName }),
-    })
-  };
-  
-  const validateName = async(name: string) => {
-    await fetch(`${url}/user/validate`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name }),
-    })
-  };
-
-  const validateGradoAcademico = async(gradoAcademico: string) => {
-    await fetch(`${url}/user/validate`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ gradoAcademico }),
-    })
-  };
-
-  const validateEstado = async(estado: string) => {
-    await fetch(`${url}/user/validate`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ estado }),
-    })
-  };
-
-  const validateEdad = async(edad: number) => {
-    await fetch(`${url}/user/validate`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ edad }),
-    })
-  };
-
-
   const validatePassword = (password: string) => {
     let answer = false;
     var strongRegex = new RegExp(
@@ -181,9 +138,6 @@ export const Register = () => {
     }
     return answer;
   };
-
-
-      
 
   // If terms and conditions is not checked then don't let the user advance to the next page
   const handleRegisterSubmit = async (e: { preventDefault: () => void }) => {
@@ -202,11 +156,7 @@ export const Register = () => {
       } else {
         setPasswordsMatch(false);
       }
-      if (
-        isUsernameValid &&
-        isPasswordValid &&
-        passwordsMatch
-      ) {
+      if (isUsernameValid && isPasswordValid && passwordsMatch) {
         //use fetch to register user
         await fetch(`${url}/user`, {
           method: "POST",
@@ -222,7 +172,7 @@ export const Register = () => {
             state: getEstado,
             age: getEdad,
             email: getMail,
-            isAdmin : false,
+            isAdmin: false,
           }),
         })
           .then((response) => response.json())
@@ -263,8 +213,6 @@ export const Register = () => {
     }
   };
 
-
-
   return (
     <div className="Register">
       <HeaderComponent
@@ -301,7 +249,11 @@ export const Register = () => {
                 />
               </li>
               <li>
-                <MySVG name="user-plus" color="#005D97" nameClass="iconAulify" />
+                <MySVG
+                  name="user-plus"
+                  color="#005D97"
+                  nameClass="iconAulify"
+                />
                 <label className="labelAulify">Apellido</label>
                 <input
                   className="inputAulify"
@@ -331,7 +283,11 @@ export const Register = () => {
                 />
               </li>
               <li>
-                <MySVG name="user-lock" color="#005D97" nameClass="iconAulify" />
+                <MySVG
+                  name="user-lock"
+                  color="#005D97"
+                  nameClass="iconAulify"
+                />
                 <label className="labelAulify">Confirmar contraseña</label>
                 <input
                   className="inputAulify"
@@ -341,15 +297,27 @@ export const Register = () => {
                 />
               </li>
               <li>
-                <MySVG name="graduation-cap" color="#005D97" nameClass="iconAulify" />
+                <MySVG
+                  name="graduation-cap"
+                  color="#005D97"
+                  nameClass="iconAulify"
+                />
                 <label className="labelAulify">Grado académico</label>
-                <select className="form-select" aria-label="Default select example" defaultValue="0" onChange={handleGradoAcademicoChange}>
-  <option value="0">Elige tu grado académico</option>
-  {GRADO_ACADEMICO.map((grado, id) => {
-    return <option key={id} value={grado.id}>{grado.nombre}</option>
-  })}
-</select>
-
+                <select
+                  className="form-select"
+                  aria-label="Default select example"
+                  defaultValue="0"
+                  onChange={handleGradoAcademicoChange}
+                >
+                  <option value="0">Elige tu grado académico</option>
+                  {GRADO_ACADEMICO.map((grado, id) => {
+                    return (
+                      <option key={id} value={grado.id}>
+                        {grado.nombre}
+                      </option>
+                    );
+                  })}
+                </select>
               </li>
               <li>
                 <MySVG name="calendar" color="#005D97" nameClass="iconAulify" />
@@ -363,15 +331,26 @@ export const Register = () => {
                 />
               </li>
               <li>
-                <MySVG name="location-dot" color="#005D97" nameClass="iconAulify" />
+                <MySVG
+                  name="location-dot"
+                  color="#005D97"
+                  nameClass="iconAulify"
+                />
                 <label className="labelAulify">Estado de la república</label>
-                <select className="form-select" aria-label="Selecciona tu estado" defaultValue="0">
-  <option value="0">Selecciona tu estado</option>
-  {ESTADOS_DE_MEXICO.map((estado, id) => {
-    return <option key={id} value={estado.id}>{estado.nombre}</option>
-  })}
-</select>
-
+                <select
+                  className="form-select"
+                  aria-label="Selecciona tu estado"
+                  defaultValue="0"
+                >
+                  <option value="0">Selecciona tu estado</option>
+                  {ESTADOS_DE_MEXICO.map((estado, id) => {
+                    return (
+                      <option key={id} value={estado.id}>
+                        {estado.nombre}
+                      </option>
+                    );
+                  })}
+                </select>
               </li>
               <div className="buttonContainer">
                 <div className="crearCuenta" onClick={handleRegisterSubmit}>
@@ -383,7 +362,7 @@ export const Register = () => {
           </form>
         </div>
         <div className="rightRegister">
-        <div className="ImageContainer">
+          <div className="ImageContainer">
             <img src={nina} alt="nina" className="nina" />
           </div>
         </div>
