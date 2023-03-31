@@ -26,6 +26,13 @@ export const Register = () => {
   const [passwordRegister, setPasswordRegister] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(false);
+  const [nameRegister, setNameRegister] = useState("");
+  const [lastNameRegister, setLastNameRegister] = useState("");
+  const [getGradoAcademico, setGradoAcademico] = useState("");
+  const [getEstado, setEstado] = useState("");
+  const [getEdad, setEdad] = useState(0);
+  const [getMail, setMail] = useState("");
+  const [getIsAdmin, setIsAdmin] = useState(false);
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsernameRegister(event.target.value);
@@ -35,11 +42,38 @@ export const Register = () => {
     setPasswordRegister(event.target.value);
   };
 
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNameRegister(event.target.value);
+  };
+
+  const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLastNameRegister(event.target.value);
+  };
+
+  const handleGradoAcademicoChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setGradoAcademico(event.target.value);
+  };
+
+  const handleEstadoChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setEstado(event.target.value);
+  };
+
+  const handleEdadChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEdad(parseInt(event.target.value));
+  };
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setMail(event.target.value);
+  };
+
   const handleConfirmedPasswordChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setConfirmedPassword(event.target.value);
   };
+
   const validateUsername = async (username: string) => {
     let answer = false;
     //use fetch to validate if user exists
@@ -62,9 +96,82 @@ export const Register = () => {
     return answer;
   };
 
+  const validateEmail = async(email: string) => {
+    let answer = false;
+    await fetch(`${url}/user/validate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === "Email does not exist") {
+          answer = true;
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+    return answer;
+  };
+
+  const validateLastName = async(lastName: string) => {
+    await fetch(`${url}/user/validate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ lastName }),
+    })
+  };
+  
+  const validateName = async(name: string) => {
+    await fetch(`${url}/user/validate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name }),
+    })
+  };
+
+  const validateGradoAcademico = async(gradoAcademico: string) => {
+    await fetch(`${url}/user/validate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ gradoAcademico }),
+    })
+  };
+
+  const validateEstado = async(estado: string) => {
+    await fetch(`${url}/user/validate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ estado }),
+    })
+  };
+
+  const validateEdad = async(edad: number) => {
+    await fetch(`${url}/user/validate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ edad }),
+    })
+  };
+
+
   const validatePassword = (password: string) => {
     let answer = false;
     var strongRegex = new RegExp(
+      //"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
       "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])"
     );
 
@@ -74,6 +181,9 @@ export const Register = () => {
     }
     return answer;
   };
+
+
+      
 
   // If terms and conditions is not checked then don't let the user advance to the next page
   const handleRegisterSubmit = async (e: { preventDefault: () => void }) => {
@@ -106,7 +216,13 @@ export const Register = () => {
           body: JSON.stringify({
             username: usernameRegister,
             password: passwordRegister,
-            email: localStorage.getItem("email"),
+            name: nameRegister,
+            lastName: lastNameRegister,
+            academicGrade: getGradoAcademico,
+            state: getEstado,
+            age: getEdad,
+            email: getMail,
+            isAdmin : false,
           }),
         })
           .then((response) => response.json())
@@ -165,12 +281,23 @@ export const Register = () => {
           <form className="registerAulify">
             <ul>
               <li>
+                <MySVG name="user-tag" color="#005D97" nameClass="iconAulify" />
+                <label className="labelAulify">Nombre de usuario</label>
+                <input
+                  className="inputAulify"
+                  type="text"
+                  onChange={handleUsernameChange}
+                  placeholder="Nombre de usuario"
+                />
+              </li>
+              <li>
                 <MySVG name="user" color="#005D97" nameClass="iconAulify" />
                 <label className="labelAulify">Nombre</label>
                 <input
                   className="inputAulify"
                   type="text"
                   placeholder="Nombre"
+                  onChange={handleNameChange}
                 />
               </li>
               <li>
@@ -179,8 +306,8 @@ export const Register = () => {
                 <input
                   className="inputAulify"
                   type="text"
-                  onChange={handleUsernameChange}
                   placeholder="Nombre de usuario"
+                  onChange={handleLastNameChange}
                 />
               </li>
               <li>
@@ -190,6 +317,7 @@ export const Register = () => {
                   className="inputAulify"
                   type="text"
                   placeholder="Correo electrónico"
+                  onChange={handleEmailChange}
                 />
               </li>
               <li>
@@ -215,12 +343,13 @@ export const Register = () => {
               <li>
                 <MySVG name="graduation-cap" color="#005D97" nameClass="iconAulify" />
                 <label className="labelAulify">Grado académico</label>
-                <select className="form-select" aria-label="Default select example">
-                  <option selected value="0">Elige tu grado académico</option>
-                  {GRADO_ACADEMICO.map((grado, id) => {
-                    return <option key={id} value={grado.id}>{grado.nombre}</option>
-                  })}
-                </select>
+                <select className="form-select" aria-label="Default select example" defaultValue="0" onChange={handleGradoAcademicoChange}>
+  <option value="0">Elige tu grado académico</option>
+  {GRADO_ACADEMICO.map((grado, id) => {
+    return <option key={id} value={grado.id}>{grado.nombre}</option>
+  })}
+</select>
+
               </li>
               <li>
                 <MySVG name="calendar" color="#005D97" nameClass="iconAulify" />
@@ -236,12 +365,13 @@ export const Register = () => {
               <li>
                 <MySVG name="location-dot" color="#005D97" nameClass="iconAulify" />
                 <label className="labelAulify">Estado de la república</label>
-                <select className="form-select" aria-label="Selecciona tu estado">
-                  <option selected value="0">Selecciona tu estado</option>
-                  {ESTADOS_DE_MEXICO.map((estado, id) => {
-                    return <option key={id} value={estado.id}>{estado.nombre}</option>
-                  })}
-                </select>
+                <select className="form-select" aria-label="Selecciona tu estado" defaultValue="0">
+  <option value="0">Selecciona tu estado</option>
+  {ESTADOS_DE_MEXICO.map((estado, id) => {
+    return <option key={id} value={estado.id}>{estado.nombre}</option>
+  })}
+</select>
+
               </li>
               <div className="buttonContainer">
                 <div className="crearCuenta" onClick={handleRegisterSubmit}>
