@@ -51,15 +51,20 @@ export const LoginPage = () => {
         text: "All the fields are required!",
       });
     } else {
+      // Check if input is an email
+      const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(usernameLogin);
+
+      // Set the data to send in the fetch request
+      const requestData = isEmail
+        ? { email: usernameLogin, password: passwordLogin }
+        : { username: usernameLogin, password: passwordLogin };
+
       fetch(`${url}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          username: usernameLogin,
-          password: passwordLogin,
-        }),
+        body: JSON.stringify(requestData),
       })
         .then((response) => response.json())
         .then((data) => {
@@ -78,7 +83,7 @@ export const LoginPage = () => {
             Swal.fire({
               icon: "error",
               title: "Oops...",
-              text: "Incorrect username or password!",
+              text: "Incorrect email or username or password!",
             });
           }
         })
@@ -92,7 +97,6 @@ export const LoginPage = () => {
         });
     }
   };
-
 
   return (
     <div className="LoginContainer">
@@ -139,11 +143,18 @@ export const LoginPage = () => {
                 </li>
               </ul>
               <div className="ButtonContainer">
-                <div className="OlvideContraseña">¿Olvidaste tu contraseña?</div>
+                <div className="OlvideContraseña">
+                  ¿Olvidaste tu contraseña?
+                </div>
                 <button type="submit" className="enterButton">
                   Entrar
                 </button>
-                <button onClick={() => navigate(LINKS.REGISTER.path)} className="createButton">Crear una cuenta</button>
+                <button
+                  onClick={() => navigate(LINKS.REGISTER.path)}
+                  className="createButton"
+                >
+                  Crear una cuenta
+                </button>
               </div>
             </form>
           </div>

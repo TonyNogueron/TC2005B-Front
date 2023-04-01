@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./HeaderC.css";
-import { LINKS, LogoConstant, HeaderConstant } from '../../constants';
+import { LINKS, LogoConstant, HeaderConstant } from "../../constants";
 
 interface MenuItem {
   label: string;
@@ -32,23 +32,36 @@ const HeaderComponent: React.FC<HeaderProps> = ({
 
   let filteredMenuItems: MenuItem[] = [];
 
-
   if (isAuthenticated) {
     filteredMenuItems = isAdmin
       ? [
-        //{ label: 'Logout', path: LINKS.LOGOUT.path },
-        { label: 'Dashboard', path: LINKS.DASHBOARD.path },
-      ] // .concat(menuItems)
+          //{ label: 'Logout', path: LINKS.LOGOUT.path },
+          { label: "Dashboard", path: LINKS.DASHBOARD.path },
+        ] // .concat(menuItems)
       : menuItems;
-
   } else {
     filteredMenuItems = [
       //{ label: 'Dashboard', path: LINKS.DASHBOARD.path },
-      { label: 'Home', path: LINKS.HOME.path },
-      { label: 'About', path: LINKS.ABOUT.path },
-      { label: 'Login', path: LINKS.LOGIN.path },
+      { label: "Home", path: LINKS.HOME.path },
+      { label: "About", path: LINKS.ABOUT.path },
+      { label: "Login", path: LINKS.LOGIN.path },
     ];
   }
+
+  const logoutButton = document.getElementById('Logout');
+
+  if (logoutButton) {
+    logoutButton.addEventListener('click', () => {
+      eraseToken();
+    });
+  }
+  
+  function eraseToken() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("idUser");
+    console.log('token erased');
+  }
+  
 
   return (
     <>
@@ -84,4 +97,4 @@ const HeaderComponent: React.FC<HeaderProps> = ({
   );
 };
 
-export default HeaderComponent;      
+export default HeaderComponent;
