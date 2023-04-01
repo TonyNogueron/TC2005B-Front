@@ -4,6 +4,7 @@ import "./HeaderC.css";
 import { LINKS, LogoConstant, HeaderConstant } from "../../constants";
 
 interface MenuItem {
+  id: string;
   label: string;
   path: string;
 }
@@ -11,7 +12,6 @@ interface MenuItem {
 interface HeaderProps {
   logo: LogoConstant;
   menuItems: HeaderConstant[];
-  isMenuOpen: boolean;
   isAuthenticated: boolean;
   isAdmin: boolean;
   onMenuToggle: () => void;
@@ -36,32 +36,32 @@ const HeaderComponent: React.FC<HeaderProps> = ({
     filteredMenuItems = isAdmin
       ? [
           //{ label: 'Logout', path: LINKS.LOGOUT.path },
-          { label: "Dashboard", path: LINKS.DASHBOARD.path },
+          {
+            label: "Dashboard",
+            id: LINKS.DASHBOARD.id,
+            path: LINKS.DASHBOARD.path,
+          },
         ] // .concat(menuItems)
       : menuItems;
   } else {
     filteredMenuItems = [
-      //{ label: 'Dashboard', path: LINKS.DASHBOARD.path },
-      { label: "Home", path: LINKS.HOME.path },
-      { label: "About", path: LINKS.ABOUT.path },
-      { label: "Login", path: LINKS.LOGIN.path },
+      { label: "Home", id: LINKS.HOME.id, path: LINKS.HOME.path },
+      { label: "About", id: LINKS.ABOUT.id, path: LINKS.ABOUT.path },
+      { label: "Login", id: LINKS.LOGIN.id, path: LINKS.LOGIN.path },
     ];
   }
 
-  const logoutButton = document.getElementById('Logout');
-
-  if (logoutButton) {
-    logoutButton.addEventListener('click', () => {
-      eraseToken();
-    });
-  }
-  
   function eraseToken() {
     localStorage.removeItem("token");
     localStorage.removeItem("idUser");
-    console.log('token erased');
+    console.log("token erased");
   }
-  
+
+  const handleLogout = () => {
+    console.log("logout");
+    eraseToken();
+    navigate(LINKS.HOME.path);
+  };
 
   return (
     <>
@@ -85,11 +85,18 @@ const HeaderComponent: React.FC<HeaderProps> = ({
           <ul className={`listaMenu ${isMenuOpen ? "active" : ""}`}>
             {filteredMenuItems.map((item, index) => (
               <li className="listLi" key={index}>
-                <a id={item.label} onClick={() => navigate(item.path)}>
+                <a id={item.id} onClick={() => navigate(item.path)}>
                   {item.label}
                 </a>
               </li>
             ))}
+            {isAuthenticated && (
+              <li className="listLi">
+                <a id="logoutButton" onClick={handleLogout}>
+                  Logout
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       )}

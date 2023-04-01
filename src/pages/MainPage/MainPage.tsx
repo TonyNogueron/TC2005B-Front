@@ -28,7 +28,6 @@ export default function MainPage() {
       menuItems={menuItems}
       isAuthenticated={false}
       isAdmin={false}
-      isMenuOpen={isMenuOpen}
       onMenuToggle={handleMenuToggle}
     />
     <BackgroundProp backgroundName="white-background" />

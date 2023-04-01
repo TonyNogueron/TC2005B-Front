@@ -86,7 +86,6 @@ export const Profile = () => {
         menuItems={menuItems}
         isAuthenticated={true}
         isAdmin={false}
-        isMenuOpen={isMenuOpen}
         onMenuToggle={handleMenuToggle}
       />
       <BackgroundProp backgroundName="white-background" />

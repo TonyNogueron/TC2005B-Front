@@ -24,7 +24,6 @@ export default function Dashboard() {
             menuItems={menuItems}
             isAuthenticated={true}
             isAdmin={true}
-            isMenuOpen={isMenuOpen}
             onMenuToggle={handleMenuToggle}
         />
         <DashboardContainer />

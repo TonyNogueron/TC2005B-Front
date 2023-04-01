@@ -9,6 +9,7 @@ export const PAGE_TITLE: string = '';
 export interface LinkConstant {
     label: string;
     path: string;
+    id: string;
 }
 export interface HeaderConstant {
     label: string;
@@ -50,39 +51,49 @@ export const LINKS: { [key: string]: LinkConstant } = {
     HOME: {
         label: 'Home',
         path: '/',
+        id: 'home',
+
     },
     ABOUT: {
         label: 'About',
         path: '/about',
+        id: 'about',
     },
     PLAY: {
         label: 'Play',
         path: '/play',
+        id: 'play',
     },
     BIRTH: {
         label: 'Birth',
         path: '/birth',
+        id: 'birth',
     },
     REGISTER: {
         label: 'Register',
         path: '/register',
+        id: 'register',
     },
     LOGIN: {
         label: 'Login',
         path: '/login',
+        id: 'login',
     },
     PROFILE: {
         label: 'Profile',
         path: '/profile',
+        id: 'profile',
     },
     LEADERBOARD: {
         label: 'Leaderboard',
         path: '/leaderboard',
+        id: 'leaderboard',
     },
     // Add the admin section for the admin links
     DASHBOARD: {
         label: 'Dashboard',
         path: '/dashboard',
+        id: 'dashboard',
     },
 
 };
@@ -104,11 +115,7 @@ export const HEADER_ITEMS: HeaderConstant[] = [
         path: LINKS.PLAY.path,
         id: 'play',
     },
-    {
-        label: 'Logout',
-        path: LINKS.LOGIN.path,
-        id: 'logout',
-    },
+
 
 ];
 
