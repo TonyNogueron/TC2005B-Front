@@ -93,7 +93,7 @@
   padding: 0;
   margin: 0;
   position: absolute;
-  top: 0;
+  top: 50px;
   right: 0;
   height: 100%;
   width: 100%;
@@ -103,15 +103,15 @@
   align-items: center;
   filter: var(--mainFilter);
 
-
 }
 
-.listaMenu.active{
-}
+
 
 .listaMenu li {
-  margin-bottom: 30px;
-
+  padding: 20px;
+  width: 50%;
+  text-align: center;
+  margin-top: 5%;
 }
 
 .listLi a {
@@ -128,32 +128,23 @@
 }
 
 
-#Login {
+#login {
   background-color: var(--yellow);
-  /* Make it look like a button */
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-  filter: var(--mainFilter);
+  border-radius: 10px;
+  padding: 10px 1px;
 }
 
-#Play {
+#play {
   background-color: var(--yellow);
-  /* Make it look like a button */
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-  filter: var(--mainFilter);
+  border-radius: 10px;
+  padding: 10px 1px;
+
+}
+
+#logoutButton {
+  background-color: var(--red);
+  border-radius: 10px;
+  padding: 10px 1px;
 }
 
 @media (max-width: 767px) {

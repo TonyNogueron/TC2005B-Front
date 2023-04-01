@@ -110,11 +110,7 @@ export const HEADER_ITEMS: HeaderConstant[] = [
         path: LINKS.LEADERBOARD.path,
         id: 'leaderboard',
     },
-    {
-        label: 'Play',
-        path: LINKS.PLAY.path,
-        id: 'play',
-    },
+
 
 
 ];

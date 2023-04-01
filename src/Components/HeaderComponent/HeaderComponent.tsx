@@ -84,18 +84,21 @@ const HeaderComponent: React.FC<HeaderProps> = ({
         <div className="MenuDesplegable">
           <ul className={`listaMenu ${isMenuOpen ? "active" : ""}`}>
             {filteredMenuItems.map((item, index) => (
-              <li className="listLi" key={index}>
+              <li className="listLi" id={item.id} key={index}>
                 <a id={item.id} onClick={() => navigate(item.path)}>
                   {item.label}
                 </a>
               </li>
             ))}
             {isAuthenticated && (
-              <li className="listLi">
-                <a id="logoutButton" onClick={handleLogout}>
-                  Logout
-                </a>
-              </li>
+              <>
+                <li className="listLi" id="play">
+                  <a onClick={() => navigate(LINKS.PLAY.path)}>Play</a>
+                </li>
+                <li className="listLi" id="logoutButton">
+                  <a onClick={handleLogout}>Logout</a>
+                </li>
+              </>
             )}
           </ul>
         </div>
