@@ -1,0 +1,30 @@
+.ImageContainer {
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--customGradient);
+  background-size: 300% 300%;
+  animation: gradient 2s ease infinite;
+  filter: var(--mainFilter);
+  height: 100%;
+}
+
+.ImageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

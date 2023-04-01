@@ -2,6 +2,7 @@ import React, { useState, useCallback, useMemo } from "react";
 import nina from "src/resources/images/backgrounds/nina.png";
 import "./LoginPage.css";
 import HeaderComponent from "src/Components/HeaderComponent/HeaderComponent";
+import { RGBImg } from "src/Components/RGBImgProp/RGBImg";
 import {
   LINKS,
   LOGO_CONSTANTS,
@@ -110,9 +111,7 @@ export const LoginPage = () => {
       <BackgroundProp backgroundName="white-background" />
       <div className="twoRowContainer">
         <div className="LeftContainer">
-          <div className="ImageContainer">
-            <img src={nina} alt="nina" className="nina" />
-          </div>
+          <RGBImg img={nina} alt="nina" id="nina" />
         </div>
         <div className="RightContainer">
           <div className="Login">

@@ -15,6 +15,7 @@ import { LINKS } from "../../constants";
 import MySVG from "src/Components/SVGProp/SVGProp";
 import nina from "src/resources/images/backgrounds/nina.png";
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
+import { RGBImg } from "src/Components/RGBImgProp/RGBImg";
 
 const Swal = require("sweetalert2");
 
@@ -226,146 +227,248 @@ export const Register = () => {
       <div className="mainPageContainer">
         <div className="leftRegister">
           <form className="registerAulify">
-            <ul>
-              <li>
-                <MySVG name="user-tag" color="#005D97" nameClass="iconAulify" />
-                <label className="labelAulify">Nombre de usuario</label>
-                <input
-                  className="inputAulify"
-                  type="text"
-                  onChange={handleUsernameChange}
-                  placeholder="Nombre de usuario"
-                />
-              </li>
-              <li>
-                <MySVG name="user" color="#005D97" nameClass="iconAulify" />
-                <label className="labelAulify">Nombre</label>
-                <input
-                  className="inputAulify"
-                  type="text"
-                  placeholder="Nombre"
-                  onChange={handleNameChange}
-                />
-              </li>
-              <li>
-                <MySVG
-                  name="user-plus"
-                  color="#005D97"
-                  nameClass="iconAulify"
-                />
-                <label className="labelAulify">Apellido</label>
-                <input
-                  className="inputAulify"
-                  type="text"
-                  placeholder="Nombre de usuario"
-                  onChange={handleLastNameChange}
-                />
-              </li>
-              <li>
-                <MySVG name="envelope" color="#005D97" nameClass="iconAulify" />
-                <label className="labelAulify">Correo electrónico</label>
-                <input
-                  className="inputAulify"
-                  type="text"
-                  placeholder="Correo electrónico"
-                  onChange={handleEmailChange}
-                />
-              </li>
-              <li>
-                <MySVG name="lock" color="#005D97" nameClass="iconAulify" />
-                <label className="labelAulify">Contraseña</label>
-                <input
-                  className="inputAulify"
-                  type="password"
-                  onChange={handlePasswordChange}
-                  placeholder="Contraseña"
-                />
-              </li>
-              <li>
-                <MySVG
-                  name="user-lock"
-                  color="#005D97"
-                  nameClass="iconAulify"
-                />
-                <label className="labelAulify">Confirmar contraseña</label>
-                <input
-                  className="inputAulify"
-                  type="password"
-                  onChange={handleConfirmedPasswordChange}
-                  placeholder="Confirmar contraseña"
-                />
-              </li>
-              <li>
-                <MySVG
-                  name="graduation-cap"
-                  color="#005D97"
-                  nameClass="iconAulify"
-                />
-                <label className="labelAulify">Grado académico</label>
-                <select
-                  className="form-select"
-                  aria-label="Default select example"
-                  defaultValue="No seleccionado"
-                  onChange={handleGradoAcademicoChange}
-                >
-                  <option value="0">Elige tu grado académico</option>
-                  {GRADO_ACADEMICO.map((grado, id) => {
-                    return (
-                      <option key={id} value={grado.nombre}>
-                        {grado.nombre}
-                      </option>
-                    );
-                  })}
-                </select>
-              </li>
-              <li>
-                <MySVG name="calendar" color="#005D97" nameClass="iconAulify" />
-                <label className="labelAulify">Edad</label>
-                <input
-                  type="number"
-                  className="inputAulify"
-                  placeholder="Edad"
-                  min={0}
-                  max={100}
-                  onChange={handleEdadChange}
-                />
-              </li>
-              <li>
-                <MySVG
-                  name="location-dot"
-                  color="#005D97"
-                  nameClass="iconAulify"
-                />
-                <label className="labelAulify">Estado de la república</label>
-                <select
-                  className="form-select"
-                  aria-label="Selecciona tu estado"
-                  defaultValue="No seleccionado"
-                  onChange={handleEstadoChange}
-                >
-                  <option value="0">Selecciona tu estado</option>
-                  {ESTADOS_DE_MEXICO.map((estado, id) => {
-                    return (
-                      <option key={id} value={estado.nombre}>
-                        {estado.nombre}
-                      </option>
-                    );
-                  })}
-                </select>
-              </li>
+            <div className="topRegister">
+              <ul>
+                <li>
+                  <div className="FormAulifyContainer">
+                    <div className="iconContainer">
+                      <MySVG
+                        name="user-tag"
+                        color="#005D97"
+                        nameClass="iconAulify"
+                      />
+                    </div>
+                    <div className="LabelContainer">
+                      <label className="labelAulify">Nombre de usuario</label>
+                    </div>
+                    <div className="inputContainer">
+                      <input
+                        className="inputAulify"
+                        type="text"
+                        onChange={handleUsernameChange}
+                        placeholder="Nombre de usuario"
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="FormAulifyContainer">
+                    <div className="iconContainer">
+                      <MySVG
+                        name="user"
+                        color="#005D97"
+                        nameClass="iconAulify"
+                      />
+                    </div>
+                    <div className="LabelContainer">
+                      <label className="labelAulify">Nombre</label>
+                    </div>
+                    <div className="inputContainer">
+                      <input
+                        className="inputAulify"
+                        type="text"
+                        placeholder="Nombre"
+                        onChange={handleNameChange}
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="FormAulifyContainer">
+                    <div className="iconContainer">
+                      <MySVG
+                        name="user-plus"
+                        color="#005D97"
+                        nameClass="iconAulify"
+                      />
+                    </div>
+                    <div className="LabelContainer">
+                      <label className="labelAulify">Apellido</label>
+                    </div>
+                    <div className="inputContainer">
+                      <input
+                        className="inputAulify"
+                        type="text"
+                        placeholder="Nombre de usuario"
+                        onChange={handleLastNameChange}
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="FormAulifyContainer">
+                    <div className="iconContainer">
+                      <MySVG
+                        name="envelope"
+                        color="#005D97"
+                        nameClass="iconAulify"
+                      />
+                    </div>
+                    <div className="LabelContainer">
+                      <label className="labelAulify">Correo electrónico</label>
+                    </div>
+                    <div className="inputContainer">
+                      <input
+                        className="inputAulify"
+                        type="text"
+                        placeholder="Correo electrónico"
+                        onChange={handleEmailChange}
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="FormAulifyContainer">
+                    <div className="iconContainer">
+                      <MySVG
+                        name="lock"
+                        color="#005D97"
+                        nameClass="iconAulify"
+                      />
+                    </div>
+                    <div className="LabelContainer">
+                      <label className="labelAulify">Contraseña</label>
+                    </div>
+                    <div className="inputContainer">
+                      <input
+                        className="inputAulify"
+                        type="password"
+                        onChange={handlePasswordChange}
+                        placeholder="Contraseña"
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="FormAulifyContainer">
+                    <div className="iconContainer">
+                      <MySVG
+                        name="user-lock"
+                        color="#005D97"
+                        nameClass="iconAulify"
+                      />
+                    </div>
+                    <div className="LabelContainer">
+                      <label className="labelAulify">
+                        Confirmar contraseña
+                      </label>
+                    </div>
+                    <div className="inputContainer">
+                      <input
+                        className="inputAulify"
+                        type="password"
+                        onChange={handleConfirmedPasswordChange}
+                        placeholder="Confirmar contraseña"
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="FormAulifyContainer">
+                    <div className="iconContainer">
+                      <MySVG
+                        name="graduation-cap"
+                        color="#005D97"
+                        nameClass="iconAulify"
+                      />
+                    </div>
+                    <div className="LabelContainer">
+                      <label className="labelAulify">Grado académico</label>
+                    </div>
+                    <div className="inputContainer">
+                      <select
+                        className="form-select"
+                        aria-label="Default select example"
+                        defaultValue="No seleccionado"
+                        onChange={handleGradoAcademicoChange}
+                      >
+                        <option value="0">Elige tu grado académico</option>
+                        {GRADO_ACADEMICO.map((grado, id) => {
+                          return (
+                            <option key={id} value={grado.nombre}>
+                              {grado.nombre}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="FormAulifyContainer">
+                    <div className="iconContainer">
+                      <MySVG
+                        name="calendar"
+                        color="#005D97"
+                        nameClass="iconAulify"
+                      />
+                    </div>
+                    <div className="LabelContainer">
+                      <label className="labelAulify">Edad</label>
+                    </div>
+                    <div className="inputContainer">
+                      <input
+                        type="number"
+                        className="inputAulify"
+                        placeholder="Edad"
+                        min={0}
+                        max={100}
+                        onChange={handleEdadChange}
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="FormAulifyContainer">
+                    <div className="iconContainer">
+                      <MySVG
+                        name="location-dot"
+                        color="#005D97"
+                        nameClass="iconAulify"
+                      />
+                    </div>
+                    <div className="LabelContainer">
+                      <label className="labelAulify">
+                        Estado de la república
+                      </label>
+                    </div>
+                    <div className="inputContainer">
+                      <select
+                        className="form-select"
+                        aria-label="Selecciona tu estado"
+                        defaultValue="No seleccionado"
+                        onChange={handleEstadoChange}
+                      >
+                        <option value="0">Selecciona tu estado</option>
+                        {ESTADOS_DE_MEXICO.map((estado, id) => {
+                          return (
+                            <option key={id} value={estado.nombre}>
+                              {estado.nombre}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div className="bottomRegister">
               <div className="buttonContainer">
                 <div className="crearCuenta" onClick={handleRegisterSubmit}>
-                  <MySVG name="plus" color="white" nameClass="iconAulify" />
-                  Registrarme
+                  <div className="registerIcon">
+                    <MySVG name="plus" color="white" nameClass="iconAulify" />
+                  </div>
+                  <div className="registerText">
+                    <p>Crear cuenta</p>
+                  </div>
                 </div>
               </div>
-            </ul>
+            </div>
           </form>
         </div>
         <div className="rightRegister">
-          <div className="ImageContainer">
-            <img src={nina} alt="nina" className="nina" />
-          </div>
+          <RGBImg img={nina} alt="nina" id="nina" />
         </div>
       </div>
     </div>
