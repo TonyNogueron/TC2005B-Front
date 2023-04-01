@@ -3,12 +3,12 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
   width: 90%;
-  height: 90%;
+  height: 50%;
 }
 
 .LeftContainer {
@@ -16,17 +16,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 50%;
+  height: 100%;
   width: 50%;
-  border-bottom-left-radius: 25px;
-  border-top-left-radius: 25px;
 }
 
 .ImageContainer{
-  width: 25vw;
   border-radius: 25px;
-  margin-top: 25%;
-  margin-left: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,12 +30,14 @@
   background-size: 300% 300%;
   animation: gradient 2s ease infinite;
   filter: var(--mainFilter);
+  height: 100%;
 }
 
 .ImageContainer img{
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 25px;
 }
 
 
@@ -60,13 +57,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 50vh;
-  width: 30vw;
+  height: 100%;
+  width: 60%;
   border-radius: 25px;
   font-family: var(--mainFont);
   border: 2px solid var(--dark_blue);
-  margin-top: 25%;
-  margin-right: 25%;
+  margin-right: 12em;
+}
+
+.topLoginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
 }
 
 .LoginForm {
@@ -74,7 +79,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 50%;
+  height: 100%;
   width: 100%;
 }
 
@@ -84,16 +89,13 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  margin-bottom: 10%;
-
 }
 
 .LoginTitle {
-  font-size: 2rem;
+  font-size: 1.5em;
   font-weight: 600;
   color: var(--dark_blue);
   margin-bottom: 10%;
-  margin-top: -5%;
 }
 .LoginForm li {
   margin-bottom: 30px;
@@ -103,15 +105,12 @@
 }
 
 .LoginForm label {
-  font-size: 1.3rem;
-  margin-left: 5%;
+  font-size: 1rem;
   width: 45%;
   font-weight: 600;
-
 }
 
 .LoginForm input {
-  padding: 5px;
   border-radius: 5px;
   font-size: 1.3rem;
   border: none;
@@ -130,7 +129,6 @@
   justify-content: center;
   width: 100%;
   height: 50%;
-
 }
 
 .enterButton {
@@ -139,12 +137,11 @@
   color: #fff;
   border-radius: 10px;
   padding: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: 0.3s;
   width: 50%;
   margin-top: 5%;
-  height: 50%;
 }
 
 .enterButton:hover {
@@ -165,7 +162,7 @@
   color: #fff;
   border-radius: 10px;
   padding: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: 0.3s;
   width: 50%;
@@ -175,54 +172,46 @@
 @media (max-width: 767px) {
   .twoRowContainer {
     flex-direction: column;
-    height: 100%;
-    width: 100%;
-    margin-top: 10%;
   }
 
   .LeftContainer {
     display: none;
   }
 
-  .RightContainer {
+  .topLoginForm {
     height: 50%;
+  }
+
+  .RightContainer {
+    height: 100%;
     width: 100%;
   }
 
   .Login{
-    width: 90%;
-    height: 40vh;
-    margin-top: 5%;
+    width: 100%;
     margin-right: 0%;
     border: none;
   }
 
   .LoginForm {
-    height: 50%;
     width: 100%;
+    height: 100%;
   }
 
-  .LoginForm ul {
-    margin-top: 25%;
-    margin-bottom: 25%;
-  }
+
 
   .ButtonContainer {
-    height: 50%;
+   height: 50%;
   }
 
   .enterButton {
     width: 60%;
-    margin-top: 10%;
   }
 
   .createButton {
     width: 60%;
-    margin-top: 10%;
   }
-  .LoginTitle {
-    margin-top: 0%;
-  }
+ 
   
 }
 @keyframes gradient {

@@ -55,9 +55,9 @@ export const LoginPage = () => {
       const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(usernameLogin);
 
       // Set the data to send in the fetch request
-      const requestData = isEmail ?
-      { email: usernameLogin, password: passwordLogin } :
-      { username: usernameLogin, password: passwordLogin };
+      const requestData = isEmail
+        ? { email: usernameLogin, password: passwordLogin }
+        : { username: usernameLogin, password: passwordLogin };
 
       fetch(`${url}/login`, {
         method: "POST",
@@ -116,30 +116,32 @@ export const LoginPage = () => {
         </div>
         <div className="RightContainer">
           <div className="Login">
-            <h1 className="LoginTitle">Iniciar sesión</h1>
             <form className="LoginForm" onSubmit={handleSubmitLogin}>
-              <ul>
-                <li>
-                  <label htmlFor="username">Email/Usuario</label>
-                  <input
-                    type="text"
-                    name="username"
-                    id="username"
-                    placeholder="Email/Usuario"
-                    onChange={handleUsernameLogin}
-                  />
-                </li>
-                <li>
-                  <label htmlFor="password">Contraseña</label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Contraseña"
-                    onChange={handlePasswordLogin}
-                  />
-                </li>
-              </ul>
+              <div className="topLoginForm">
+                <h1 className="LoginTitle">Iniciar sesión</h1>
+                <ul>
+                  <li>
+                    <label htmlFor="username">Email/Usuario</label>
+                    <input
+                      type="text"
+                      name="username"
+                      id="username"
+                      placeholder="Email/Usuario"
+                      onChange={handleUsernameLogin}
+                    />
+                  </li>
+                  <li>
+                    <label htmlFor="password">Contraseña</label>
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Contraseña"
+                      onChange={handlePasswordLogin}
+                    />
+                  </li>
+                </ul>
+              </div>
               <div className="ButtonContainer">
                 <div className="OlvideContraseña">
                   ¿Olvidaste tu contraseña?
