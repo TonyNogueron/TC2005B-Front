@@ -306,13 +306,13 @@ export const Register = () => {
                 <select
                   className="form-select"
                   aria-label="Default select example"
-                  defaultValue="0"
+                  defaultValue="No seleccionado"
                   onChange={handleGradoAcademicoChange}
                 >
                   <option value="0">Elige tu grado académico</option>
                   {GRADO_ACADEMICO.map((grado, id) => {
                     return (
-                      <option key={id} value={grado.id}>
+                      <option key={id} value={grado.nombre}>
                         {grado.nombre}
                       </option>
                     );
@@ -328,6 +328,7 @@ export const Register = () => {
                   placeholder="Edad"
                   min={0}
                   max={100}
+                  onChange={handleEdadChange}
                 />
               </li>
               <li>
@@ -340,12 +341,13 @@ export const Register = () => {
                 <select
                   className="form-select"
                   aria-label="Selecciona tu estado"
-                  defaultValue="0"
+                  defaultValue="No seleccionado"
+                  onChange={handleEstadoChange}
                 >
                   <option value="0">Selecciona tu estado</option>
                   {ESTADOS_DE_MEXICO.map((estado, id) => {
                     return (
-                      <option key={id} value={estado.id}>
+                      <option key={id} value={estado.nombre}>
                         {estado.nombre}
                       </option>
                     );
