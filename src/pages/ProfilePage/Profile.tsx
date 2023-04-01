@@ -39,14 +39,27 @@ export const Profile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setUsername(localStorage.getItem("username") || "");
-        // setImg(data.img);
+        //setUsername(localStorage.getItem("username") || "");
+        fetch(`${url}/getUser/?idUser=${localStorage.getItem("idUser") || 0}`, {
+          method: "GET",
+          headers: {
+            "x-access-token": localStorage.getItem("token") || "",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            setUsername(data.length > 0 ? data[0].username : "");
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-    
-    fetch(`${url}/statistic/?idUser=${localStorage.getItem("idUser") || 0}`, {
+
+    fetch(`${url}/statistic/user/?idUser=${localStorage.getItem("idUser") || 0}`, {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token") || "",
@@ -54,15 +67,14 @@ export const Profile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setMatch(data.length > 0 ? data.matchesPlayed : 0);
-        setHighestRound(data.length > 0 ? data.highestRound : 0);
-        setEnemiesDefeated(data.length > 0 ? data.enemiesDefeated : 0);
-        setTimePlayed(data.length > 0 ? data.totalTimePlayed : " ");
+        setMatch(data.length > 0 ? data[0].matchesPlayed : 0);
+        setHighestRound(data.length > 0 ? data[0].highestRound : 0);
+        setEnemiesDefeated(data.length > 0 ? data[0].enemiesDefeated : 0);
+        setTimePlayed(data.length > 0 ? data[0].totalTimePlayed : "NO TIME");
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-
 
     fetch(`${url}/elo/?idUser=${localStorage.getItem("idUser") || 0}`, {
       method: "GET",

@@ -55,7 +55,9 @@ export const LoginPage = () => {
       const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(usernameLogin);
 
       // Set the data to send in the fetch request
-      const requestData = { username: usernameLogin, password: passwordLogin };
+      const requestData = isEmail ?
+      { email: usernameLogin, password: passwordLogin } :
+      { username: usernameLogin, password: passwordLogin };
 
       fetch(`${url}/login`, {
         method: "POST",
@@ -75,7 +77,6 @@ export const LoginPage = () => {
             localStorage.setItem("token", data.token);
             localStorage.setItem("idUser", data.idUser.toString());
             //localStorage.setItem("isAdmin", data.isAdmin.toString());
-            localStorage.setItem("username", usernameLogin);
             navigate(LINKS.PROFILE.path);
           } else {
             Swal.fire({
