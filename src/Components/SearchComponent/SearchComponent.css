@@ -1,33 +1,93 @@
 .searchContainer {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+.SearchContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.SearchLabelContainer {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.SearchButtonContainer {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.searchInput {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.SearchButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.SearchLabel {
+  font-size: 1.5rem;
+  font-family: var(--mainFontBold);
+  color: #fff;
+  filter: var(--mainFilter);
+}
+
+@media (max-width: 767px) {
+  .searchContainer {
     width: 100%;
-    flex-direction: row;
-  }
-  
-  .searchInput {
     padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    margin-right: 1rem;
+    background-color: var(--dark_blue);
   }
-  
+  .SearchLabelContainer{
+    display: none;
+  }
+
+  .SearchContainer {
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  .searchInput {
+    width: 100%;
+  }
+
+  .SearchButtonContainer {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
   .SearchButton {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
+    width: 90%;
   }
-  
-  .SearchLabel {
-    margin-right: 1rem;
-    font-size: 1.5rem;
-    font-family: var(--mainFontBold);
-    color: #fff;
-    filter: var(--mainFilter);
-  }
-  
+}

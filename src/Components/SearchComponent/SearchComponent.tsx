@@ -31,20 +31,19 @@ export default function SearchComponent({
   const debouncedSearch = useCallback(
     debounce(() => {
       onSearch(search);
+      console.log("searching for ", search);
     }, 100000000),
     [debounce, onSearch, search]
   );
   
-
   return (
-    <div>
       <div className="searchContainer">
         <div className="SearchLabelContainer">
           <label htmlFor="searchInput" className="SearchLabel">
             Ingrese nombre del niño:{" "}
           </label>
         </div>
-        <div className="SearchLabelContainer">
+        <div className="SearchContainer">
           <input
             type="text"
             id="searchInput"
@@ -63,6 +62,5 @@ export default function SearchComponent({
           </button>
         </div>
       </div>
-    </div>
   );
 }

@@ -18,34 +18,6 @@ interface IResponseData {
   totalAttempts: string;
 }
 
-/*
-const apiTestResponse = [
-  {
-      "username": "Tony",
-      "email": "lilyvalle06@gmail.com",
-      "name": "Antonio Noguerón",
-      "score": 800,
-      "totalTimePlayed": "00:00:00",
-      "completedLevels": 1,
-      "totalMistakes": "12",
-      "totalAttempts": "1"
-  },
-  {
-      "username": "Tony2",
-      "email": "antonio.nogueron@hotmail.com",
-      "name": "Antonio Noguerón",
-      "score": 673,
-      "totalTimePlayed": "00:10:21",
-      "completedLevels": 1,
-      "totalMistakes": "10",
-      "totalAttempts": "2"
-  }
-];
-*/
-
-
-
-
 export default function DashboardContainer() {
   const [search, setSearch] = useState("");
   const [responseData, setResponseData] = useState<IResponseData[]>([]);
@@ -59,36 +31,40 @@ export default function DashboardContainer() {
       .then((response) => response.json())
       .then((data) => {
         setResponseData(data);
+        console.log(data);
       });
   }, []);
 
   return (
     <div className="dashboardContainer">
       <div className="dashboardTop">
-        <SearchComponent
-          search={search}
-          setSearch={setSearch}
-          onSearch={handleSearch}
-        />
+        <div className="searcBarContainer">
+          <SearchComponent
+            search={search}
+            setSearch={setSearch}
+            onSearch={handleSearch}
+          />
+        </div>
       </div>
       <div className="dashboardBottom">
         <table>
+          <caption>Lista de jugadores:</caption>
           <thead>
             <tr>
-              <th>Email</th>
-              <th>Username</th>
-              <th>Name</th>
-              <th>Score</th>
-              <th>Total Time Played</th>
-              <th>Completed Levels</th>
-              <th>Total Mistakes</th>
-              <th>Total Attempts</th>
+              <th>Correo</th>
+              <th>Usuario</th>
+              <th>Nombre</th>
+              <th>Puntaje total</th>
+              <th>Tiempo total jugado</th>
+              <th>Niveles completados</th>
+              <th>Num. de errores</th>
+              <th>Num. total de intentos</th>
             </tr>
           </thead>
           <tbody>
             {responseData.map((data) => (
               <tr key={data.email}>
-                <td>{data.email}</td>
+                <td id="email">{data.email}</td>
                 <td>{data.username}</td>
                 <td>{data.name}</td>
                 <td>{data.score}</td>
