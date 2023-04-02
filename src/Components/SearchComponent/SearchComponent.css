@@ -15,16 +15,13 @@
 }
 
 .SearchLabelContainer {
-  width: 30%;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .SearchButtonContainer {
-  width: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
 }
 
 
