@@ -35,6 +35,15 @@ export default function DashboardContainer() {
       });
   }, []);
 
+  const filteredData = responseData.filter((data) => {
+    const searchString = search.toLowerCase();
+    return (
+      data.email.toLowerCase().includes(searchString) ||
+      data.username.toLowerCase().includes(searchString) ||
+      data.name.toLowerCase().includes(searchString)
+    );
+  });
+
   return (
     <div className="dashboardContainer">
       <div className="dashboardTop">
@@ -62,7 +71,7 @@ export default function DashboardContainer() {
             </tr>
           </thead>
           <tbody>
-            {responseData.map((data) => (
+            {filteredData.map((data) => (
               <tr key={data.email}>
                 <td id="email">{data.email}</td>
                 <td>{data.username}</td>

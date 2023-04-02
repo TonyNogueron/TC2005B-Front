@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 import "./SearchComponent.css";
 
 interface SearchComponentProps {
@@ -12,29 +12,6 @@ export default function SearchComponent({
   setSearch,
   onSearch,
 }: SearchComponentProps): JSX.Element {
-  const debounce = useCallback(
-    <F extends (...args: any[]) => void>(
-      func: F,
-      delay: number
-    ): ((...args: Parameters<F>) => void) => {
-      let timer: NodeJS.Timeout;
-      return (...args: Parameters<F>): void => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          func(...args);
-        }, delay);
-      };
-    },
-    []
-  );
-
-  const debouncedSearch = useCallback(
-    debounce(() => {
-      onSearch(search);
-      console.log("searching for ", search);
-    }, 100000000),
-    [debounce, onSearch, search]
-  );
   
   return (
       <div className="searchContainer">
@@ -52,15 +29,19 @@ export default function SearchComponent({
             value={search}
             onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
               setSearch(e.target.value);
-              debouncedSearch();
             }}
           />
         </div>
+
+      </div>
+  );
+}
+
+/*
         <div className="SearchButtonContainer">
           <button className="SearchButton" onClick={() => onSearch(search)}>
             Buscar
           </button>
         </div>
-      </div>
-  );
-}
+
+*/
