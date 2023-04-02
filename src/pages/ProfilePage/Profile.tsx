@@ -30,53 +30,28 @@ export const Profile = () => {
   };
   const url = "http://localhost:3001";
   useEffect(() => {
-    //fetch data from api
-    fetch(`${url}/statistic/?idUser=${localStorage.getItem("idUser") || 0}`, {
-      method: "GET",
-      headers: {
-        "x-access-token": localStorage.getItem("token") || "",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        //setUsername(localStorage.getItem("username") || "");
-        fetch(`${url}/getUser/?idUser=${localStorage.getItem("idUser") || 0}`, {
-          method: "GET",
-          headers: {
-            "x-access-token": localStorage.getItem("token") || "",
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            setUsername(data.length > 0 ? data[0].username : "");
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-
-    fetch(`${url}/statistic/user/?idUser=${localStorage.getItem("idUser") || 0}`, {
-      method: "GET",
-      headers: {
-        "x-access-token": localStorage.getItem("token") || "",
-      },
-    })
+    fetch(
+      `${url}/statistic/user/?idUser=${localStorage.getItem("idUser") || 0}`,
+      {
+        method: "GET",
+        headers: {
+          "x-access-token": localStorage.getItem("token") || "",
+        },
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         setMatch(data.length > 0 ? data[0].matchesPlayed : 0);
         setHighestRound(data.length > 0 ? data[0].highestRound : 0);
         setEnemiesDefeated(data.length > 0 ? data[0].enemiesDefeated : 0);
         setTimePlayed(data.length > 0 ? data[0].totalTimePlayed : "NO TIME");
+        setPoints(data.length > 0 ? data[0].score : 0);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
 
-    fetch(`${url}/elo/?idUser=${localStorage.getItem("idUser") || 0}`, {
+    fetch(`${url}/getUser/?idUser=${localStorage.getItem("idUser") || 0}`, {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token") || "",
@@ -84,7 +59,11 @@ export const Profile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setPoints(data.length > 0 ? data[0].score : 0);
+        setUsername(data.length > 0 ? data[0].username : "");
+        localStorage.setItem(
+          "username",
+          data.length > 0 ? data[0].username : ""
+        );
       })
       .catch((error) => {
         console.error("Error:", error);
