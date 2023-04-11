@@ -11,7 +11,9 @@ import {
 } from "../../constants";
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
-import LeaderContainer from "src/Components/LeaderBoardContainer/LeaderContainer";
+// import LeaderContainer from "src/Components/LeaderBoardContainer/LeaderContainer";
+import LeaderContainer from "src/Components/LeaderboardContainer/LeaderContainer";
+
 
 export default function Leaderboard() {
   const logo: LogoConstant[] = LOGO_CONSTANTS;
