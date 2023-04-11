@@ -37,7 +37,6 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({
     <div className="profile-container">
       <div className="profile-top">
         <div className="profile-img">
-          <ProfileImg name={profileImg} />
         </div>
         <div className="profile-username">
           <h1>{username}</h1>
