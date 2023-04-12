@@ -20,13 +20,18 @@ export const ResetPassword = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(true); // add state for isMenuOpen
 
+  const [getRecoverUser, setRecoverUser] = useState("");
   const navigate = useNavigate();
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handlePasswordChange = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+  };
+
   return (
-    <>
+    <div className="LoginContainer">
       <HeaderComponent
         logo={logo[0]}
         menuItems={menuItems}
@@ -34,19 +39,49 @@ export const ResetPassword = () => {
         isAdmin={false}
         onMenuToggle={handleMenuToggle}
       />
-      <div className="recoverForm">
-        <form>
-            <div className="form-top">
-                <label htmlFor="email">Email</label>
-                <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
-                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div className="form-bottom">
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </div>
-        </form>
+
+      <BackgroundProp backgroundName="white-background" />
+      <div className="twoRowContainer">
+        <div className="LeftContainer">
+          <RGBImg img={nina} alt="nina" id="nina" />
+        </div>
+        <div className="RightContainer">
+          <div className="Login">
+            <form className="LoginForm" onSubmit={handlePasswordChange}>
+              <div className="topLoginForm">
+                <h1 className="LoginTitle">
+                  Recuperar contraseña para: {getRecoverUser}
+                </h1>
+                <ul>
+                  <li>
+                    <label htmlFor="username">Contraseña</label>
+                    <input
+                      type="password"
+                      name="username"
+                      id="username"
+                      placeholder="Contraseña"
+                    />
+                  </li>
+                  <li>
+                    <label htmlFor="password">Confirmar contraseña</label>
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Contraseña"
+                    />
+                  </li>
+                </ul>
+              </div>
+              <div className="ButtonContainer">
+                <button type="submit" className="enterButton">
+                  Entrar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
-
