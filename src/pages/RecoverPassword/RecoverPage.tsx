@@ -11,7 +11,6 @@ import {
 } from "../../constants";
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
-
 const Swal = require("sweetalert2");
 
 export const RecoverPassword = () => {
@@ -20,13 +19,18 @@ export const RecoverPassword = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(true); // add state for isMenuOpen
 
+  const [getRecoverUser, setRecoverUser] = useState("");
   const navigate = useNavigate();
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleRecoverPassword = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+  };
+
   return (
-    <>
+    <div className="LoginContainer">
       <HeaderComponent
         logo={logo[0]}
         menuItems={menuItems}
@@ -34,8 +38,40 @@ export const RecoverPassword = () => {
         isAdmin={false}
         onMenuToggle={handleMenuToggle}
       />
-      <div></div>
-    </>
+
+      <BackgroundProp backgroundName="white-background" />
+      <div className="twoRowContainer">
+        <div className="LeftContainer">
+          <RGBImg img={nina} alt="nina" id="nina" />
+        </div>
+        <div className="RightContainer">
+          <div className="Login">
+            <form className="LoginForm" onSubmit={handleRecoverPassword}>
+              <div className="topLoginForm">
+                <h1 className="LoginTitle">
+                  Recuperar contraseña para: {getRecoverUser}
+                </h1>
+                <ul>
+                  <li>
+                    <label htmlFor="username">Correo electrónico registrado</label>
+                    <input
+                      type="text"
+                      name="username"
+                      id="username"
+                      placeholder="Correo electrónico"
+                    />
+                  </li>
+                </ul>
+              </div>
+              <div className="ButtonContainer">
+                <button type="submit" className="enterButton">
+                  Entrar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
-

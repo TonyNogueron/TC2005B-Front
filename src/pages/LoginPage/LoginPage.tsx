@@ -142,7 +142,7 @@ export const LoginPage = () => {
                 </ul>
               </div>
               <div className="ButtonContainer">
-                <div className="OlvideContraseña">
+                <div className="OlvideContraseña" onClick={()=>navigate(LINKS.FORGOT_PASSWORD.path)}>
                   ¿Olvidaste tu contraseña?
                 </div>
                 <button type="submit" className="enterButton">

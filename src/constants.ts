@@ -89,6 +89,13 @@ export const LINKS: { [key: string]: LinkConstant } = {
         path: '/leaderboard',
         id: 'leaderboard',
     },
+
+    FORGOT_PASSWORD: {
+        label: 'Forgot Password',
+        path: '/forgotPassword',
+        id: 'forgot-password',
+    },
+
     // Add the admin section for the admin links
     DASHBOARD: {
         label: 'Dashboard',

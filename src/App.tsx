@@ -32,7 +32,7 @@ function App() {
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<MainPage />} />
-            <Route path="/recover" element={<RecoverPassword />} />
+            <Route path="/forgotPassword" element={<RecoverPassword />} />
           </Routes>
         </Router>
       </>
