@@ -1,7 +1,8 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import nina from "src/resources/images/backgrounds/nina.png";
 import HeaderComponent from "src/Components/HeaderComponent/HeaderComponent";
 import { RGBImg } from "src/Components/RGBImgProp/RGBImg";
+import { useParams } from "react-router-dom";
 import {
   LINKS,
   LOGO_CONSTANTS,
@@ -15,19 +16,121 @@ import "./ResetPassword.css";
 const Swal = require("sweetalert2");
 
 export const ResetPassword = () => {
+  const { idUser, token } = useParams();
+
   const logo: LogoConstant[] = LOGO_CONSTANTS;
   const menuItems: HeaderConstant[] = HEADER_ITEMS;
 
   const [isMenuOpen, setIsMenuOpen] = useState(true); // add state for isMenuOpen
 
-  const [getRecoverUser, setRecoverUser] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
+
   const navigate = useNavigate();
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const validatePassword = (password: string) => {
+    let answer = false;
+    var strongRegex = new RegExp(
+      //"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+      "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])"
+    );
+
+    if (strongRegex.test(password)) {
+      answer = true;
+      //Good password
+    }
+    return answer;
+  };
+
+  const url = "http://localhost:3001";
+
+  useEffect(() => {
+    validateUserAndToken();
+  }, []);
+
+  const validateUserAndToken = () => {
+    fetch(`${url}/validateToken?idUser=${idUser}&token=${token}`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message !== "Token is valid") {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Token is not valid!",
+          });
+          navigate(LINKS.HOME.path);
+        }
+      });
+  };
+
   const handlePasswordChange = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    if (password === "" || confirm === "") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "All fields are required!",
+      });
+    } else {
+      const isPassword = validatePassword(password);
+
+      if (!isPassword) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Please input a valid password. Password must be 8 characters long and contain at least one number, one lowercase letter and one special character (!@#$%^&*)!",
+        });
+      } else {
+        if (password !== confirm) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Passwords do not match!",
+          });
+        } else {
+          fetch(`${url}/user/password`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              idUser: parseInt(idUser || "0"),
+              password: password,
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.message === "Password changed successfully") {
+                Swal.fire({
+                  icon: "success",
+                  title: "Success",
+                  text: "Your password has been updated successfully!",
+                });
+                navigate(LINKS.LOGIN.path);
+              } else {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Something went wrong!",
+                });
+              }
+            })
+            .catch((error) => {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+              });
+              console.log(error);
+            });
+        }
+      }
+    }
   };
 
   return (
@@ -49,17 +152,18 @@ export const ResetPassword = () => {
           <div className="Login">
             <form className="LoginForm" onSubmit={handlePasswordChange}>
               <div className="topLoginForm">
-                <h1 className="LoginTitle">
-                  Recuperar contraseña para: {getRecoverUser}
-                </h1>
+                <h1 className="LoginTitle">Cambiar Contraseña</h1>
                 <ul>
                   <li>
-                    <label htmlFor="username">Contraseña</label>
+                    <label htmlFor="username">Nueva Contraseña</label>
                     <input
                       type="password"
                       name="username"
-                      id="username"
+                      id="password"
                       placeholder="Contraseña"
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
                     />
                   </li>
                   <li>
@@ -67,8 +171,11 @@ export const ResetPassword = () => {
                     <input
                       type="password"
                       name="password"
-                      id="password"
+                      id="confirm"
                       placeholder="Contraseña"
+                      onChange={(e) => {
+                        setConfirm(e.target.value);
+                      }}
                     />
                   </li>
                 </ul>

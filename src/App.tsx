@@ -27,7 +27,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="/resetPassword" element={<ResetPassword />} />
+            <Route path="/resetPassword/:idUser/:token" element={<ResetPassword />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/dashboard" element={<Dashboard />} />

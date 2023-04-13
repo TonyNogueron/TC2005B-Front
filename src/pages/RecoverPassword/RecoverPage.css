@@ -1,0 +1,78 @@
+.right-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    filter: var(--mainFilter);
+  }
+
+.Recover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 60%;
+  border-radius: 2rem;
+  font-family: var(--mainFont);
+  border: 2px solid var(--dark_blue);
+  margin-right: 12em;
+}
+
+.RecoverForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.topRecoverForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  width: 80%;
+}
+
+.RecoverTitle {
+  font-size: 2.1em;
+  color: var(--dark_blue);
+  margin-bottom: 10%;
+  text-align: center;
+  width: 80%;
+}
+
+.RecoverForm label {
+  text-align: center;
+  font-size: 1.2em;
+  width: 100%;
+  font-weight: 600;
+}
+
+.RecoverForm input {
+  margin-top: 4%;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  border: none;
+  outline: none;
+  width: 100%;
+  max-width: 95%;
+  color: var(--medium_blue);
+  font-weight: bold;
+}
