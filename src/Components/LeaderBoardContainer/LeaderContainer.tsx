@@ -1,8 +1,50 @@
 import React, { useState } from "react";
 import SearchComponent from "../SearchComponent/SearchComponent";
 import "./LeaderContainer.css";
-// a
+
+const testResponse = [
+  {
+    idUser: 2,
+    username: "Tony",
+    score: 2331,
+  },
+  {
+    idUser: 4,
+    username: "Pato",
+    score: 1851,
+  },
+  {
+    idUser: 3,
+    username: "AldoBat10",
+    score: 599,
+  },
+  {
+    idUser: 5,
+    username: "Arturo",
+    score: 443,
+  },
+  {
+    idUser: 6,
+    username: "MarioS",
+    score: 0,
+  },
+  {
+    idUser: 7,
+    username: "SrPared",
+    score: 0,
+  },
+  {
+    idUser: 8,
+    username: "TonyCorreo",
+    score: 0,
+  },
+];
+
 export default function LeaderContainer() {
+  const [leaderboardData, setLeaderboardData] = useState(testResponse);
+
+  leaderboardData.sort((a, b) => b.score - a.score); // Sort the data by score in descending order
+
   return (
     <div className="leaderContainer">
       <div className="leaderTop">
@@ -11,14 +53,27 @@ export default function LeaderContainer() {
             <h1>Leaderboard</h1>
           </div>
         </div>
-        <div className="leaderBottom">
-          <div className="leaderBottomLeft"></div>
-          <div className="leaderBottomRight">
-            <div className="SearchComponent"></div>
-          </div>
-        </div>
       </div>
-      <div className="leaderBottom"></div>
+      <div className="leaderBottom">
+        <table className="leaderTable">
+          <thead>
+            <tr>
+              <th>Rango</th>
+              <th>Usuario</th>
+              <th>Puntaje</th>
+            </tr>
+          </thead>
+          <tbody>
+            {leaderboardData.map((user, index) => (
+              <tr key={user.idUser}>
+                <td>{index + 1}</td> {/* Display the rank */}
+                <td>{user.username}</td> {/* Display the username */}
+                <td>{user.score}</td> {/* Display the score */}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
