@@ -284,13 +284,13 @@ export const Register = () => {
                       />
                     </div>
                     <div className="LabelContainer">
-                      <label className="labelAulify">Apellido</label>
+                      <label className="labelAulify">Apellidos</label>
                     </div>
                     <div className="inputContainer">
                       <input
                         className="inputAulify"
                         type="text"
-                        placeholder="Nombre de usuario"
+                        placeholder="Apellidos"
                         onChange={handleLastNameChange}
                       />
                     </div>
