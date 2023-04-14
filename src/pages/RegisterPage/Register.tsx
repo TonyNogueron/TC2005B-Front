@@ -39,7 +39,7 @@ export const Register = () => {
   const [lastNameRegister, setLastNameRegister] = useState("");
   const [getGradoAcademico, setGradoAcademico] = useState("");
   const [getEstado, setEstado] = useState("");
-  const [getEdad, setEdad] = useState(0);
+  const [getEdad, setEdad] = useState("");
   const [getMail, setMail] = useState("");
   const [getIsAdmin, setIsAdmin] = useState(false);
 
@@ -70,7 +70,7 @@ export const Register = () => {
   };
 
   const handleEdadChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEdad(parseInt(event.target.value));
+    setEdad(event.target.value);
   };
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -171,9 +171,10 @@ export const Register = () => {
             lastName: lastNameRegister,
             academicGrade: getGradoAcademico,
             state: getEstado,
-            age: getEdad,
+            birthDate: getEdad,
             email: getMail,
-            isAdmin: false,
+            isAdmin: 0,
+            isVerified: 0,
           }),
         })
           .then((response) => response.json())
@@ -408,11 +409,9 @@ export const Register = () => {
                     </div>
                     <div className="inputContainer">
                       <input
-                        type="number"
+                        type="date"
                         className="inputAulify"
                         placeholder="Edad"
-                        min={0}
-                        max={100}
                         onChange={handleEdadChange}
                       />
                     </div>
