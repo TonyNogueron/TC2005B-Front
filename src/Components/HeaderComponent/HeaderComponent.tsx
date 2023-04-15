@@ -56,7 +56,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({
   const handleLogout = () => {
     console.log("logout");
     localStorage.removeItem("token");
-    
+
     navigate(LINKS.HOME.path);
   };
   return (
@@ -89,8 +89,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({
             {isAuthenticated && (
               <>
               <li className="listLi" id="profile">
-                  <a onClick={() => navigate(LINKS.PROFILE.path+"/"+ (localStorage.getItem("idUser") || 0))}>Profile</a>
-                </li>
+                  <a onClick={() => navigate(`/profile/${idUser}`)}>Profile</a>                </li>
                 <li className="listLi" id="play">
                   <a onClick={() => navigate(LINKS.PLAY.path)}>Play</a>
                 </li>
