@@ -5,6 +5,7 @@ import whiteBackground from './resources/images/backgrounds/white_background.png
 // Pages import
 
 export const PAGE_TITLE: string = '';
+export const apiURL = "http://localhost:3001";
 
 export interface LinkConstant {
     label: string;

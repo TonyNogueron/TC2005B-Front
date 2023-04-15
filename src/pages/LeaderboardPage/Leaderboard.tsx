@@ -29,7 +29,7 @@ export default function Leaderboard() {
           logo={logo[0]}
           menuItems={menuItems}
           isAuthenticated={true}
-          isAdmin={true}
+          isAdmin={false}
           onMenuToggle={handleMenuToggle}
         />
       </div>

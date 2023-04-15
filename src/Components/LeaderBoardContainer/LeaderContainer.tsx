@@ -1,85 +1,41 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import SearchComponent from "../SearchComponent/SearchComponent";
 import "./LeaderContainer.css";
+import { useNavigate } from "react-router-dom";
+import { apiURL } from "src/constants";
 
-const testResponse = [
-  {
-    idUser: 2,
-    username: "Tony",
-    score: 2331,
-  },
-  {
-    idUser: 4,
-    username: "Pato",
-    score: 1851,
-  },
-  {
-    idUser: 3,
-    username: "AldoBat10",
-    score: 599,
-  },
-  {
-    idUser: 5,
-    username: "Arturo",
-    score: 443,
-  },
-  {
-    idUser: 6,
-    username: "MarioS",
-    score: 0,
-  },
-  {
-    idUser: 7,
-    username: "SrPared",
-    score: 0,
-  },
-  {
-    idUser: 8,
-    username: "TonyCorreo",
-    score: 0,
-  },
-  {
-    idUser: 8,
-    username: "TonyCorreo3",
-    score: 0,
-  },
-  {
-    idUser: 8,
-    username: "TonyCorreo2",
-    score: 20,
-  },
-  {
-    idUser: 8,
-    username: "TonyCorreo4",
-    score: 0,
-  },
-  {
-    idUser: 8,
-    username: "TonyCorreo5",
-    score: 0,
-  },
-  {
-    idUser: 8,
-    username: "TonyCorreo6",
-    score: 0,
-  },
-  {
-    idUser: 8,
-    username: "TonyCorreo7",
-    score: 0,
-  },
-  {
-    idUser: 8,
-    username: "TonyCorreo8",
-    score: 0,
-  },
-  
-];
+interface ILeaderboardData {
+  idUser: number;
+  username: string;
+  score: number;
+}
+
 
 export default function LeaderContainer() {
-  const [leaderboardData, setLeaderboardData] = useState(testResponse);
+  const [leaderboardData, setLeaderboardData] = useState<ILeaderboardData[]>([]);
+  const navigate = useNavigate();
 
-  leaderboardData.sort((a, b) => b.score - a.score); // Sort the data by score in descending order
+  useEffect(() => {
+    fetch(`${apiURL}/statistic/leaderboard`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setLeaderboardData(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  const sortedLeaderboardData = Array.from(leaderboardData).sort((a: ILeaderboardData, b: ILeaderboardData) => {
+    return b.score - a.score;
+  });
 
   return (
     <div className="leaderContainer">
@@ -100,11 +56,11 @@ export default function LeaderContainer() {
             </tr>
           </thead>
           <tbody>
-            {leaderboardData.map((user, index) => (
-              <tr key={user.idUser}>
+            {leaderboardData.map((data, index) => (
+              <tr key={data.idUser}>
                 <td>{index + 1}</td> {/* Display the rank */}
-                <td>{user.username}</td> {/* Display the username */}
-                <td>{user.score}</td> {/* Display the score */}
+                <td>{data.username}</td> {/* Display the username */}
+                <td>{data.score}</td> {/* Display the score */}
               </tr>
             ))}
           </tbody>
