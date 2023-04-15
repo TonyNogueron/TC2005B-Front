@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import SearchComponent from "../SearchComponent/SearchComponent";
 import "./LeaderContainer.css";
 import { useNavigate } from "react-router-dom";
@@ -10,14 +10,14 @@ interface ILeaderboardData {
   score: number;
 }
 
-
 export default function LeaderContainer() {
-  const [leaderboardData, setLeaderboardData] = useState<ILeaderboardData[]>([]);
+  const [leaderboardData, setLeaderboardData] = useState<ILeaderboardData[]>(
+    []
+  );
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${apiURL}/statistic/leaderboard`,
-    {
+    fetch(`${apiURL}/statistic/leaderboard`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -33,9 +33,11 @@ export default function LeaderContainer() {
       });
   }, []);
 
-  const sortedLeaderboardData = Array.from(leaderboardData).sort((a: ILeaderboardData, b: ILeaderboardData) => {
-    return b.score - a.score;
-  });
+  const sortedLeaderboardData = Array.from(leaderboardData).sort(
+    (a: ILeaderboardData, b: ILeaderboardData) => {
+      return b.score - a.score;
+    }
+  );
 
   return (
     <div className="leaderContainer">
@@ -59,7 +61,13 @@ export default function LeaderContainer() {
             {leaderboardData.map((data, index) => (
               <tr key={data.idUser}>
                 <td>{index + 1}</td> {/* Display the rank */}
-                <td>{data.username}</td> {/* Display the username */}
+                <td
+                  onClick={() => navigate(`/profile/${data.idUser}`)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {data.username}
+                </td>{" "}
+                {/* Display the username */}
                 <td>{data.score}</td> {/* Display the score */}
               </tr>
             ))}
