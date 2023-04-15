@@ -15,6 +15,7 @@ interface HeaderProps {
   isAuthenticated: boolean;
   isAdmin: boolean;
   onMenuToggle: () => void;
+  idUser?: number;
 }
 
 const HeaderComponent: React.FC<HeaderProps> = ({
@@ -22,6 +23,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({
   logo,
   isAuthenticated,
   isAdmin,
+  idUser,
 }) => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,18 +53,12 @@ const HeaderComponent: React.FC<HeaderProps> = ({
     ];
   }
 
-  function eraseToken() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("idUser");
-    console.log("token erased");
-  }
-
   const handleLogout = () => {
     console.log("logout");
-    eraseToken();
+    localStorage.removeItem("token");
+    
     navigate(LINKS.HOME.path);
   };
-
   return (
     <>
       <header className="HeaderAulify">

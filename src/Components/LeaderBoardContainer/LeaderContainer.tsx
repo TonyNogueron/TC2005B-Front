@@ -59,15 +59,10 @@ export default function LeaderContainer() {
           </thead>
           <tbody>
             {leaderboardData.map((data, index) => (
-              <tr key={data.idUser}>
+              <tr key={data.idUser}  onClick={() => navigate(`/profile/${data.idUser}`)}
+              style={{ cursor: "pointer" }}>
                 <td>{index + 1}</td> {/* Display the rank */}
-                <td
-                  onClick={() => navigate(`/profile/${data.idUser}`)}
-                  style={{ cursor: "pointer" }}
-                >
-                  {data.username}
-                </td>{" "}
-                {/* Display the username */}
+                <td>{data.username}</td> {/* Display the username */}
                 <td>{data.score}</td> {/* Display the score */}
               </tr>
             ))}
