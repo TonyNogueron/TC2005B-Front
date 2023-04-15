@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './MainPage.css'
-import Header from "src/Components/HeaderProp/Header";
 import Footer from "src/Components/FooterProp/Footer";
 import { LOGO_CONSTANTS, LogoConstant, PAGE_TITLE, HEADER_ITEMS, HeaderConstant, LINKS } from '../../constants';
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
