@@ -44,7 +44,6 @@ export const Profile = () => {
         setEnemiesDefeated(data.length > 0 ? data[0].enemiesDefeated : 0);
         setTimePlayed(data.length > 0 ? data[0].totalTimePlayed : "NO TIME");
         setPoints(data.length > 0 ? data[0].score : 0);
-        console.log(data);
       })
       .catch((error) => {
         console.error("Error:", error);
