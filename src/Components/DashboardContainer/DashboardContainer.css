@@ -122,15 +122,15 @@ table th {
     position: relative;
   }
 
-  table {
+  .dashboardBottom table {
     border: 0;
   }
 
-  table caption {
+  .dashboardBottom  table caption {
     font-size: 1.3em;
   }
 
-  table thead {
+  .dashboardBottom table thead {
     border: none;
     clip: rect(0 0 0 0);
     position: absolute;
@@ -141,12 +141,12 @@ table th {
     width: 1px;
   }
 
-  table tr {
+  .dashboardBottom table tr {
     display: block;
     margin-bottom: 0.625em;
   }
 
-  table td {
+  .dashboardBottom table td {
     border-bottom: 1px solid #ddd;
     display: block;
     font-size: 0.8em;
@@ -154,7 +154,7 @@ table th {
     padding: 0.35em;
   }
 
-  table td::before {
+  .dashboardBottom table td::before {
     content: attr(data-label);
     float: left;
     font-weight: bold;
@@ -162,31 +162,31 @@ table th {
     font-size: 0.8em;
   }
 
-  table td:last-child {
+  .dashboardBottom table td:last-child {
     border-bottom: 0;
   }
-  td:nth-of-type(1):before {
+  .dashboardBottom td:nth-of-type(1):before {
     content: "Correo";
   }
-  td:nth-of-type(2):before {
+  .dashboardBottom td:nth-of-type(2):before {
     content: "Usuario";
   }
-  td:nth-of-type(3):before {
+  .dashboardBottom td:nth-of-type(3):before {
     content: "Nombre";
   }
-  td:nth-of-type(4):before {
+  .dashboardBottom td:nth-of-type(4):before {
     content: "Puntaje total";
   }
-  td:nth-of-type(5):before {
+  .dashboardBottom td:nth-of-type(5):before {
     content: "Tiempo total jugado";
   }
-  td:nth-of-type(6):before {
+  .dashboardBottom td:nth-of-type(6):before {
     content: "Niveles completados";
   }
-  td:nth-of-type(7):before {
+  .dashboardBottom td:nth-of-type(7):before {
     content: "Num. errores";
   }
-  td:nth-of-type(8):before {
+  .dashboardBottom td:nth-of-type(8):before {
     content: "Num. Intentos";
   }
 }

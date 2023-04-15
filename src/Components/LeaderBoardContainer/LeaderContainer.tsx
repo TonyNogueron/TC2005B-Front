@@ -38,6 +38,42 @@ const testResponse = [
     username: "TonyCorreo",
     score: 0,
   },
+  {
+    idUser: 8,
+    username: "TonyCorreo3",
+    score: 0,
+  },
+  {
+    idUser: 8,
+    username: "TonyCorreo2",
+    score: 20,
+  },
+  {
+    idUser: 8,
+    username: "TonyCorreo4",
+    score: 0,
+  },
+  {
+    idUser: 8,
+    username: "TonyCorreo5",
+    score: 0,
+  },
+  {
+    idUser: 8,
+    username: "TonyCorreo6",
+    score: 0,
+  },
+  {
+    idUser: 8,
+    username: "TonyCorreo7",
+    score: 0,
+  },
+  {
+    idUser: 8,
+    username: "TonyCorreo8",
+    score: 0,
+  },
+  
 ];
 
 export default function LeaderContainer() {
@@ -60,7 +96,7 @@ export default function LeaderContainer() {
             <tr>
               <th>Rango</th>
               <th>Usuario</th>
-              <th>Puntaje</th>
+              <th>Puntaje global</th>
             </tr>
           </thead>
           <tbody>

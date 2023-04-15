@@ -1,55 +1,113 @@
-.leaderContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    height: 65%;
-    background-color: #ff0000;
+.leaderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 65%;
+  position: absolute;
+  top: 18em;
+  left: 6.5em;
+}
+
+.leaderTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
+  top: 0em;
+  left: 0em;
+}
+
+.LeaderTopTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.LeaderTopTitle h1 {
+  font-size: 2.5rem;
+  font-family: var(--mainFontBold);
+  letter-spacing: 0.5rem;
+  color: var(--dark_blue);
+}
+
+.leaderBottom {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 90%;
+  font-family: var(--mainFont);
+}
+
+.leaderTable, tr td {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.leaderTable {
+  display: block;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+.leaderTable thead, tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;/* even columns width , fix width of table too*/
+}
+.leaderTable thead {
+  top: 0;
+  position: sticky;
+  z-index: 1;
+  background-color: var(--dark_blue);
+  color: #fff;
+  font-family: var(--mainFontBold);
+  font-size: 1.5rem;
+}
+
+.leaderTable {
+  width: 100%;
+}
+.leaderTable tbody tr:hover {
+  background-color: var(--light_blue);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.leaderTable tbody tr:hover td {
+  color: #fff;
+}
+
+.leaderTable tbody tr:first-child {
+  background-color: var(--yellow);
+  color: #fff;
+  font-family: var(--mainFontBold);
+  font-size: 1.5rem;
+
+}
+
+
+@media (max-width: 767px) {
+  .leaderContainer {
+    width: 100%;
+    height: 70%;
     position: absolute;
     top: 18em;
-    left: 6.5em;
-}
-
-.leaderTop{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 10%;
-    top: 0em;
     left: 0em;
-}
-
-.LeaderTopTitle{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: beige;
-}
-
-.LeaderTopTitle h1{
-    font-size: 2.5rem;
-    font-family: var(--mainFontBold);
-    letter-spacing: 0.5rem;
-}
+  }
 
 
-
-.leaderBottom{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 95%;
-    height: 90%;
-    background-color: aqua;
-}
-
-.leaderTable{
-    
 }
