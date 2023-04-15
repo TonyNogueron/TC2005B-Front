@@ -10,13 +10,14 @@ import {
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
 import ProfileContainer from "src/Components/ProfileContainer/ProfileContainer";
+import { useParams } from "react-router-dom";
 
 export const Profile = () => {
   const logo: LogoConstant[] = LOGO_CONSTANTS;
   const menuItems: HeaderConstant[] = HEADER_ITEMS;
   const [isMenuOpen, setIsMenuOpen] = useState(true); // add state for isMenuOpen
   const navigate = useNavigate();
-
+  const { idUser } = useParams();
   const [getUsername, setUsername] = useState("");
   const [getImg, setImg] = useState("boy-engineer");
   // Profile points getter and setter
@@ -30,15 +31,12 @@ export const Profile = () => {
   };
   const url = "http://localhost:3001";
   useEffect(() => {
-    fetch(
-      `${url}/statistic/user/?idUser=${localStorage.getItem("idUser") || 0}`,
-      {
-        method: "GET",
-        headers: {
-          "x-access-token": localStorage.getItem("token") || "",
-        },
-      }
-    )
+    fetch(`${url}/statistic/user/?idUser=${idUser}}`, {
+      method: "GET",
+      headers: {
+        "x-access-token": localStorage.getItem("token") || "",
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
         setMatch(data.length > 0 ? data[0].matchesPlayed : 0);
@@ -46,12 +44,13 @@ export const Profile = () => {
         setEnemiesDefeated(data.length > 0 ? data[0].enemiesDefeated : 0);
         setTimePlayed(data.length > 0 ? data[0].totalTimePlayed : "NO TIME");
         setPoints(data.length > 0 ? data[0].score : 0);
+        console.log(data);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
 
-    fetch(`${url}/getUser/?idUser=${localStorage.getItem("idUser") || 0}`, {
+    fetch(`${url}/getUser/?idUser=${idUser}`, {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token") || "",

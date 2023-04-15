@@ -78,7 +78,7 @@ export const LoginPage = () => {
             localStorage.setItem("token", data.token);
             localStorage.setItem("idUser", data.idUser.toString());
             //localStorage.setItem("isAdmin", data.isAdmin.toString());
-            navigate(LINKS.PROFILE.path);
+            navigate(LINKS.PROFILE.path+"/"+data.idUser);
           } else {
             Swal.fire({
               icon: "error",
@@ -145,7 +145,7 @@ export const LoginPage = () => {
                 <div className="OlvideContraseña" onClick={()=>navigate(LINKS.FORGOT_PASSWORD.path)}>
                   ¿Olvidaste tu contraseña?
                 </div>
-                <button type="submit" className="enterButton">
+                <button type="submit" className="enterButton" >
                   Entrar
                 </button>
                 <button

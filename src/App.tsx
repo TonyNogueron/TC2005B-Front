@@ -20,14 +20,18 @@ function App() {
             <Route path="/" element={<MainPage />} />
             <Route path="/register" element={<Register />} />
             <Route
-              path="/profile"
+              path="/profile/:idUser/"
               element={
                 <ProtectedRoute redirectTo="/">
                   <Profile />
                 </ProtectedRoute>
               }
             />
-            <Route path="/resetPassword/:idUser/:token" element={<ResetPassword />} />
+
+            <Route
+              path="/resetPassword/:idUser/:token"
+              element={<ResetPassword />}
+            />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
@@ -41,7 +45,6 @@ function App() {
 }
 
 export default App;
-
 
 /*
 
