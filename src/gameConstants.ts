@@ -1,3 +1,11 @@
+import BronceImg from './resources/images/eloImages/Bronce.png';
+import PlataImg from './resources/images/eloImages/Plata.png';
+import OroImg from './resources/images/eloImages/Oro.png';
+import PlatinoImg from './resources/images/eloImages/Platino.png';
+import DiamanteImg from './resources/images/eloImages/Diamante.png';
+import Challenger from './resources/images/eloImages/Challenger.png';
+
+
 export interface Rank {
     name: string;
     image: string;
@@ -17,20 +25,37 @@ export interface kidStatistcs {
 
 export const RANKS: Rank[] = [
     {
-      name: "Cupper",
-      image: "https://www.chiboost.net/storage/blog/2018/08/Bronze_Rank_of_League_of_Legends-compressor-230x230.png",
+      name: "Bronce",
+      image: BronceImg,
       threshold: 0,
     },
     {
-      name: "Silver",
-      image: "https://www.chiboost.net/storage/blog/2018/08/silver_5-compressor.png",
-      threshold: 100,
+      name: "Plata",
+      image: PlataImg,
+      threshold: 1500,
     },
     {
-      name: "Gold",
-      image: "https://www.chiboost.net/storage/blog/2018/08/gold_5-compressor.png",
-      threshold: 200,
+      name: "Oro",
+      image: OroImg,
+      threshold: 2500,
     },
+    {
+      name: "Platino",
+      image: PlatinoImg,
+      threshold: 3500,
+    },
+    {
+      name: "Diamante",
+      image: DiamanteImg,
+      threshold: 4500,
+    },
+    {
+      name: "Challenger",
+      image: Challenger,
+      threshold: 5500,
+    },
+    
+
   ];
 
 export const GAME_STATS:{[key: string]: GameStats} = {

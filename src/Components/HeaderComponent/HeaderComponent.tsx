@@ -46,9 +46,9 @@ const HeaderComponent: React.FC<HeaderProps> = ({
       : menuItems;
   } else {
     filteredMenuItems = [
-      { label: "Home", id: LINKS.HOME.id, path: LINKS.HOME.path },
-      { label: "About", id: LINKS.ABOUT.id, path: LINKS.ABOUT.path },
-      { label: "Login", id: LINKS.LOGIN.id, path: LINKS.LOGIN.path },
+      { label: "Inicio", id: LINKS.HOME.id, path: LINKS.HOME.path },
+      { label: "Acerca de", id: LINKS.ABOUT.id, path: LINKS.ABOUT.path },
+      { label: "Iniciar sesión", id: LINKS.LOGIN.id, path: LINKS.LOGIN.path },
     ];
   }
 
@@ -100,10 +100,10 @@ const HeaderComponent: React.FC<HeaderProps> = ({
                   </a>{" "}
                 </li>
                 <li className="listLi" id="play">
-                  <a onClick={() => navigate(LINKS.PLAY.path)}>Play</a>
+                  <a onClick={() => navigate(LINKS.PLAY.path)}>Jugar</a>
                 </li>
                 <li className="listLi" id="logoutButton">
-                  <a onClick={handleLogout}>Logout</a>
+                  <a onClick={handleLogout}>Cerrar sesión</a>
                 </li>
               </>
             )}

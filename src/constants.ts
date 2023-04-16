@@ -50,18 +50,18 @@ export interface estadosDeMexico {
 
 export const LINKS: { [key: string]: LinkConstant } = {
     HOME: {
-        label: 'Home',
+        label: 'Inicio',
         path: '/',
         id: 'home',
 
     },
     ABOUT: {
-        label: 'About',
+        label: 'Acerca de',
         path: '/about',
         id: 'about',
     },
     PLAY: {
-        label: 'Play',
+        label: 'Jugar',
         path: '/play',
         id: 'play',
     },
@@ -71,22 +71,22 @@ export const LINKS: { [key: string]: LinkConstant } = {
         id: 'birth',
     },
     REGISTER: {
-        label: 'Register',
+        label: 'Registro',
         path: '/register',
         id: 'register',
     },
     LOGIN: {
-        label: 'Login',
+        label: 'Iniciar sesión',
         path: '/login',
         id: 'login',
     },
     PROFILE: {
-        label: 'Profile',
+        label: 'Perfil',
         path: '/profile',
         id: 'profile',
     },
     LEADERBOARD: {
-        label: 'Leaderboard',
+        label: 'Tablero de clasificación',
         path: '/leaderboard',
         id: 'leaderboard',
     },
@@ -109,12 +109,12 @@ export const LINKS: { [key: string]: LinkConstant } = {
 
 export const HEADER_ITEMS: HeaderConstant[] = [
     {
-        label: 'Home',
+        label: 'Inicio',
         path: LINKS.HOME.path,
         id: 'home',
     },
     {
-        label: 'Leaderboard',
+        label: 'Clasificación',
         path: LINKS.LEADERBOARD.path,
         id: 'leaderboard',
     },
@@ -172,16 +172,33 @@ export const PROFILE_IMAGE_CONSTANTS: ProfileImageConstant[] = [
 export const GRADO_ACADEMICO: gradoAcademico[] = [
     {
         id: 1,
-        nombre: 'Primaria',
+        nombre: '3ro de Primaria',
     },
     {
         id: 2,
-        nombre: 'Secundaria',
+        nombre: '4to de Primaria',
     },
     {
         id: 3,
-        nombre: 'Preparatoria',
+        nombre: '5to de Primaria',
     },
+    {
+        id: 4,
+        nombre: '6to de Primaria',
+    },
+    {
+        id: 5,
+        nombre: '1ro de Secundaria',
+    },
+    {
+        id: 6,
+        nombre: '2do de Secundaria',
+    },
+    {
+        id: 7,
+        nombre: '3ro de Secundaria',
+    },
+
 ];
 
 export const ESTADOS_DE_MEXICO: estadosDeMexico[] = [
