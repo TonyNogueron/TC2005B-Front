@@ -23,7 +23,6 @@ const HeaderComponent: React.FC<HeaderProps> = ({
   logo,
   isAuthenticated,
   isAdmin,
-  idUser,
 }) => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +53,6 @@ const HeaderComponent: React.FC<HeaderProps> = ({
   }
 
   const handleLogout = () => {
-    console.log("logout");
     localStorage.removeItem("token");
 
     navigate(LINKS.HOME.path);
@@ -88,8 +86,19 @@ const HeaderComponent: React.FC<HeaderProps> = ({
             ))}
             {isAuthenticated && (
               <>
-              <li className="listLi" id="profile">
-                  <a onClick={() => navigate(`/profile/${idUser}`)}>Profile</a>                </li>
+                <li className="listLi" id="profile">
+                  <a
+                    onClick={() => {
+                      navigate(
+                        LINKS.PROFILE.path +
+                          "/" +
+                          localStorage.getItem("idUser")
+                      );
+                    }}
+                  >
+                    Profile
+                  </a>{" "}
+                </li>
                 <li className="listLi" id="play">
                   <a onClick={() => navigate(LINKS.PLAY.path)}>Play</a>
                 </li>

@@ -77,8 +77,23 @@ export const LoginPage = () => {
             });
             localStorage.setItem("token", data.token);
             localStorage.setItem("idUser", data.idUser.toString());
-            //localStorage.setItem("isAdmin", data.isAdmin.toString());
-            navigate(LINKS.PROFILE.path+"/"+data.idUser);
+            fetch(`${url}/getUser/?idUser=${data.idUser}`, {
+              method: "GET",
+              headers: {
+                "x-access-token": localStorage.getItem("token") || "",
+              },
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                localStorage.setItem(
+                  "username",
+                  data.length > 0 ? data[0].username : ""
+                );
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+            navigate(LINKS.PROFILE.path + "/" + localStorage.getItem("idUser"));
           } else {
             Swal.fire({
               icon: "error",
@@ -142,10 +157,13 @@ export const LoginPage = () => {
                 </ul>
               </div>
               <div className="ButtonContainer">
-                <div className="OlvideContraseña" onClick={()=>navigate(LINKS.FORGOT_PASSWORD.path)}>
+                <div
+                  className="OlvideContraseña"
+                  onClick={() => navigate(LINKS.FORGOT_PASSWORD.path)}
+                >
                   ¿Olvidaste tu contraseña?
                 </div>
-                <button type="submit" className="enterButton" >
+                <button type="submit" className="enterButton">
                   Entrar
                 </button>
                 <button
@@ -162,43 +180,3 @@ export const LoginPage = () => {
     </div>
   );
 };
-
-/*
-      //Submit
-      /*axios
-        .post(`${url}/login`, {
-          username: usernameLogin,
-          password: passwordLogin,
-        })
-        .then((response: { data: ApiResponse }) => {
-          if (response.data.message === "User logged in successfully") {
-            Swal.fire({
-              icon: "success",
-              title: "Success",
-              text: "You have successfully logged in!",
-            });
-            localStorage.setItem("token", response.data.token);
-            localStorage.setItem("idUser", response.data.idUser.toString());
-            navigate(LINKS.PROFILE.path);
-          } else {
-            Swal.fire({
-              icon: "error",
-              title: "Oops...",
-              text: "Incorrect username or password!",
-            });
-          }
-        })
-        .catch((error: any) => {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
-          });
-
-          console.log(error);
-        });
-
-
-          CHANGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO, DATE DE BAJA PLOX!!!!!;
-
-        */

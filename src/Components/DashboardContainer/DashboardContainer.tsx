@@ -31,7 +31,6 @@ export default function DashboardContainer() {
       .then((response) => response.json())
       .then((data) => {
         setResponseData(data);
-        console.log(data);
       });
   }, []);
 

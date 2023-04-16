@@ -18,7 +18,6 @@ export const Profile = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(true); // add state for isMenuOpen
   const navigate = useNavigate();
   const { idUser } = useParams();
-  const [getUsername, setUsername] = useState("");
   const [getImg, setImg] = useState("boy-engineer");
   // Profile points getter and setter
   const [getPoints, setPoints] = useState(0);
@@ -26,6 +25,9 @@ export const Profile = () => {
   const [getHighestRound, setHighestRound] = useState(0);
   const [getEnemiesDefeated, setEnemiesDefeated] = useState(0);
   const [getTimePlayed, setTimePlayed] = useState(" ");
+
+  const [username, setUsername] = useState("");
+
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -57,16 +59,12 @@ export const Profile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setUsername(data.length > 0 ? data[0].username : "");
-        localStorage.setItem(
-          "username",
-          data.length > 0 ? data[0].username : ""
-        );
+        setUsername(data.username);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-  }, []);
+  }, [idUser]);
 
   return (
     <div>
@@ -80,7 +78,7 @@ export const Profile = () => {
       <BackgroundProp backgroundName="white-background" />
 
       <ProfileContainer
-        username={getUsername}
+        username={username}
         profileImg={getImg}
         points={getPoints}
         matches={getMatch}
