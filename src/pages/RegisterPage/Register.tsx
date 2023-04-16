@@ -81,6 +81,11 @@ export const Register = () => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setConfirmedPassword(event.target.value);
+    if (event.target.value === passwordRegister) {
+      setPasswordsMatch(true);
+    } else {
+      setPasswordsMatch(false);
+    }
   };
 
   const validateUsername = async (username: string) => {
