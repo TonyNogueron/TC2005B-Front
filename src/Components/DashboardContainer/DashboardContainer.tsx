@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import "./DashboardContainer.css";
 import SearchComponent from "../SearchComponent/SearchComponent";
+import { apiURL } from "src/constants";
 
 interface IStatsProps {
   name: string;
@@ -27,7 +28,7 @@ export default function DashboardContainer() {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3001/statistic/dashboard")
+    fetch(`${apiURL}/statistic/dashboard`)
       .then((response) => response.json())
       .then((data) => {
         setResponseData(data);
