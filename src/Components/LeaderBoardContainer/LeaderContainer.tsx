@@ -21,6 +21,7 @@ export default function LeaderContainer() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "x-access-token": localStorage.getItem("token") || "",
       },
     })
       .then((response) => response.json())
