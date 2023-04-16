@@ -6,6 +6,7 @@ import {
   HeaderConstant,
   LOGO_CONSTANTS,
   LogoConstant,
+  apiURL,
 } from "../../constants";
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
@@ -31,9 +32,8 @@ export const Profile = () => {
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  const url = "http://localhost:3001";
   useEffect(() => {
-    fetch(`${url}/statistic/user/?idUser=${idUser}}`, {
+    fetch(`${apiURL}/statistic/user/?idUser=${idUser}}`, {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token") || "",
@@ -51,7 +51,7 @@ export const Profile = () => {
         console.error("Error:", error);
       });
 
-    fetch(`${url}/getUser/?idUser=${idUser}`, {
+    fetch(`${apiURL}/getUser/?idUser=${idUser}`, {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token") || "",

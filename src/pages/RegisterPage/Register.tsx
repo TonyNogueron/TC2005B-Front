@@ -8,7 +8,7 @@ import {
   LogoConstant,
   GRADO_ACADEMICO,
   ESTADOS_DE_MEXICO,
-  BACKGROUND_CONSTANTS,
+  apiURL,
 } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { LINKS } from "../../constants";
@@ -29,7 +29,6 @@ export const Register = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const url = "http://localhost:3001";
 
   const [usernameRegister, setUsernameRegister] = useState("");
   const [passwordRegister, setPasswordRegister] = useState("");
@@ -91,7 +90,7 @@ export const Register = () => {
   const validateUsername = async (username: string) => {
     let answer = false;
     //use fetch to validate if user exists
-    await fetch(`${url}/user/validate`, {
+    await fetch(`${apiURL}/user/validate`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -112,7 +111,7 @@ export const Register = () => {
 
   const validateEmail = async (email: string) => {
     let answer = false;
-    await fetch(`${url}/user/email`, {
+    await fetch(`${apiURL}/user/email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -164,7 +163,7 @@ export const Register = () => {
       }
       if (isUsernameValid && isPasswordValid && passwordsMatch) {
         //use fetch to register user
-        await fetch(`${url}/user`, {
+        await fetch(`${apiURL}/user`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

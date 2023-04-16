@@ -9,6 +9,7 @@ import {
   LogoConstant,
   HEADER_ITEMS,
   HeaderConstant,
+  apiURL,
 } from "../../constants";
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
@@ -39,10 +40,6 @@ export const LoginPage = () => {
   }) => {
     setPasswordLogin(e.target.value);
   };
-
-  //const url = process.env.REACT_APP_API_URL;
-  const url = "http://localhost:3001";
-
   const handleSubmitLogin = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (usernameLogin === "" || passwordLogin === "") {
@@ -60,7 +57,7 @@ export const LoginPage = () => {
         ? { email: usernameLogin, password: passwordLogin }
         : { username: usernameLogin, password: passwordLogin };
 
-      fetch(`${url}/login`, {
+      fetch(`${apiURL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +74,7 @@ export const LoginPage = () => {
             });
             localStorage.setItem("token", data.token);
             localStorage.setItem("idUser", data.idUser.toString());
-            fetch(`${url}/getUser/?idUser=${data.idUser}`, {
+            fetch(`${apiURL}/getUser/?idUser=${data.idUser}`, {
               method: "GET",
               headers: {
                 "x-access-token": localStorage.getItem("token") || "",

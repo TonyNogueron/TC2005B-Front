@@ -8,6 +8,7 @@ import {
   LogoConstant,
   HEADER_ITEMS,
   HeaderConstant,
+  apiURL,
 } from "../../constants";
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
@@ -26,7 +27,6 @@ export const RecoverPassword = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const url = "http://localhost:3001";
   const handleRecoverPassword = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (email === "") {
@@ -48,7 +48,7 @@ export const RecoverPassword = () => {
         // Set the data to send in the fetch request
         const requestData = { email: email };
 
-        fetch(`${url}/forgotPassword`, {
+        fetch(`${apiURL}/forgotPassword`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

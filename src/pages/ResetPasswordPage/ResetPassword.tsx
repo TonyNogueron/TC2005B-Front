@@ -9,6 +9,7 @@ import {
   LogoConstant,
   HEADER_ITEMS,
   HeaderConstant,
+  apiURL,
 } from "../../constants";
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
@@ -45,14 +46,13 @@ export const ResetPassword = () => {
     return answer;
   };
 
-  const url = "http://localhost:3001";
 
   useEffect(() => {
     validateUserAndToken();
   }, []);
 
   const validateUserAndToken = () => {
-    fetch(`${url}/validateToken?idUser=${idUser}&token=${token}`, {
+    fetch(`${apiURL}/validateToken?idUser=${idUser}&token=${token}`, {
       method: "GET",
     })
       .then((response) => response.json())
@@ -93,7 +93,7 @@ export const ResetPassword = () => {
             text: "Passwords do not match!",
           });
         } else {
-          fetch(`${url}/user/password`, {
+          fetch(`${apiURL}/user/password`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
