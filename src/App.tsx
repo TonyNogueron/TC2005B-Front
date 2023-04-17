@@ -9,6 +9,7 @@ import Dashboard from "./pages/DashBoardPage/Dashboard";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import { RecoverPassword } from "./pages/RecoverPassword/RecoverPage";
 import { ResetPassword } from "./pages/ResetPasswordPage/ResetPassword";
+import PlayPage from "./pages/PlayPage/PlayPage";
 // Pages
 
 function App() {
@@ -27,6 +28,15 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/play"
+              element={
+                <ProtectedRoute redirectTo="/">
+                  <PlayPage />
+                </ProtectedRoute>
+              }
+            />
+            
 
             <Route
               path="/resetPassword/:idUser/:token"
