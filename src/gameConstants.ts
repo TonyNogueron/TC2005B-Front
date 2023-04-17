@@ -23,6 +23,14 @@ export interface kidStatistcs {
   value: number;
 }
 
+export interface gamesProperties {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+  url: string;
+}
+
 export const RANKS: Rank[] = [
     {
       name: "Bronce",
@@ -109,3 +117,34 @@ export const KID_STATISTICS: { [key: string]: kidStatistcs } = {
     value: 0,
   },
 }
+
+export const GAMES_PROPERTIES: { [key: string]: gamesProperties } = {
+  MATH: {
+    id: 1,
+    name: "Matemáticas",
+    image: "https://i.ibb.co/0nZ3Z3T/math.png",
+    description: "Juego de matemáticas",
+    url: "/math",
+  },
+  MEMORY: {
+    id: 2,
+    name: "Memoria",
+    image: "https://i.ibb.co/0nZ3Z3T/math.png",
+    description: "Juego de memoria",
+    url: "/memory",
+  },
+  WINNING_CODE: {
+    id: 3,
+    name: "Winning Code",
+    image: "https://i.ibb.co/0nZ3Z3T/math.png",
+    description: "Juego de Winning Code",
+    url: "/winning-code",
+  },
+  HISTORY: {
+    id: 4,
+    name: "Historia",
+    image: "https://i.ibb.co/0nZ3Z3T/math.png",
+    description: "Juego de historia",
+    url: "/history",
+  },
+};
