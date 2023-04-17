@@ -96,7 +96,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({
                       );
                     }}
                   >
-                    Profile
+                    Perfil
                   </a>{" "}
                 </li>
                 <li className="listLi" id="play">
