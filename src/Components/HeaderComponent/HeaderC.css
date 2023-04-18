@@ -45,6 +45,7 @@
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   filter: var(--mainFilter);
+  object-fit: fill;
 }
 
 

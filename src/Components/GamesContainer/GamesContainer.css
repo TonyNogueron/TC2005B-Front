@@ -1,11 +1,21 @@
-.games-container{
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
+.games-container {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  width: 90%;
+  height: 60%;
+  margin-top: 18em;
+  margin-left: 5%;
+}
+
+@media screen and (max-width: 600px) {
+  .games-container {
+    flex-direction: column;
     width: 90%;
-    height: 60%;
+    background-color: aqua;
     margin-top: 18em;
-    margin-left: 5%;
+  }
+
 }

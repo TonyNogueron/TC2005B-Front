@@ -6,7 +6,7 @@ import DiamanteImg from './resources/images/eloImages/Diamante.png';
 import Challenger from './resources/images/eloImages/Challenger.png';
 import BlackHoleImg from './resources/images/gamesImages/Bh.png';
 import WinningCodeImg from './resources/images/gamesImages/WinningCode.png';
-
+import PlanetExplorerImg from './resources/images/gamesImages/Planet.png';
 export interface Rank {
     name: string;
     image: string;
@@ -143,8 +143,8 @@ export const GAMES_PROPERTIES: { [key: string]: gamesProperties } = {
   },
   HISTORY: {
     id: 4,
-    name: "Historia",
-    image: "https://htmlcolorcodes.com/assets/images/colors/pastel-purple-color-solid-background-1920x1080.png",
+    name: "Planet Explorer",
+    image: PlanetExplorerImg,
     description: "Juego de historia",
     url: "/history",
   },
