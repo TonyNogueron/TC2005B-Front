@@ -116,6 +116,10 @@ table th {
   text-transform: uppercase;
 }
 
+#email {
+  font-size: 0.7rem;
+}
+
 @media screen and (max-width: 600px) {
   .dashboardContainer {
     height: 50%;

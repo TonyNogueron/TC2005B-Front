@@ -4,7 +4,8 @@ import OroImg from './resources/images/eloImages/Oro.png';
 import PlatinoImg from './resources/images/eloImages/Platino.png';
 import DiamanteImg from './resources/images/eloImages/Diamante.png';
 import Challenger from './resources/images/eloImages/Challenger.png';
-
+import BlackHoleImg from './resources/images/gamesImages/Bh.png';
+import WinningCodeImg from './resources/images/gamesImages/WinningCode.png';
 
 export interface Rank {
     name: string;
@@ -121,8 +122,8 @@ export const KID_STATISTICS: { [key: string]: kidStatistcs } = {
 export const GAMES_PROPERTIES: { [key: string]: gamesProperties } = {
   MATH: {
     id: 1,
-    name: "Matemáticas",
-    image: "https://www.colorhexa.com/ff6961.png",
+    name: "Black Hole",
+    image: BlackHoleImg,
     description: "Juego de matemáticas",
     url: "/math",
   },
@@ -136,7 +137,7 @@ export const GAMES_PROPERTIES: { [key: string]: gamesProperties } = {
   WINNING_CODE: {
     id: 3,
     name: "Winning Code",
-    image: "https://htmlcolorcodes.com/assets/images/colors/pastel-blue-color-solid-background-1920x1080.png",
+    image: WinningCodeImg,
     description: "Juego de Winning Code",
     url: "http://winning-code.s3-website-us-east-1.amazonaws.com/",
   },

@@ -11,7 +11,6 @@
   cursor: pointer;
   border-top-right-radius: 90px;
   border-bottom-left-radius: 90px;
-
 }
 
 .game-image-background {
@@ -31,7 +30,6 @@
   background-position: center;
   border-top-right-radius: 90px;
   border-bottom-left-radius: 90px;
-
 }
 
 .gameBottomContainer {
@@ -78,7 +76,6 @@
   width: 90%;
   height: 30%;
   text-shadow: 0 0 1.5px #000;
-
 }
 
 .game-play-buttonContainer {
@@ -93,7 +90,7 @@
 .game-play-button {
   width: 20%;
   height: 90%;
-  background-color:  #97db7b ;
+  background-color: #97db7b;
   border-radius: 5px;
   display: flex;
   justify-content: center;
