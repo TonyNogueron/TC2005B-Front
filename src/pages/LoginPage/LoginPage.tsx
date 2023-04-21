@@ -74,7 +74,7 @@ export const LoginPage = () => {
             });
             localStorage.setItem("token", data.token);
             localStorage.setItem("idUser", data.idUser.toString());
-            fetch(`${apiURL}/getUser/?idUser=${data.idUser}`, {
+            fetch(`${apiURL}/getUser?idUser=${data.idUser}`, {
               method: "GET",
               headers: {
                 "x-access-token": localStorage.getItem("token") || "",

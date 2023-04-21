@@ -33,7 +33,7 @@ export const Profile = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   useEffect(() => {
-    fetch(`${apiURL}/statistic/user/?idUser=${idUser}}`, {
+    fetch(`${apiURL}/statistic/user?idUser=${idUser}`, {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token") || "",
@@ -51,7 +51,7 @@ export const Profile = () => {
         console.error("Error:", error);
       });
 
-    fetch(`${apiURL}/getUser/?idUser=${idUser}`, {
+    fetch(`${apiURL}/getUser?idUser=${idUser}`, {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token") || "",
