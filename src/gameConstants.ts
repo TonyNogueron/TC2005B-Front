@@ -7,6 +7,7 @@ import Challenger from './resources/images/eloImages/Challenger.png';
 import BlackHoleImg from './resources/images/gamesImages/Bh.png';
 import WinningCodeImg from './resources/images/gamesImages/WinningCode.png';
 import PlanetExplorerImg from './resources/images/gamesImages/Planet.png';
+import SmartSurvivalImg from './resources/images/gamesImages/Trivia.png';
 export interface Rank {
     name: string;
     image: string;
@@ -129,8 +130,8 @@ export const GAMES_PROPERTIES: { [key: string]: gamesProperties } = {
   },
   MEMORY: {
     id: 2,
-    name: "Memoria",
-    image: "https://www.icolorpalette.com/download/solidcolorimage/ff964f_solid_color_background_icolorpalette.png",
+    name: "Smart Survival",
+    image: SmartSurvivalImg,
     description: "Juego de memoria",
     url: "/memory",
   },
