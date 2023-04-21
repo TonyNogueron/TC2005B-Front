@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./HeaderC.css";
 import { LINKS, LogoConstant, HeaderConstant } from "../../constants";
@@ -33,6 +33,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({
 
   let filteredMenuItems: MenuItem[] = [];
 
+
   if (isAuthenticated) {
     filteredMenuItems = isAdmin
       ? [
@@ -57,6 +58,8 @@ const HeaderComponent: React.FC<HeaderProps> = ({
 
     navigate(LINKS.HOME.path);
   };
+
+
   return (
     <>
       <header className="HeaderAulify">
