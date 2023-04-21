@@ -26,7 +26,7 @@ export const Profile = () => {
   const [getHighestRound, setHighestRound] = useState(0);
   const [getEnemiesDefeated, setEnemiesDefeated] = useState(0);
   const [getTimePlayed, setTimePlayed] = useState(" ");
-
+  const [getIsAdmin, setIsAdmin] = useState(false);
   const [username, setUsername] = useState("");
 
   const handleMenuToggle = () => {
@@ -60,6 +60,7 @@ export const Profile = () => {
       .then((response) => response.json())
       .then((data) => {
         setUsername(data.username);
+        setIsAdmin(data.isAdmin);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -72,7 +73,7 @@ export const Profile = () => {
         logo={logo[0]}
         menuItems={menuItems}
         isAuthenticated={true}
-        isAdmin={false}
+        isAdmin={getIsAdmin}
         onMenuToggle={handleMenuToggle}
       />
       <BackgroundProp backgroundName="white-background" />
