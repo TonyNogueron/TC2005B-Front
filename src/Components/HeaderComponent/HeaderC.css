@@ -31,7 +31,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10em;
+  height: 15em;
   padding: 0 30px;
   position: fixed;
   top: 0;
@@ -150,8 +150,34 @@
 
 @media (max-width: 767px) {
 
+  .HeaderAulify {
+    height: 5em;
+  }
+
   .MenuDesplegable {
     width: 100%;
   }
 
+  .listaMenu {
+    top: 5em;
+  }
+
+
+  .listLi a {
+    font-size: 1.5em;
+  }
+
+  .headerLogo {
+    height: 100%;
+  }
+
+  .headerLogo img {
+    height: 100%;
+  }
+
+  .headerMenu {
+    font-size: 2em;
+  }
+
+  
 }
