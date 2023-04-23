@@ -122,11 +122,13 @@
 @media screen and (max-width: 600px) {
   .game-container {
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 90%;
     height: 20%;
-    margin-top: 1em;
     border-top-right-radius: 10px;
   }
+  
   .game-image-background {
     width: 100%;
   }
