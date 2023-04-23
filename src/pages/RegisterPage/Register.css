@@ -192,11 +192,26 @@
   transition: 0.3s;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 767px) {
   .mainPageContainer {
     flex-direction: column;
     width: 100%;
-    height: 70%;
+    height: 90%;
   }
   .rightRegister {
     display: none;
@@ -213,12 +228,25 @@
     border: none;
   }
 
+  .topRegister ul{
+    height: 100%;
+    margin-top: 10em;
+  }
+
+  .topRegister ul li{
+    height: 2em;
+  }
+
+  .FormAulifyContainer {
+    width: 100%;
+  }
+
   .iconContainer {
     display: none
   }
   
   .LabelContainer {
-    width: 30%;
+    width: 5em;
   }
   
   .FormAulifyContainer{
@@ -229,18 +257,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 2em;
     width: 70%;
   }
 
   .topRegister {
     height: 75%;
-    width: 100%;
+    width: 90%;
     margin-top: 10em;
   }
 
   .bottomRegister {
-    height: 25%;
+    height: 5em;
     width: 100%;
   }
 

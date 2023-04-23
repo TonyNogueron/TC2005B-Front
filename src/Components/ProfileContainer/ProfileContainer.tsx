@@ -31,7 +31,7 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({
 
   const rankName: string = rank ? rank.name : "";
   const rankImage: string = rank ? rank.image : "";
-  
+
   // I need the total time played to transform it into hours, minutes and seconds (it's currently in seconds)
   function formatTimePlayed(timePlayed: string) {
     const seconds = parseInt(timePlayed, 10);
@@ -40,13 +40,11 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({
     const remainingSeconds = seconds % 60;
     return `${hours}h ${minutes}m ${remainingSeconds}s`;
   }
-  
 
   return (
     <div className="profile-container">
       <div className="profile-top">
-        <div className="profile-img">
-        </div>
+        <div className="profile-img"></div>
         <div className="profile-username">
           <h1>{username}</h1>
         </div>
@@ -56,11 +54,16 @@ const ProfileContainer: React.FC<ProfileContainerProps> = ({
           <Stats name={"Partidas totales:"} value={matches} />
           <Stats name={"Ronda más alta:"} value={highestRound} />
           <Stats name={"Enemigos derrotados:"} value={enemiesDefeated} />
-          <Stats name={"Tiempo total jugado :"} value={formatTimePlayed(timePlayed)} />
+          <Stats
+            name={"Tiempo total jugado :"}
+            value={formatTimePlayed(timePlayed)}
+          />
         </div>
         <div className="right-container">
           <div className="Elo-container">
-            {rank && <Elo name={rankName} eloImg={rankImage} />}
+            <div className="elo-rankImg">
+              {rank && <Elo name={rankName} eloImg={rankImage} />}
+            </div>
             <div className="rank-container">
               <h2 className="rank-name">{rankName}</h2>
               <h2 className="rank-points">{points} puntos</h2>

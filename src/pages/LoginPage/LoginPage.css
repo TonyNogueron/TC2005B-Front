@@ -20,6 +20,7 @@
   width: 50%;
 }
 
+
 .RightContainer {
   display: flex;
   flex-direction: column;
@@ -150,7 +151,6 @@
 @media (max-width: 767px) {
   .twoRowContainer {
     flex-direction: column;
-    position: fixed;
   }
 
   .LeftContainer {
@@ -166,21 +166,21 @@
     width: 100%;
   }
 
-  .Login {
+  .Login{
     width: 100%;
     margin-right: 0%;
     border: none;
-    position: fixed;
   }
 
   .LoginForm {
     width: 100%;
     height: 100%;
   }
+
 
   .ButtonContainer {
     margin-top: 5em;
-    height: 50%;
+   height: 50%;
   }
 
   .enterButton {
@@ -190,51 +190,6 @@
   .createButton {
     width: 60%;
   }
-}
-
-@media only screen and (min-width: 375px) and (orientation: landscape)
-{
-  .twoRowContainer {
-    flex-direction: column;
-    position: fixed;
-  }
-
-  .LeftContainer {
-    display: none;
-  }
-
-  .topLoginForm {
-    height: 50%;
-  }
-
-  .RightContainer {
-    height: 100%;
-    width: 100%;
-  }
-
-  .Login {
-    width: 100%;
-    margin-right: 0%;
-    border: none;
-    position: fixed;
-  }
-
-  .LoginForm {
-    width: 100%;
-    height: 100%;
-  }
-
-  .ButtonContainer {
-    margin-top: 10em;
-    height: 50%;
-    position: fixed;
-  }
-
-  .enterButton {
-    width: 60%;
-  }
-
-  .createButton {
-    width: 60%;
-  }
+ 
+  
 }

@@ -76,3 +76,48 @@
   color: var(--medium_blue);
   font-weight: bold;
 }
+
+@media (max-width: 767px) {
+  .Recover {
+    height: 100%;
+    width: 100%;
+    margin-right: 0;
+    background-color: aquamarine;
+  }
+
+  .LeftContainer{
+    display: none;
+  }
+
+  .RecoverForm {
+    height: 100%;
+    width: 100%;
+    background-color: bisque;
+  }
+
+  .topRecoverForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
+  }
+
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 80%;
+  }
+
+  .RecoverTitle {
+    display: none;
+  }
+
+  .inputWrapper{
+    font-size: 0.8rem;
+  }
+}
