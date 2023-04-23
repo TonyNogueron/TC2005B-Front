@@ -139,31 +139,31 @@
     }
 
     .topTitle {
-        margin-top: 60%;
-        width: 90%;
-        height: 25%;
+        margin-top: 15em;
+        width: 80%;
+        height: 4em;
 
     }
     .topTitle h1{
-        font-size: 1.5rem;
-
+        font-size: 1.2rem;
+        text-align: center;
     }
 
     .mediumDescription {
-        height: 25%;
-        width: 90%;
-        margin-top: 30%;
+        height: 5em;
+        width: 80%;
+        margin-top: 5em;
     }
 
     .mediumDescription p {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .bottomButton {
         height: 25%;
         width: 90%;
         margin-top: 0;
-        margin-top: 35%;
+        margin-top: 8em;
         align-items: center;
         justify-content: center;
     }
