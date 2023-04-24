@@ -144,6 +144,8 @@ export const Register = () => {
     return answer;
   };
 
+
+
   // If terms and conditions is not checked then don't let the user advance to the next page
   const handleRegisterSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -156,6 +158,7 @@ export const Register = () => {
     } else {
       const isUsernameValid = await validateUsername(usernameRegister);
       const isPasswordValid = validatePassword(passwordRegister);
+      const isEmailValid = await validateEmail(getMail);
       if (passwordRegister === confirmedPassword) {
         setPasswordsMatch(true);
       } else {
@@ -213,6 +216,12 @@ export const Register = () => {
             icon: "error",
             title: "Oops...",
             text: "Passwords don't match!",
+          });
+        } else if (!isEmailValid) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Email already exists!",
           });
         }
       }
