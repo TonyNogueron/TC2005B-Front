@@ -48,7 +48,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({
   } else {
     filteredMenuItems = [
       { label: "Inicio", id: LINKS.HOME.id, path: LINKS.HOME.path },
-      { label: "Acerca de", id: LINKS.ABOUT.id, path: LINKS.ABOUT.path },
+      //{ label: "Acerca de", id: LINKS.ABOUT.id, path: LINKS.ABOUT.path },
       { label: "Iniciar sesión", id: LINKS.LOGIN.id, path: LINKS.LOGIN.path },
     ];
   }
