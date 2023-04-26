@@ -44,7 +44,11 @@ function App() {
             />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={
+              <ProtectedRoute redirectTo="/">
+                <Dashboard />
+              </ProtectedRoute>
+            } />
             <Route path="*" element={<MainPage />} />
             <Route path="/forgotPassword" element={<RecoverPassword />} />
           </Routes>
