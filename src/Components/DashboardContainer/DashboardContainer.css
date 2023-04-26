@@ -66,6 +66,8 @@
   align-items: center;
   margin-top: 2em;
   flex-grow: 1; /* Add 'flex-grow: 1' to make the table expand to the bottom */
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 
@@ -87,18 +89,23 @@ table caption {
 }
 
 .dashboardBottom table thead {
+  top: 0;
+  position: sticky;
+  z-index: 1;
   background-color: var(--dark_blue);
-  color: #ffffff;
-  text-align: center;
-  font-weight: bold;
+  color: #fff;
   font-family: var(--mainFontBold);
-  min-height: 30px; /* set a minimum height for the header */
-  font-size: 1em; /* decrease font size for the header */
+  font-size: 1rem;
+  table-layout: fixed;/* even columns width , fix width of table too*/
+
+
 }
 
 .dashboardBottom table tr {
   border-bottom: 1px solid #dddddd;
   padding: 0.5em;
+  table-layout: fixed;/* even columns width , fix width of table too*/
+
 }
 
 .dashboardBottom table tr:nth-of-type(even) {

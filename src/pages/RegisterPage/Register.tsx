@@ -418,7 +418,7 @@ export const Register = () => {
                       />
                     </div>
                     <div className="LabelContainer">
-                      <label className="labelAulify">Edad</label>
+                      <label className="labelAulify">Fecha de nacimiento</label>
                     </div>
                     <div className="inputContainer">
                       <input
