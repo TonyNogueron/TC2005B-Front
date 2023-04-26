@@ -82,9 +82,11 @@ export const LoginPage = () => {
             })
               .then((response) => response.json())
               .then((data) => {
+                console.log(data);
+                localStorage.setItem("username", data ? data.username : "");
                 localStorage.setItem(
-                  "username",
-                  data.length > 0 ? data[0].username : ""
+                  "isAdmin",
+                  data ? (data.isAdmin ? "true" : "false") : "false"
                 );
               })
               .catch((error) => {

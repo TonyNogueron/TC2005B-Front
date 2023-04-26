@@ -53,7 +53,7 @@ function App() {
             <Route
               path="/dashboard"
               element={
-                <ProtectedRoute redirectTo="/">
+                <ProtectedRoute redirectTo="/" requiresAdmin={true}>
                   <Dashboard />
                 </ProtectedRoute>
               }

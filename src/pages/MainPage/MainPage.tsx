@@ -7,50 +7,29 @@ import {
   PAGE_TITLE,
   HEADER_ITEMS,
   HeaderConstant,
-  LINKS,
-  apiURL,
 } from "../../constants";
 import BackgroundProp from "src/Components/BackgroundProp/BackgroundProp";
 import { useNavigate } from "react-router-dom";
 import HeaderComponent from "src/Components/HeaderComponent/HeaderComponent";
 import nina from "src/resources/images/backgrounds/kid.png";
-import { useParams } from "react-router-dom";
 
 export default function MainPage() {
   const title = PAGE_TITLE;
-  const { idUser } = useParams();
   const logo: LogoConstant[] = LOGO_CONSTANTS;
   const menuItems: HeaderConstant[] = HEADER_ITEMS;
   const [isMenuOpen, setIsMenuOpen] = useState(true); // add state for isMenuOpen
   const navigate = useNavigate();
-  const [getIsAdmin, setIsAdmin] = useState(false);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  useEffect(() => {
-    fetch(`${apiURL}/getUser/?idUser=${idUser}`, {
-      method: "GET",
-      headers: {
-        "x-access-token": localStorage.getItem("token") || "",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setIsAdmin(data.isAdmin);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }, [idUser]);
   return (
     <div className="mainPage">
       <HeaderComponent
         logo={logo[0]}
         menuItems={menuItems}
         isAuthenticated={false}
-        isAdmin={getIsAdmin}
+        isAdmin={false}
         onMenuToggle={handleMenuToggle}
       />
       <BackgroundProp backgroundName="white-background" />
