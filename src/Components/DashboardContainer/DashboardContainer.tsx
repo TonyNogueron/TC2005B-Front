@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import "./DashboardContainer.css";
 import SearchComponent from "../SearchComponent/SearchComponent";
 import { apiURL } from "src/constants";
-import * as XLSX from 'xlsx';
+import * as XLSX from "xlsx";
 
 interface IStatsProps {
   name: string;
@@ -29,7 +29,12 @@ export default function DashboardContainer() {
   }, []);
 
   useEffect(() => {
-    fetch(`${apiURL}/statistic/dashboard`)
+    fetch(`${apiURL}/statistic/dashboard`, {
+      method: "GET",
+      headers: {
+        "x-access-token": localStorage.getItem("token") || "",
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
         setResponseData(data);
@@ -48,10 +53,10 @@ export default function DashboardContainer() {
   const handleExport = () => {
     const workbook = XLSX.utils.book_new();
     const worksheet = XLSX.utils.json_to_sheet(filteredData);
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Player Stats');
-    XLSX.writeFile(workbook, 'player-stats.xlsx');
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Player Stats");
+    XLSX.writeFile(workbook, "player-stats.xlsx");
   };
-  
+
   function formatTimePlayed(timePlayed: string) {
     const seconds = parseInt(timePlayed, 10);
     const hours = Math.floor(seconds / 3600);
@@ -59,8 +64,6 @@ export default function DashboardContainer() {
     const remainingSeconds = seconds % 60;
     return `${hours}h ${minutes}m ${remainingSeconds}s`;
   }
-  
-
 
   return (
     <div className="dashboardContainer">
@@ -73,7 +76,7 @@ export default function DashboardContainer() {
           />
         </div>
         <div className="exportButtonContainer">
-          <button onClick={handleExport}>Export to XLSX</button> 
+          <button onClick={handleExport}>Export to XLSX</button>
         </div>
       </div>
       <div className="dashboardBottom">

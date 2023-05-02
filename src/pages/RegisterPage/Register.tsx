@@ -29,7 +29,6 @@ export const Register = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-
   const [usernameRegister, setUsernameRegister] = useState("");
   const [passwordRegister, setPasswordRegister] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
@@ -144,8 +143,6 @@ export const Register = () => {
     return answer;
   };
 
-
-
   // If terms and conditions is not checked then don't let the user advance to the next page
   const handleRegisterSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -165,7 +162,29 @@ export const Register = () => {
         setPasswordsMatch(false);
       }
       if (isUsernameValid && isPasswordValid && passwordsMatch) {
-        //use fetch to register user
+        await fetch(
+          "https://mkjy54goze.execute-api.us-east-1.amazonaws.com/registro",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              alias: usernameRegister,
+              contrasena: passwordRegister,
+              nombre: nameRegister,
+              apellido_paterno: lastNameRegister,
+              apellido_materno: lastNameRegister,
+              grado_escolar: getGradoAcademico,
+              estado_republica: getEstado,
+              fecha_nacimiento: getEdad,
+              correo: getMail,
+            }),
+          }
+        ).catch((error) => {
+          console.error("Error:", error);
+        });
+
         await fetch(`${apiURL}/user`, {
           method: "POST",
           headers: {
