@@ -147,6 +147,6 @@ export const GAMES_PROPERTIES: { [key: string]: gamesProperties } = {
     name: "Planet Explorer",
     image: PlanetExplorerImg,
     description: "Juego de historia",
-    url: "/history",
+    url: "https://main.d1qpt6u4oyzh18.amplifyapp.com/games",
   },
 };
