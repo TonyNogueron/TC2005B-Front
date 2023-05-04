@@ -35,8 +35,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 80%;
+  height: calc(100% - 2em);
+  width: calc(100% - 2em);
   border: 2px solid var(--medium_blue);
   border-radius: 20px;
   background-color: #fff;
@@ -53,7 +53,7 @@
 }
 
 .registerAulify ul li {
-  width: 100%;
+  width: 100%;  
   margin-right: 3.5em;
 }
 
@@ -62,8 +62,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  margin: 0.2em;
+  width: calc(100% - 2em);
+  height: calc(100% - 0.1em);
+  margin: calc(0.1em + 0.02vw);
 }
 
 .iconContainer {
@@ -78,16 +79,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 20%;
+  height: calc(100% - 0.5em);
+  width: calc(60% - 0.5em);
 }
 
 .inputContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 70%;
+  height: calc(100% - 0.5em);
+  width: calc(70% - 0.5em);
+  max-height: 2em;
+  min-height: 100%;
 }
 
 .iconAulify {
@@ -98,7 +101,7 @@
 .registerAulify ul li label {
   filter: var(--mainFilter);
   color: var(--medium_blue);
-  width: 100%;
+  width: calc(100% - 0.5em);
 }
 
 .registerAulify ul li input {
@@ -108,8 +111,9 @@
   outline: none;
   border: none;
   border-bottom: 2px solid var(--medium_blue);
-  font-size: 1rem;
-  width: 100%;
+  font-size: calc(1rem + 0.01rem);
+  width: calc(100% - 0.5em);
+  height: calc(100% - 0.5em);
 }
 
 .form-select {
@@ -119,7 +123,7 @@
   justify-content: center;
   outline: none;
   border: none;
-  height: 2em;
+  height: calc(2em - 0.8em);
   width: 20em;
   border-bottom: 2px solid var(--medium_blue);
   font-size: 1rem;
@@ -152,6 +156,7 @@
   justify-content: center;
   filter: var(--mainFilter);
   height: 100%;
+  
 }
 
 .crearCuenta {
@@ -165,8 +170,8 @@
   border-radius: 20px;
   background-color: var(--red);
   color: #fff;
-  font-size: 1.5rem;
-  margin-bottom: 1em;
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
   cursor: pointer;
 }
 
