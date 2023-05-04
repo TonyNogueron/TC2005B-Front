@@ -133,7 +133,7 @@ export const GAMES_PROPERTIES: { [key: string]: gamesProperties } = {
     name: "Smart Survival",
     image: SmartSurvivalImg,
     description: "Juego de memoria",
-    url: "/memory",
+    url: "https://front-end-test.d3baae27c9vcp4.amplifyapp.com/validate",
   },
   WINNING_CODE: {
     id: 3,
