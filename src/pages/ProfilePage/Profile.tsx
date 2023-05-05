@@ -49,6 +49,20 @@ export const Profile = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
+
+    fetch(`${apiURL}/getUser?idUser=${idUser}`, {
+      method: "GET",
+      headers: {
+        "x-access-token": localStorage.getItem("token") || "",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setUsername(data ? data.username : "");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }, [idUser]);
 
   return (
