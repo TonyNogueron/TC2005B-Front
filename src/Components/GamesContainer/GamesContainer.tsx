@@ -13,7 +13,7 @@ export default function GamesContainer() {
           gameImage={game.image}
           gameDescription={game.description}
           gameLink={
-            game.id.toString() === "3"
+            game.id.toString() === "3" || game.id.toString() === "1"
               ? game.url
               : game.url + "/" + localStorage.getItem("token")
           }

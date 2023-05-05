@@ -126,7 +126,7 @@ export const GAMES_PROPERTIES: { [key: string]: gamesProperties } = {
     name: "Black Hole",
     image: BlackHoleImg,
     description: "Juego de matemáticas",
-    url: "/math",
+    url: "https://blackhole.d2nhcn6q1nq4n6.amplifyapp.com/",
   },
   MEMORY: {
     id: 2,
