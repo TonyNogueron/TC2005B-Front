@@ -26,7 +26,6 @@ export const Profile = () => {
   const [getHighestRound, setHighestRound] = useState(0);
   const [getEnemiesDefeated, setEnemiesDefeated] = useState(0);
   const [getTimePlayed, setTimePlayed] = useState(" ");
-  const [getIsAdmin, setIsAdmin] = useState(false);
   const [username, setUsername] = useState("");
 
   const handleMenuToggle = () => {
@@ -50,21 +49,6 @@ export const Profile = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
-
-    fetch(`${apiURL}/getUser?idUser=${idUser}`, {
-      method: "GET",
-      headers: {
-        "x-access-token": localStorage.getItem("token") || "",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setUsername(data.username);
-        setIsAdmin(data.isAdmin);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
   }, [idUser]);
 
   return (
@@ -73,7 +57,7 @@ export const Profile = () => {
         logo={logo[0]}
         menuItems={menuItems}
         isAuthenticated={true}
-        isAdmin={getIsAdmin}
+        isAdmin={localStorage.getItem("isAdmin") === "true"}
         onMenuToggle={handleMenuToggle}
       />
       <BackgroundProp backgroundName="white-background" />

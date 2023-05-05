@@ -27,11 +27,11 @@ export default function PlayPage() {
           logo={logo[0]}
           menuItems={menuItems}
           isAuthenticated={true}
-          isAdmin={false}
+          isAdmin={localStorage.getItem("isAdmin") === "true"}
           onMenuToggle={handleMenuToggle}
         />
       </div>
-        <GamesContainer />
+      <GamesContainer />
     </>
   );
 }
