@@ -91,7 +91,7 @@ export const LoginPage = () => {
               .catch((error) => {
                 console.error("Error:", error);
               });
-            navigate(LINKS.PROFILE.path + "/" + localStorage.getItem("idUser"));
+            navigate("/play");
           } else {
             Swal.fire({
               icon: "error",
