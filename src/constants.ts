@@ -5,7 +5,9 @@ import whiteBackground from './resources/images/backgrounds/white_background.png
 // Pages import
 
 export const PAGE_TITLE: string = '';
-export const apiURL = "https://jgvuug8gmj.execute-api.us-east-1.amazonaws.com";
+// export const apiURL = "https://jgvuug8gmj.execute-api.us-east-1.amazonaws.com";
+
+export const apiURL = 'http://aulifybackend-env.eba-yxkvhntk.us-east-1.elasticbeanstalk.com/';
 
 export interface LinkConstant {
     label: string;
